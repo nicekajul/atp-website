@@ -1,0 +1,412 @@
+/* ============================================================
+   BOOK AWARDS REGISTRATION PAGE
+   ============================================================ */
+
+.page {
+  background: var(--atp-cream);
+  min-height: 100vh;
+  padding-bottom: var(--space-24);
+}
+
+/* ── Hero ───────────────────────────────────────────────── */
+.hero {
+  background: var(--atp-navy);
+  color: var(--atp-white);
+  padding: calc(72px + var(--space-16)) 0 var(--space-16);
+  text-align: center;
+}
+
+.heroInner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badgeWrapper {
+  margin-bottom: var(--space-6);
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--atp-white);
+  margin-bottom: var(--space-4);
+  line-height: 1.1;
+}
+
+.heroTagline {
+  font-size: var(--text-xl);
+  color: var(--atp-gold);
+  line-height: 1.5;
+  font-weight: 300;
+  font-style: italic;
+  max-width: 640px;
+}
+
+/* ── Intro ──────────────────────────────────────────────── */
+.intro {
+  padding: var(--space-16) 0;
+  border-bottom: 1px solid var(--atp-border);
+}
+
+.introBody {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--atp-charcoal);
+  text-align: center;
+}
+
+/* ── Shared Section Heading ─────────────────────────────── */
+.sectionHeading {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  color: var(--atp-navy);
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+/* ── Why Section ────────────────────────────────────────── */
+.whySection {
+  padding: var(--space-20) 0;
+  background: var(--atp-white);
+  border-top: 1px solid var(--atp-border);
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.whyCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  background: var(--atp-cream);
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  transition: box-shadow var(--transition-base);
+}
+
+.whyCard:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.whyIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.whyTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--atp-navy);
+  margin: 0 0 var(--space-1);
+}
+
+.whyDesc {
+  font-size: var(--text-sm);
+  color: var(--atp-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Packages Section ───────────────────────────────────── */
+.packagesSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.packagesSubhead {
+  text-align: center;
+  font-size: var(--text-base);
+  color: var(--atp-muted);
+  margin: calc(-1 * var(--space-8)) 0 var(--space-12);
+}
+
+/* 3 cards, equal columns */
+.packagesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+/* ── Award Card ─────────────────────────────────────────── */
+.awardCard {
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-top: 3px solid var(--atp-border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+              transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.awardCard:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-6px);
+}
+
+.awardCard--highlight {
+  border-top-color: var(--atp-gold);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.15), var(--shadow-md);
+}
+
+.awardCard--highlight:hover {
+  box-shadow: 0 16px 48px rgba(201, 168, 76, 0.25), var(--shadow-xl);
+}
+
+/* ── Card Ribbon (badge at top) ─────────────────────────── */
+.cardRibbon {
+  background: var(--atp-navy);
+  color: var(--atp-gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: var(--space-1) var(--space-4);
+}
+
+/* ── Card Header ────────────────────────────────────────── */
+.cardHeader {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--atp-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cardIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.cardName {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--atp-muted);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cardPrice {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.5vw, var(--text-4xl));
+  font-weight: 900;
+  font-style: italic;
+  color: var(--atp-navy);
+  line-height: 1;
+}
+
+.cardDesc {
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ── Card Sections (named content blocks) ───────────────── */
+.cardSections {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  padding: var(--space-5) var(--space-6);
+}
+
+.sectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--atp-border);
+}
+
+.sectionBlock:last-child {
+  border-bottom: none;
+}
+
+/* Small section label (e.g. "About the Award", "Why Enter?") */
+.sectionHeadingSmall {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--atp-gold-dark);
+  margin: 0;
+}
+
+.sectionText {
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Section Bullet List ────────────────────────────────── */
+.sectionList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sectionListItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--atp-charcoal);
+  line-height: 1.5;
+}
+
+.bulletIcon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Deadline Tag ───────────────────────────────────────── */
+.deadlineTag {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-xs);
+  color: var(--atp-muted);
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.deadlineTag strong {
+  color: var(--atp-navy);
+  font-weight: 600;
+}
+
+/* ── Card Footer ────────────────────────────────────────── */
+.cardFooter {
+  padding: var(--space-6);
+  border-top: 1px solid var(--atp-border);
+}
+
+/* ── FAQ Section ────────────────────────────────────────── */
+.faqSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-white);
+  border-top: 1px solid var(--atp-border);
+}
+
+.faqList {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.faqItem {
+  background: var(--atp-cream);
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  cursor: pointer;
+}
+
+.faqItem[open] {
+  background: var(--atp-white);
+}
+
+.faqQuestion {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--atp-navy);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  user-select: none;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqQuestion::after {
+  content: '+';
+  font-size: var(--text-lg);
+  font-weight: 300;
+  color: var(--atp-gold);
+  flex-shrink: 0;
+}
+
+.faqItem[open] .faqQuestion::after {
+  content: '−';
+}
+
+.faqAnswer {
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  line-height: 1.7;
+}
+
+/* ── CTA Section ────────────────────────────────────────── */
+.ctaSection {
+  padding: var(--space-16) 0;
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.ctaInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  text-align: center;
+}
+
+.ctaNote {
+  font-size: var(--text-base);
+  color: var(--atp-muted);
+  margin: 0;
+  max-width: 480px;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .packagesGrid {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: calc(72px + var(--space-10));
+  }
+
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+}

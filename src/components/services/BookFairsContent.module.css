@@ -1,0 +1,714 @@
+/* ============================================================
+   INTERNATIONAL BOOK FAIRS PAGE
+   ============================================================ */
+
+.page {
+  background: var(--atp-cream);
+  min-height: 100vh;
+  padding-bottom: var(--space-24);
+}
+
+/* ── Hero ───────────────────────────────────────────────── */
+.hero {
+  background: var(--atp-navy);
+  color: var(--atp-white);
+  padding: calc(72px + var(--space-16)) 0 var(--space-16);
+  text-align: center;
+}
+
+.heroInner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.badgeWrapper {
+  margin-bottom: var(--space-3);
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--atp-white);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.heroTagline {
+  font-size: var(--text-xl);
+  color: var(--atp-gold);
+  line-height: 1.5;
+  font-weight: 300;
+  font-style: italic;
+  max-width: 600px;
+  margin: 0;
+}
+
+.heroSub {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  max-width: 500px;
+}
+
+/* ── Intro ──────────────────────────────────────────────── */
+.intro {
+  padding: var(--space-16) 0;
+  background: var(--atp-white);
+  border-bottom: 1px solid var(--atp-border);
+}
+
+.introBody {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.introBody p {
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--atp-charcoal);
+  margin: 0;
+}
+
+/* ── Shared Section Heading ─────────────────────────────── */
+.sectionHeading {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  color: var(--atp-navy);
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+/* ── Upcoming Events ────────────────────────────────────── */
+.eventsSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.eventCard {
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-top: 3px solid var(--atp-gold);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+              transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.eventCard:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-6px);
+}
+
+.eventCardHeader {
+  padding: var(--space-8) var(--space-6) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: center;
+  flex: 1;
+}
+
+.eventFlag {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: var(--space-1);
+}
+
+.eventName {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--atp-navy);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.eventLocation {
+  font-size: var(--text-sm);
+  color: var(--atp-muted);
+  margin: 0;
+}
+
+.eventCardBody {
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.eventDateBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.eventDateLabel {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--atp-gold);
+}
+
+.eventDate {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--atp-navy);
+  white-space: nowrap;
+}
+
+.eventStatusBadge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #16a34a;
+  background: rgba(22, 163, 74, 0.08);
+  border: 1px solid rgba(22, 163, 74, 0.25);
+  border-radius: var(--radius-full);
+  padding: 3px var(--space-3);
+}
+
+/* ── Participation Options ──────────────────────────────── */
+.participationSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-white);
+  border-top: 1px solid var(--atp-border);
+}
+
+.participationIntro {
+  text-align: center;
+  font-size: var(--text-base);
+  color: var(--atp-muted);
+  margin: calc(-1 * var(--space-8)) 0 var(--space-12);
+}
+
+.participationGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  align-items: stretch;
+}
+
+/* ── Combined Book Exhibit card ─────────────────────────── */
+.exhibitCard {
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-top: 3px solid var(--atp-gold);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(201, 168, 76, 0.12), var(--shadow-sm);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.exhibitCard:hover {
+  box-shadow: 0 12px 40px rgba(201, 168, 76, 0.2), var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.exhibitCardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-6) 0;
+}
+
+.exhibitIcon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.exhibitSubtitle {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--atp-gold);
+  margin: 0 0 var(--space-1);
+}
+
+.exhibitName {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--atp-navy);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.exhibitPrice {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--atp-border);
+}
+
+.priceAmount {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--atp-navy);
+  line-height: 1;
+}
+
+.priceNote {
+  font-size: var(--text-sm);
+  color: var(--atp-muted);
+}
+
+.exhibitDesc {
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  line-height: 1.65;
+  margin: 0;
+  padding: var(--space-4) var(--space-6) 0;
+}
+
+.exhibitDesc + .exhibitDesc {
+  padding-top: var(--space-3);
+}
+
+.exhibitFooter {
+  padding: var(--space-6);
+  margin-top: auto;
+}
+
+/* ── Company Participation card ─────────────────────────── */
+.consultCard {
+  background: var(--atp-navy);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.consultCard:hover {
+  box-shadow: 0 12px 40px rgba(15, 27, 45, 0.3);
+  transform: translateY(-4px);
+}
+
+.consultCardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-6) 0;
+}
+
+.consultIcon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.consultSubtitle {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--atp-gold);
+  margin: 0 0 var(--space-1);
+}
+
+.consultName {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--atp-white);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.consultPriceNote {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.consultPriceLabel {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--atp-gold);
+  line-height: 1;
+}
+
+.consultPriceSub {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.consultDesc {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.65;
+  margin: 0;
+  padding: var(--space-4) var(--space-6) 0;
+}
+
+.consultDesc + .consultDesc {
+  padding-top: var(--space-3);
+}
+
+.consultFooter {
+  padding: var(--space-6);
+  margin-top: auto;
+}
+
+/* ── Available Experiences ──────────────────────────────── */
+.experiencesSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.experiencesSubhead {
+  text-align: center;
+  font-size: var(--text-base);
+  color: var(--atp-muted);
+  margin: calc(-1 * var(--space-8)) 0 var(--space-12);
+}
+
+.experiencesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.experienceCard {
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-align: center;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.experienceCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.experienceIcon {
+  font-size: 2.25rem;
+  line-height: 1;
+  display: block;
+}
+
+.experienceTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--atp-navy);
+  margin: 0;
+}
+
+.experienceDesc {
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Signing Packages ───────────────────────────────────── */
+.signingSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-white);
+  border-top: 1px solid var(--atp-border);
+}
+
+.signingSubhead {
+  text-align: center;
+  font-size: var(--text-base);
+  color: var(--atp-muted);
+  margin: calc(-1 * var(--space-8)) 0 var(--space-12);
+}
+
+.signingGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.signingCard {
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-top: 3px solid var(--atp-border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.signingCard:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-6px);
+}
+
+.signingCard--premium {
+  border-top-color: var(--atp-gold);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.15), var(--shadow-md);
+}
+
+.signingCard--premium:hover {
+  box-shadow: 0 16px 48px rgba(201, 168, 76, 0.25), var(--shadow-xl);
+}
+
+.signingRibbon {
+  background: var(--atp-navy);
+  color: var(--atp-gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: var(--space-1) var(--space-4);
+}
+
+.signingCard--premium .signingRibbon {
+  background: var(--atp-gold);
+  color: var(--atp-navy);
+}
+
+.signingHeader {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--atp-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.signingDuration {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--atp-gold);
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  width: fit-content;
+}
+
+.signingName {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--atp-navy);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.signingFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  flex: 1;
+  list-style: none;
+  margin: 0;
+}
+
+.signingFeatureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--atp-charcoal);
+  line-height: 1.5;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.signingIdealFor {
+  padding: var(--space-4) var(--space-6);
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.idealForLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--atp-gold-dark);
+}
+
+.idealForText {
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+}
+
+.signingFooter {
+  padding: var(--space-6);
+  border-top: 1px solid var(--atp-border);
+}
+
+/* ── Benefits Section ───────────────────────────────────── */
+.benefitsSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  transition: box-shadow var(--transition-base);
+}
+
+.benefitItem:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.benefitIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.benefitText {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--atp-navy);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ── Final CTA ──────────────────────────────────────────── */
+.finalCta {
+  padding: var(--space-24) 0;
+  background: var(--atp-navy);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.finalCtaInner {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.finalCtaTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  color: var(--atp-white);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.finalCtaBody {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.finalCtaNote {
+  font-size: var(--text-sm);
+  color: var(--atp-gold);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .experiencesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: calc(72px + var(--space-10));
+  }
+
+  .eventsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .participationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .signingGrid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .experiencesGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,557 @@
+/* ============================================================
+   BOOK ILLUSTRATION SERVICES PAGE
+   ============================================================ */
+
+.page {
+  background: var(--atp-cream);
+  min-height: 100vh;
+  padding-bottom: var(--space-24);
+}
+
+/* ── Hero ───────────────────────────────────────────────── */
+.hero {
+  background: var(--atp-navy);
+  color: var(--atp-white);
+  padding: calc(72px + var(--space-16)) 0 var(--space-16);
+  text-align: center;
+}
+
+.heroInner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.badgeWrapper {
+  margin-bottom: var(--space-2);
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--atp-white);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.heroTagline {
+  font-size: var(--text-xl);
+  color: var(--atp-gold);
+  line-height: 1.5;
+  font-weight: 300;
+  font-style: italic;
+  max-width: 600px;
+  margin: 0;
+}
+
+.heroSub {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.75;
+  max-width: 600px;
+  margin: 0;
+}
+
+/* ── Intro ──────────────────────────────────────────────── */
+.intro {
+  padding: var(--space-16) 0;
+  background: var(--atp-white);
+  border-bottom: 1px solid var(--atp-border);
+}
+
+.introBody {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--atp-charcoal);
+  text-align: center;
+}
+
+/* ── Layout Information Note ────────────────────────────── */
+.noteSection {
+  padding: var(--space-12) 0;
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.noteBox {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(201, 168, 76, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-left: 4px solid var(--atp-gold);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-8);
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+}
+
+.noteIcon {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.noteTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--atp-navy);
+  margin: 0 0 var(--space-4);
+}
+
+.noteList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.noteListItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  line-height: 1.65;
+}
+
+.noteListItem strong {
+  color: var(--atp-navy);
+}
+
+.bulletIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Shared Section Heading ─────────────────────────────── */
+.sectionHeading {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  color: var(--atp-navy);
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.sectionSubhead {
+  text-align: center;
+  font-size: var(--text-base);
+  color: var(--atp-muted);
+  margin: 0 auto var(--space-12);
+  max-width: 560px;
+}
+
+/* ── Illustration Tiers Section ─────────────────────────── */
+.tiersSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.tiersGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  align-items: stretch;
+}
+
+/* ── Tier Card ──────────────────────────────────────────── */
+.tierCard {
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-top: 3px solid var(--atp-border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+              transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.tierCard:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-6px);
+}
+
+.tierCard--highlight {
+  border-top-color: var(--atp-gold);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.15), var(--shadow-md);
+}
+
+.tierCard--highlight:hover {
+  box-shadow: 0 16px 48px rgba(201, 168, 76, 0.25), var(--shadow-xl);
+}
+
+/* ── Card Ribbon ────────────────────────────────────────── */
+.cardRibbon {
+  background: var(--atp-navy);
+  color: var(--atp-gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: var(--space-1) var(--space-4);
+}
+
+/* ── Card Header ────────────────────────────────────────── */
+.cardHeader {
+  padding: var(--space-6) var(--space-5);
+  border-bottom: 1px solid var(--atp-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.cardIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.cardName {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--atp-muted);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cardPrice {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--atp-navy);
+  line-height: 1;
+}
+
+.cardPriceNote {
+  font-size: var(--text-xs);
+  color: var(--atp-muted);
+  margin: 0;
+}
+
+/* ── Description List ───────────────────────────────────── */
+.descList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  flex: 1;
+  list-style: none;
+  margin: 0;
+}
+
+.descItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--atp-charcoal);
+  line-height: 1.55;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Card Footer ────────────────────────────────────────── */
+.cardFooter {
+  padding: var(--space-5);
+  border-top: 1px solid var(--atp-border);
+  margin-top: auto;
+}
+
+/* ── Turnaround Section ─────────────────────────────────── */
+.turnaroundSection {
+  padding: var(--space-12) 0;
+  background: var(--atp-white);
+  border-top: 1px solid var(--atp-border);
+}
+
+.turnaroundBox {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+  background: var(--atp-cream);
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-8);
+}
+
+.turnaroundIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.turnaroundTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--atp-navy);
+  margin: 0 0 var(--space-2);
+}
+
+.turnaroundBody {
+  font-size: var(--text-base);
+  color: var(--atp-charcoal);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.turnaroundBody strong {
+  color: var(--atp-navy);
+}
+
+/* ── Revision Section ───────────────────────────────────── */
+.revisionSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.revisionInner {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--space-10);
+  max-width: 960px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.revisionPolicies {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.policyList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.policyItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-base);
+  color: var(--atp-charcoal);
+  line-height: 1.65;
+}
+
+.policyItem strong {
+  color: var(--atp-navy);
+}
+
+.correctionNote {
+  background: rgba(201, 168, 76, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-left: 3px solid var(--atp-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+}
+
+.correctionNoteText {
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Correction Fee Table ───────────────────────────────── */
+.correctionTable {
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-top: 3px solid var(--atp-gold);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.correctionTableHeading {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--atp-gold-dark, #a8882c);
+  margin: 0;
+  padding: var(--space-4) var(--space-5) var(--space-3);
+  border-bottom: 1px solid var(--atp-border);
+}
+
+.correctionRows {
+  display: flex;
+  flex-direction: column;
+}
+
+.correctionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--atp-border);
+  gap: var(--space-4);
+}
+
+.correctionRow:last-child {
+  border-bottom: none;
+}
+
+.correctionLabel {
+  font-size: var(--text-sm);
+  color: var(--atp-charcoal);
+  line-height: 1.4;
+}
+
+.correctionPrice {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--atp-navy);
+  white-space: nowrap;
+}
+
+/* ── Benefits Section ───────────────────────────────────── */
+.benefitsSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-white);
+  border-top: 1px solid var(--atp-border);
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.benefitCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  background: var(--atp-cream);
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  transition: box-shadow var(--transition-base);
+}
+
+.benefitCard:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.benefitIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.benefitTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--atp-navy);
+  margin: 0 0 var(--space-1);
+}
+
+.benefitDesc {
+  font-size: var(--text-sm);
+  color: var(--atp-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Final CTA ──────────────────────────────────────────── */
+.finalCta {
+  padding: var(--space-24) 0;
+  background: var(--atp-navy);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.finalCtaInner {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.finalCtaTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  color: var(--atp-white);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.finalCtaBody {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .tiersGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .revisionInner {
+    grid-template-columns: 1fr;
+  }
+
+  .correctionTable {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: calc(72px + var(--space-10));
+  }
+
+  .tiersGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .noteBox,
+  .turnaroundBox {
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-6);
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+}

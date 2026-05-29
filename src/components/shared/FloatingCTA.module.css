@@ -1,0 +1,447 @@
+/* ============================================================
+   FLOATING BUTTON (idle state)
+   ============================================================ */
+.button {
+  position: fixed;
+  bottom: var(--space-8);
+  right: var(--space-8);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  background: var(--atp-gold);
+  color: var(--atp-navy);
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(201, 168, 76, 0.4);
+  transform: translateY(100px) scale(0.9);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              opacity 0.4s ease,
+              background 0.2s ease,
+              box-shadow 0.2s ease;
+  pointer-events: none;
+}
+
+.visible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.button:hover {
+  background: var(--atp-gold-light);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 16px 40px rgba(232, 192, 112, 0.5);
+}
+
+.icon {
+  font-size: 1.1rem;
+}
+
+.text {
+  font-size: var(--text-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   QUIZ / RESULT PANEL
+   ============================================================ */
+.panel {
+  position: fixed;
+  bottom: var(--space-8);
+  right: var(--space-8);
+  z-index: 500;
+  width: 320px;
+  background: var(--atp-navy-dark);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.08);
+  overflow: hidden;
+
+  /* Hidden by default */
+  transform: translateY(24px) scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              opacity 0.3s ease;
+  transform-origin: bottom right;
+}
+
+.panelVisible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--atp-gold);
+}
+
+.panelTitleIcon {
+  font-size: 1rem;
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--atp-white);
+}
+
+/* ── Progress bar ───────────────────────────────────────── */
+.progressTrack {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--atp-gold) 0%, var(--atp-gold-light) 100%);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Quiz body ──────────────────────────────────────────── */
+.stepLabel {
+  padding: var(--space-3) var(--space-5) 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+}
+
+.question {
+  padding: var(--space-3) var(--space-5) var(--space-4);
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--atp-white);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0 var(--space-5);
+}
+
+.optionBtn {
+  width: 100%;
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.optionBtn:hover {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: rgba(201, 168, 76, 0.35);
+  color: var(--atp-white);
+}
+
+.optionSelected {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: var(--atp-gold);
+  color: var(--atp-gold);
+}
+
+.optionSelected:hover {
+  background: rgba(201, 168, 76, 0.2);
+  border-color: var(--atp-gold-light);
+  color: var(--atp-gold-light);
+}
+
+/* ── Back to previous question ──────────────────────────── */
+.backBtn {
+  display: block;
+  width: 100%;
+  padding: var(--space-3) var(--space-5);
+  margin-top: var(--space-2);
+  background: none;
+  border: none;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 0.03em;
+  transition: color 0.15s ease;
+}
+
+.backBtn:hover {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.backBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ── Option disabled during transition ──────────────────── */
+.optionDisabled {
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+/* ── Capture submit button ──────────────────────────────── */
+.nextBtn {
+  display: block;
+  width: 100%;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.nextBtnActive {
+  background: var(--atp-gold);
+  border-color: var(--atp-gold);
+  color: var(--atp-navy);
+  cursor: pointer;
+}
+
+.nextBtnActive:hover {
+  background: var(--atp-gold-light);
+  border-color: var(--atp-gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+}
+
+.nextBtnActive:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Lead capture screen ────────────────────────────────── */
+.captureBody {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  gap: var(--space-3);
+}
+
+.captureEyebrow {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--atp-gold);
+  margin: 0;
+}
+
+.captureHeading {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--atp-white);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.captureForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.captureField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.captureLabel {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+.captureOptional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.captureInput {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--atp-white);
+  transition: border-color 0.15s ease, background 0.15s ease;
+  box-sizing: border-box;
+}
+
+.captureInput::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.captureInput:focus {
+  outline: none;
+  border-color: rgba(201, 168, 76, 0.5);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.captureSubmit {
+  margin-top: var(--space-1);
+}
+
+.captureError {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: #f87171;
+  text-align: center;
+}
+
+.capturePrivacy {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  margin: 0;
+}
+
+/* ── Result screen ──────────────────────────────────────── */
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-6) var(--space-6) var(--space-6);
+  gap: var(--space-3);
+}
+
+.resultEyebrow {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+.resultPackage {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--atp-gold);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.resultSub {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.resultCTA {
+  display: block;
+  width: 100%;
+  padding: var(--space-3) var(--space-5);
+  background: var(--atp-gold);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--atp-navy);
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: var(--space-1);
+}
+
+.resultCTA:hover {
+  background: var(--atp-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.35);
+}
+
+.retakeBtn {
+  background: none;
+  border: none;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.retakeBtn:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .button,
+  .panel {
+    bottom: var(--space-6);
+    right: var(--space-4);
+  }
+
+  .panel {
+    width: calc(100vw - var(--space-8));
+    right: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .panel {
+    width: calc(100vw - 2rem);
+    right: 1rem;
+    bottom: 1rem;
+  }
+}

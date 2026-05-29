@@ -1,0 +1,23 @@
+.section {
+  padding: calc(var(--space-24) + 3.5rem) 0;
+  background-color: var(--atp-cream-dark);
+  clip-path: polygon(0 3.5rem, 100% 0, 100% calc(100% - 3.5rem), 0 100%);
+  margin: -3rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.gridWrapper {
+  margin-bottom: var(--space-12);
+}
+
+.actionRow {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-16) 0;
+  }
+}

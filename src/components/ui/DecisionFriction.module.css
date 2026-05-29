@@ -1,0 +1,99 @@
+.section {
+  padding: var(--space-20) 0;
+  text-align: center;
+  background: var(--atp-cream-pale);
+  border-radius: var(--radius-2xl);
+  margin: var(--space-12) 0;
+  border: 1px dashed var(--atp-border);
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.messaging {
+  margin-bottom: var(--space-8);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+  color: var(--atp-navy);
+  margin-bottom: var(--space-4);
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: var(--text-lg);
+  color: var(--atp-charcoal);
+  margin-bottom: var(--space-6);
+  opacity: 0.8;
+}
+
+.valueProps {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.bullet {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--atp-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+}
+
+.btnWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.quizBtn {
+  min-width: 280px;
+}
+
+.resultPreview {
+  font-size: 11px;
+  color: var(--atp-muted);
+  font-style: italic;
+}
+
+.secondaryAction {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.or {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--atp-muted);
+  text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+  .actions {
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 640px) {
+  .title { font-size: var(--text-2xl); }
+  .valueProps { gap: var(--space-4); }
+  .bullet { font-size: 10px; }
+  .actions { width: 100%; max-width: 320px; margin: 0 auto; }
+}

@@ -1,0 +1,123 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-4);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.progressContainer {
+  margin-bottom: var(--space-10);
+}
+
+.progressBar {
+  height: 6px;
+  background: var(--atp-cream-dark);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--atp-gold);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progressText {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--atp-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+}
+
+.card {
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-xl);
+  animation: fadeIn 0.4s ease-out;
+}
+
+.question {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  color: var(--atp-navy);
+  margin-bottom: var(--space-8);
+  line-height: 1.2;
+}
+
+.options {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.option {
+  display: block;
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  background: var(--atp-cream-pale);
+  border: 2px solid transparent;
+  border-radius: var(--radius-lg);
+  text-align: left;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--atp-charcoal);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.option:hover {
+  background: var(--atp-cream);
+  border-color: var(--atp-gold-pale);
+}
+
+.optionSelected {
+  background: var(--atp-white);
+  border-color: var(--atp-gold);
+  color: var(--atp-navy);
+  box-shadow: 0 4px 12px rgba(201, 168, 76, 0.15);
+}
+
+.optionDisabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.footer {
+  margin-top: var(--space-10);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: var(--atp-muted);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  padding: var(--space-2);
+  transition: color 0.2s;
+}
+
+.backBtn:hover {
+  color: var(--atp-navy);
+}
+
+/* Transitions */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .container { padding: var(--space-4); }
+  .card { padding: var(--space-6); }
+  .question { font-size: var(--text-2xl); }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "revamp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sanity/client": "^7.21.0",
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^5.21.0",
+    "next": "^15.0.0",
+    "next-sanity": "^11.6.13",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "sanity": "^5.21.0",
+    "styled-components": "^6.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  },
+  "overrides": {
+    "react": "$react",
+    "react-dom": "$react-dom"
+  }
+}

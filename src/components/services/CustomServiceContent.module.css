@@ -1,0 +1,234 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  padding: var(--space-16) 0 var(--space-4);
+}
+
+/* ── Pricing Highlight ─────────────────────────────── */
+.pricingHighlight {
+  display: flex;
+  justify-content: center;
+}
+
+.pricingCard {
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-top: 4px solid var(--atp-gold);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-12) var(--space-10);
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  max-width: 720px;
+  width: 100%;
+}
+
+.priceLabel {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--atp-gold);
+  letter-spacing: 0.15em;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.priceValue {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6vw, 64px);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--atp-navy);
+  margin-bottom: var(--space-4);
+  line-height: 1;
+}
+
+.priceDesc {
+  font-size: var(--text-base);
+  color: var(--atp-muted);
+  max-width: 500px;
+  margin: 0 auto var(--space-8);
+  line-height: 1.6;
+}
+
+/* Features list inside pricing card */
+.featuresList {
+  list-style: none;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  border-top: 1px solid var(--atp-border);
+  padding-top: var(--space-8);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.featuresItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--atp-charcoal);
+}
+
+.featuresCheck {
+  color: var(--atp-gold);
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── What's Included ───────────────────────────────── */
+.subHeading {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  color: var(--atp-navy);
+  margin-bottom: var(--space-10);
+  text-align: center;
+}
+
+.includedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.includedCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-6);
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  color: var(--atp-charcoal);
+  font-weight: 500;
+}
+
+.checkIcon {
+  color: var(--atp-gold);
+  font-weight: 800;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.turnaround {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--atp-muted);
+}
+
+.turnaround strong {
+  color: var(--atp-navy);
+}
+
+/* ── How It Works ──────────────────────────────────── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+.step {
+  text-align: center;
+  position: relative;
+}
+
+.stepNum {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--atp-white);
+  background: var(--atp-navy);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto var(--space-4);
+  position: relative;
+  z-index: 2;
+}
+
+.step::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--atp-cream-dark);
+  z-index: 1;
+}
+
+.step:last-child::after { display: none; }
+
+.step h4 {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--atp-navy);
+  margin-bottom: var(--space-2);
+}
+
+.step p {
+  font-size: var(--text-xs);
+  color: var(--atp-muted);
+  line-height: 1.5;
+}
+
+/* ── Contact Form ──────────────────────────────────── */
+.formSection {
+  background: var(--atp-navy);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-16) var(--space-12);
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.formHeader {
+  color: var(--atp-white);
+  position: sticky;
+  top: calc(72px + var(--space-8));
+}
+
+.formHeading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  color: var(--atp-white);
+  line-height: 1.2;
+  margin-bottom: var(--space-4);
+}
+
+.formSubtitle {
+  font-size: var(--text-base);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+}
+
+.formBody {
+  background: var(--atp-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .includedGrid { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); gap: var(--space-10); }
+  .step::after { display: none; }
+  .formSection { grid-template-columns: 1fr; }
+  .formHeader { position: static; }
+}
+
+@media (max-width: 640px) {
+  .priceValue { font-size: 3rem; }
+  .includedGrid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .formSection { padding: var(--space-10) var(--space-6); }
+  .formBody { padding: var(--space-6); }
+}

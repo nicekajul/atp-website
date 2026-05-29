@@ -1,0 +1,14 @@
+.page {
+  padding-top: calc(72px + var(--space-16));
+  background: var(--atp-cream);
+  min-height: 100vh;
+}
+
+.hero {
+  margin-bottom: var(--space-8);
+}
+
+.directory {
+  padding-bottom: var(--space-20);
+}
+

@@ -1,0 +1,613 @@
+/* ============================================================
+   BOOK REVIEWS PAGE
+   ============================================================ */
+
+.page {
+  background: var(--atp-cream);
+  min-height: 100vh;
+  padding-bottom: var(--space-24);
+}
+
+/* ── Hero ───────────────────────────────────────────────── */
+.hero {
+  background: var(--atp-navy);
+  color: var(--atp-white);
+  padding: calc(72px + var(--space-16)) 0 var(--space-16);
+  text-align: center;
+}
+
+.heroInner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badgeWrapper {
+  margin-bottom: var(--space-6);
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--atp-white);
+  margin-bottom: var(--space-4);
+  line-height: 1.1;
+}
+
+.heroTagline {
+  font-size: var(--text-xl);
+  color: var(--atp-gold);
+  line-height: 1.5;
+  font-weight: 300;
+  font-style: italic;
+  max-width: 600px;
+}
+
+/* ── Intro ──────────────────────────────────────────────── */
+.intro {
+  padding: var(--space-16) 0;
+  border-bottom: 1px solid var(--atp-border);
+}
+
+.introBody {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--atp-charcoal);
+  text-align: center;
+}
+
+/* ── Shared Section Heading ─────────────────────────────── */
+.sectionHeading {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  color: var(--atp-navy);
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+/* ── Why Book Reviews ───────────────────────────────────── */
+.whySection {
+  padding: var(--space-20) 0;
+  background: var(--atp-white);
+  border-top: 1px solid var(--atp-border);
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.whyCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  background: var(--atp-cream);
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  transition: box-shadow var(--transition-base);
+}
+
+.whyCard:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.whyIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.whyTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--atp-navy);
+  margin: 0 0 var(--space-1);
+}
+
+.whyDesc {
+  font-size: var(--text-sm);
+  color: var(--atp-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Packages Section ───────────────────────────────────── */
+.packagesSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.packagesSubhead {
+  text-align: center;
+  font-size: var(--text-base);
+  color: var(--atp-muted);
+  margin: calc(-1 * var(--space-8)) 0 var(--space-12);
+}
+
+/* 3-column grid — 2 rows of 3 */
+.packagesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+/* ── Review Card (matches ServiceCard style) ────────────── */
+.reviewCard {
+  --card-accent: var(--atp-gold);
+  display: flex;
+  flex-direction: column;
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-top: 3px solid transparent;
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-8) var(--space-12) var(--space-8);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow var(--transition-base),
+              transform var(--transition-base),
+              border-color var(--transition-base);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.reviewCard:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-6px);
+  border-color: var(--card-accent);
+  border-top-color: var(--card-accent);
+}
+
+.reviewCard--highlight {
+  border-top-color: var(--card-accent);
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.15), var(--shadow-sm);
+}
+
+/* ── Highlight Ribbon ───────────────────────────────────── */
+.highlightRibbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--card-accent);
+  color: var(--atp-navy);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 3px var(--space-4);
+}
+
+/* ── Icon Wrapper (matches ServiceCard) ─────────────────── */
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--atp-cream) 0%, var(--atp-gold-pale) 100%);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-6);
+  font-size: 28px;
+  box-shadow: 0 2px 8px rgba(201, 168, 76, 0.12);
+  flex-shrink: 0;
+}
+
+/* ── Card Content ───────────────────────────────────────── */
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* ── Badges Row ─────────────────────────────────────────── */
+.cardBadges {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+}
+
+.categoryBadge {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--atp-white);
+  background: var(--atp-navy);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.turnaroundBadge {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--atp-navy);
+  padding: 2px 8px;
+  background: var(--atp-cream-dark);
+  border: 1px dashed var(--atp-gold);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* ── Card Name & Tagline ────────────────────────────────── */
+.cardName {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--atp-navy);
+  margin: 0 0 var(--space-3);
+  line-height: 1.2;
+}
+
+.cardTagline {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--atp-gold);
+  margin: 0 0 var(--space-6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Description + Hover Features ──────────────────────── */
+.descWrapper {
+  display: grid;
+  grid-template-areas: 'stack';
+  flex: 1;
+  margin-bottom: var(--space-8);
+}
+
+.cardDesc {
+  grid-area: stack;
+  font-size: var(--text-base);
+  color: var(--atp-charcoal);
+  line-height: 1.6;
+  opacity: 0.85;
+  transition: opacity var(--transition-base);
+  margin: 0;
+  align-self: start;
+}
+
+.hoverFeatures {
+  grid-area: stack;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-self: start;
+  transform: translateY(15px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.hoverFeatures li {
+  font-size: var(--text-sm);
+  color: var(--atp-navy);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-weight: 500;
+}
+
+.hoverFeatures li::before {
+  content: '✦';
+  color: var(--atp-gold);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.reviewCard:hover .cardDesc {
+  opacity: 0;
+}
+
+.reviewCard:hover .hoverFeatures {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Card Footer ────────────────────────────────────────── */
+.cardFooter {
+  margin-top: auto;
+  padding-top: var(--space-10);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-6);
+  border-top: 1px solid var(--atp-cream-dark);
+}
+
+.cardPricing {
+  display: flex;
+  flex-direction: column;
+}
+
+.pricingLabel {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--atp-muted);
+  margin-bottom: 2px;
+}
+
+.pricingAmount {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--atp-navy);
+  line-height: 1;
+}
+
+.requestLink {
+  font-weight: 700;
+  color: var(--atp-gold);
+  font-size: var(--text-sm);
+  background: var(--atp-gold-pale);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.reviewCard:hover .requestLink {
+  background: var(--atp-navy);
+  color: var(--atp-white);
+  transform: translateX(4px);
+}
+
+/* ── Trifecta Bundle Section ────────────────────────────── */
+.trifectaSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-navy);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.trifectaInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.trifectaMeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.trifectaBadge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--atp-gold);
+  display: block;
+}
+
+.trifectaTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: var(--atp-white);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.sourcePills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.sourcePill {
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: var(--atp-gold-light);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+}
+
+.trifectaDesc {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.trifectaPriceRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.trifectaPrice {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--atp-white);
+  line-height: 1;
+}
+
+.trifectaTurnaround {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.trifectaDeliverables {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.deliverablesHeading {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--atp-gold);
+  margin: 0;
+}
+
+.deliverablesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.deliverablesItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.checkIconLight {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── FAQ Section ────────────────────────────────────────── */
+.faqSection {
+  padding: var(--space-20) 0;
+  background: var(--atp-white);
+  border-top: 1px solid var(--atp-border);
+}
+
+.faqList {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.faqItem {
+  background: var(--atp-cream);
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  cursor: pointer;
+}
+
+.faqItem[open] {
+  background: var(--atp-white);
+}
+
+.faqQuestion {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--atp-navy);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  user-select: none;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqQuestion::after {
+  content: '+';
+  font-size: var(--text-lg);
+  font-weight: 300;
+  color: var(--atp-gold);
+  flex-shrink: 0;
+}
+
+.faqItem[open] .faqQuestion::after {
+  content: '−';
+}
+
+.faqAnswer {
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  line-height: 1.7;
+}
+
+/* ── CTA Section ────────────────────────────────────────── */
+.ctaSection {
+  padding: var(--space-16) 0;
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.ctaInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  text-align: center;
+}
+
+.ctaNote {
+  font-size: var(--text-base);
+  color: var(--atp-muted);
+  margin: 0;
+  max-width: 480px;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .trifectaInner {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .trifectaPriceRow {
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: calc(72px + var(--space-10));
+  }
+
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Narrower cards on mobile — still single row, scroll to see all */
+  .packagesGrid {
+    grid-template-columns: repeat(6, minmax(200px, 1fr));
+  }
+}

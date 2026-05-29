@@ -1,0 +1,424 @@
+/* ============================================================
+   SIDE TAB  (visible when minimized)
+   ============================================================ */
+.tab {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1800;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+
+  background: var(--atp-navy);
+  border: 1px solid var(--atp-gold);
+  border-right: none;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  padding: var(--space-5) var(--space-3);
+
+  cursor: pointer;
+  box-shadow: -4px 0 24px rgba(15, 27, 45, 0.3);
+
+  /* Slide in from right on mount, then hold position */
+  animation: slideInTab 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  /* Hover uses a separate transition so it doesn't fight the animation */
+  transition:
+    background var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+/* Drawer-handle pull effect — done with a separate wrapper trick via padding */
+.tab:hover {
+  background: var(--atp-navy-light);
+  box-shadow: -8px 0 32px rgba(15, 27, 45, 0.4);
+  /* translateY keeps vertical center, translateX pulls left */
+  transform: translateY(-50%) translateX(-5px);
+  transition:
+    background var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.tabIcon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.tabText {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg); /* reads bottom-to-top */
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--atp-gold);
+  line-height: 1;
+}
+
+.tabArrow {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1;
+  transition: color var(--transition-fast);
+}
+
+.tab:hover .tabArrow {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@keyframes slideInTab {
+  from { opacity: 0; transform: translateY(-50%) translateX(100%); }
+  to   { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+/* ============================================================
+   BACKDROP
+   ============================================================ */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1900;
+  background: rgba(7, 17, 29, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: fadeIn 0.3s ease;
+}
+
+/* ============================================================
+   CENTERING OVERLAY
+   ============================================================ */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  pointer-events: none;
+}
+
+/* ============================================================
+   CARD  (two-panel layout)
+   ============================================================ */
+.card {
+  position: relative;
+  display: flex;
+  pointer-events: auto;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-2xl);
+  animation: popIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 90dvh;
+  max-width: 780px;
+  width: 100%;
+}
+
+/* ============================================================
+   CLOSE BUTTON
+   ============================================================ */
+.closeBtn {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  color: var(--atp-white);
+}
+
+/* ============================================================
+   LEFT PANEL — decorative book cover
+   ============================================================ */
+.leftPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  background: var(--atp-navy-dark);
+  padding: var(--space-12) var(--space-8);
+  min-width: 260px;
+  flex-shrink: 0;
+}
+
+.coverImage {
+  width: 160px;
+  height: auto;
+  border-radius: 4px 10px 10px 4px;
+  box-shadow:
+    -6px 0 0 rgba(0, 0, 0, 0.45),
+    10px 18px 48px rgba(0, 0, 0, 0.55);
+  display: block;
+  flex-shrink: 0;
+}
+
+.panelCaption {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  line-height: 1.5;
+  max-width: 180px;
+}
+
+/* ============================================================
+   RIGHT PANEL — form
+   ============================================================ */
+.rightPanel {
+  flex: 1;
+  background: var(--atp-white);
+  padding: var(--space-10) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  overflow-y: auto;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 14px;
+  background: rgba(201, 168, 76, 0.1);
+  color: var(--atp-gold);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2.5vw, var(--text-2xl));
+  font-weight: 700;
+  color: var(--atp-navy);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.subtext {
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--atp-navy);
+}
+
+.input {
+  padding: var(--space-3) var(--space-4);
+  border: 1.5px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--atp-charcoal);
+  background: var(--atp-cream-pale);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  width: 100%;
+}
+
+.input::placeholder { color: var(--atp-muted); }
+
+.input:focus {
+  outline: none;
+  border-color: var(--atp-gold);
+  background: var(--atp-white);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
+}
+
+.privacy {
+  font-size: var(--text-xs);
+  color: var(--atp-muted);
+  text-align: center;
+  margin: 0;
+}
+
+/* ============================================================
+   SUCCESS STATE
+   ============================================================ */
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-4);
+  padding: var(--space-6) 0;
+  flex: 1;
+}
+
+.successIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--atp-gold-pale), var(--atp-cream));
+  border: 2px solid var(--atp-gold);
+  border-radius: 50%;
+  font-size: 1.4rem;
+  color: var(--atp-gold);
+  font-weight: 700;
+}
+
+.successTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--atp-navy);
+  margin: 0;
+}
+
+.successText {
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  line-height: 1.65;
+  max-width: 300px;
+}
+
+.downloadBtn {
+  display: block;
+  width: 100%;
+  padding: var(--space-4) var(--space-8);
+  background: var(--atp-gold);
+  color: var(--atp-white);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.35);
+}
+
+.downloadBtn:hover:not(:disabled) {
+  background: var(--atp-gold-dark, #b8922a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(201, 168, 76, 0.45);
+}
+
+.downloadBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.limitText {
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  line-height: 1.65;
+  max-width: 300px;
+  text-align: center;
+}
+
+.limitLink {
+  color: var(--atp-gold);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.successClose {
+  background: none;
+  border: none;
+  color: var(--atp-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: var(--space-2);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.93) translateY(16px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ============================================================
+   RESPONSIVE — bottom sheet on mobile
+   ============================================================ */
+@media (max-width: 680px) {
+  .overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .card {
+    flex-direction: column;
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    max-height: 92dvh;
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .leftPanel { display: none; }
+
+  .rightPanel {
+    padding: var(--space-8) var(--space-6);
+    border-radius: 0;
+  }
+
+  .closeBtn {
+    background: rgba(15, 27, 45, 0.07);
+    border-color: var(--atp-border);
+    color: var(--atp-slate);
+  }
+
+  .closeBtn:hover {
+    background: var(--atp-cream-dark);
+    color: var(--atp-navy);
+  }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

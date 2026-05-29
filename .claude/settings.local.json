@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const {createCanvas} = require\\('canvas'\\); \")",
+      "Bash(python3 -c \"from PIL import Image; img=Image.open\\('public/logo-mark.png'\\); print\\(img.size\\)\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const buf=fs.readFileSync\\('public/logo-mark.png'\\); const w=buf.readUInt32BE\\(16\\); const h=buf.readUInt32BE\\(20\\); console.log\\(w,h\\);\")",
+      "Bash(xargs -I {} sh -c 'echo {}; node -e \"console.log\\(require\\(\\\\\"{}\\\\\"\\).version\\)\"')",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/next/dist/compiled/react/package.json'\\).version\\)\")",
+      "Bash(node -e \"const sc = require\\('./node_modules/styled-components/package.json'\\); console.log\\('sc version:', sc.version, '\\\\npeer deps:', JSON.stringify\\(sc.peerDependencies\\)\\)\")",
+      "Bash(npx next *)"
+    ]
+  }
+}

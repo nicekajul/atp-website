@@ -1,0 +1,142 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.filter {
+  padding: var(--space-2) var(--space-5);
+  border: 1.5px solid var(--atp-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--atp-slate);
+  background: var(--atp-white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter:hover {
+  border-color: var(--atp-gold);
+  color: var(--atp-navy);
+}
+
+.filterActive {
+  background: var(--atp-navy);
+  border-color: var(--atp-navy);
+  color: var(--atp-white);
+  font-weight: 600;
+}
+
+/* Grid: 1 column always — tools expand inline */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ── Tool card ───────────────────────────────────────────── */
+.card {
+  background: var(--atp-white);
+  border: 1.5px solid var(--atp-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+  border-color: rgba(201,168,76,0.4);
+  box-shadow: var(--shadow-md);
+}
+
+.cardOpen {
+  border-color: var(--atp-gold);
+  box-shadow: var(--shadow-lg);
+}
+
+.cardHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast);
+}
+
+.cardHeader:hover { background: var(--atp-cream-pale); }
+.cardOpen .cardHeader { background: var(--atp-cream-pale); }
+
+.cardIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--atp-gold-pale);
+  border-radius: var(--radius-lg);
+}
+
+.cardMeta {
+  flex: 1;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--atp-navy);
+  margin: 0 0 var(--space-1);
+  line-height: 1.2;
+}
+
+.cardDesc {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.cardChevron {
+  flex-shrink: 0;
+  color: var(--atp-muted);
+  transition: transform var(--transition-base);
+}
+
+.cardChevronOpen {
+  transform: rotate(180deg);
+  color: var(--atp-gold);
+}
+
+.cardDivider {
+  height: 1px;
+  background: var(--atp-border);
+  margin: 0 var(--space-6);
+}
+
+.cardBody {
+  padding: var(--space-6);
+  animation: slideDown 0.25s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .cardHeader { padding: var(--space-4); gap: var(--space-3); }
+  .cardBody   { padding: var(--space-4); }
+  .cardDivider { margin: 0 var(--space-4); }
+  .cardIcon { width: 44px; height: 44px; font-size: 1.5rem; }
+  .cardTitle { font-size: var(--text-lg); }
+}

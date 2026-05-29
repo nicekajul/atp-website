@@ -1,0 +1,182 @@
+.section {
+  padding: var(--space-20) 0;
+  background: var(--atp-white);
+  border-top: 1px solid var(--atp-border);
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--space-12);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  color: var(--atp-navy);
+  margin-bottom: var(--space-4);
+}
+
+.subtitle {
+  font-size: var(--text-lg);
+  color: var(--atp-muted);
+}
+
+/* Publishing Proof */
+.distGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.distItem {
+  text-align: center;
+  padding: var(--space-8);
+  background: var(--atp-cream-pale);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--atp-border);
+  transition: transform 0.3s;
+}
+
+.distItem:hover {
+  transform: translateY(-8px);
+}
+
+.distIcon {
+  font-size: 40px;
+  margin-bottom: var(--space-4);
+}
+
+.distItem h4 {
+  color: var(--atp-navy);
+  margin-bottom: var(--space-2);
+  font-size: var(--text-lg);
+}
+
+.distItem p {
+  font-size: var(--text-sm);
+  color: var(--atp-muted);
+  line-height: 1.6;
+}
+
+/* Design Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-8);
+}
+
+.galleryItem {
+  background: var(--atp-cream-pale);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--atp-border);
+  transition: transform 0.3s;
+}
+
+.galleryItem:hover {
+  transform: translateY(-8px);
+}
+
+.placeholderImage {
+  aspect-ratio: 1 / 1.4;
+  background: var(--atp-cream-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--atp-muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--atp-border);
+}
+
+.itemMeta {
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.genre {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--atp-gold);
+}
+
+/* Editorial Proof */
+.workflowGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.workflowStep {
+  padding: var(--space-8);
+  background: var(--atp-cream-pale);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  border: 1px dashed var(--atp-gold);
+}
+
+.stepNum {
+  display: block;
+  font-size: 48px;
+  font-family: var(--font-serif);
+  color: rgba(201, 168, 76, 0.2);
+  margin-bottom: var(--space-4);
+}
+
+.workflowStep h3 {
+  color: var(--atp-navy);
+  margin-bottom: var(--space-3);
+  font-size: var(--text-xl);
+}
+
+.workflowStep p {
+  font-size: var(--text-sm);
+  color: var(--atp-muted);
+  line-height: 1.6;
+}
+
+/* Marketing Proof */
+.deliverableList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-6);
+}
+
+.deliverableItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  background: var(--atp-white);
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.deliverableIcon {
+  font-size: 32px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--atp-cream);
+  border-radius: var(--radius-full);
+}
+
+.deliverableItem h4 {
+  color: var(--atp-navy);
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.deliverableItem p {
+  font-size: var(--text-sm);
+  color: var(--atp-muted);
+}
+
+@media (max-width: 1024px) {
+  .workflowGrid { grid-template-columns: 1fr; }
+}
