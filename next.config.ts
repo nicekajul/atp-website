@@ -1,5 +1,10 @@
 import type { NextConfig } from "next";
 import path from "path";
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
+
+if (process.env.NODE_ENV === 'development') {
+  await setupDevPlatform();
+}
 
 const nextConfig: NextConfig = {
   images: {
@@ -23,10 +28,6 @@ const nextConfig: NextConfig = {
     ],
   },
   webpack: (config, { isServer }) => {
-    // Sanity Studio calls React.useEffectEvent, which Next.js's internal compiled
-    // React does not export. Alias react/react-dom to the project's copies (which
-    // do export it) — but ONLY for the browser bundle. The server bundle must keep
-    // Next.js's compiled React so that RSC/server-only exports work correctly.
     if (!isServer) {
       config.resolve.alias = {
         ...config.resolve.alias,
