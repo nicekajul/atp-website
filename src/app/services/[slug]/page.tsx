@@ -23,13 +23,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-// Ensure static rendering for known service pages
-export async function generateStaticParams() {
-  return services.map((service) => ({
-    slug: service.slug,
-  }))
-}
-
 export default async function SingleServicePage({ params }: Props) {
   const { slug } = await params
   const service = getServiceBySlug(slug)

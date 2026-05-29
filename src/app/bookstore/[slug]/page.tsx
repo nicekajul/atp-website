@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { client } from '@/sanity/lib/client'
-import { bookBySlugQuery, allSlugsQuery, booksByGenreQuery } from '@/sanity/queries'
+import { bookBySlugQuery, booksByGenreQuery } from '@/sanity/queries'
 import { SanityBook, getCoverUrl } from '@/sanity/types'
 import BookDetail from '@/components/books/BookDetail'
 
@@ -42,11 +42,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: coverUrl ? [coverUrl] : [],
     },
   }
-}
-
-export async function generateStaticParams() {
-  const slugs: { slug: string }[] = await client.fetch(allSlugsQuery)
-  return slugs.map((s) => ({ slug: s.slug }))
 }
 
 export default async function BookDetailPage({ params }: Props) {
