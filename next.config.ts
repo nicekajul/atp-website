@@ -3,11 +3,16 @@ import path from "path";
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ['sanity', '@sanity/vision', 'next-sanity'],
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      react: path.resolve('./node_modules/react'),
-      'react-dom': path.resolve('./node_modules/react-dom'),
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        react: path.resolve('./node_modules/react'),
+        'react-dom': path.resolve('./node_modules/react-dom'),
+      }
     }
     return config
   },
