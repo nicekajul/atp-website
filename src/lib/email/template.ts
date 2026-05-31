@@ -1,6 +1,5 @@
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://authorstranquilitypress.com'
-const LOGO_URL = `${SITE_URL}/ATP-logo-dark.png`
-const ICON_URL = `${SITE_URL}/logo-mark.png`
+const LOGO_URL = `${SITE_URL}/ATP-logo-light-1.png`
 
 const NAVY  = '#0f1f3d'
 const GOLD  = '#c9a84c'
@@ -29,26 +28,14 @@ function shell(preheader: string, body: string): string {
       <td align="center" style="padding:32px 16px;">
         <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.10);">
 
-          <!-- Header — logo lockup (icon + text) -->
+          <!-- Header — full logo -->
           <tr>
-            <td style="background-color:${NAVY};padding:36px 40px 32px;text-align:center;">
-              <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
-                <tr>
-                  <td style="vertical-align:middle;padding-right:16px;">
-                    <img src="${ICON_URL}" alt="" width="72" height="72"
-                         style="display:block;width:72px;height:72px;" />
-                  </td>
-                  <td style="vertical-align:middle;text-align:left;">
-                    <p style="margin:0 0 2px;font-family:Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#ffffff;letter-spacing:0.01em;line-height:1.2;">
-                      Author's Tranquility Press
-                    </p>
-                    <p style="margin:0;font-family:Arial,sans-serif;font-size:12px;color:${GOLD};letter-spacing:0.12em;text-transform:uppercase;">
-                      Your Publishing Partner
-                    </p>
-                  </td>
-                </tr>
-              </table>
-              <div style="margin-top:28px;height:2px;background:linear-gradient(90deg,transparent,${GOLD},transparent);"></div>
+            <td style="background-color:${NAVY};padding:32px 40px 28px;text-align:center;">
+              <a href="${SITE_URL}" style="display:inline-block;">
+                <img src="${LOGO_URL}" alt="Author's Tranquility Press" width="280" height="70"
+                     style="display:block;width:280px;height:auto;max-width:100%;" />
+              </a>
+              <div style="margin-top:24px;height:2px;background:linear-gradient(90deg,transparent,${GOLD},transparent);"></div>
             </td>
           </tr>
 
@@ -59,26 +46,13 @@ function shell(preheader: string, body: string): string {
             </td>
           </tr>
 
-          <!-- Footer — icon + text lockup, larger sizing -->
+          <!-- Footer — full logo -->
           <tr>
-            <td style="background-color:${NAVY};padding:36px 40px 28px;text-align:center;">
-              <!-- Logo lockup repeated in footer -->
-              <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto 20px;">
-                <tr>
-                  <td style="vertical-align:middle;padding-right:14px;">
-                    <img src="${ICON_URL}" alt="" width="60" height="60"
-                         style="display:block;width:60px;height:60px;" />
-                  </td>
-                  <td style="vertical-align:middle;text-align:left;">
-                    <p style="margin:0 0 2px;font-family:Georgia,'Times New Roman',serif;font-size:18px;font-weight:700;color:#ffffff;line-height:1.2;">
-                      Author's Tranquility Press
-                    </p>
-                    <p style="margin:0;font-family:Arial,sans-serif;font-size:11px;color:${GOLD};letter-spacing:0.10em;text-transform:uppercase;">
-                      Your Publishing Partner
-                    </p>
-                  </td>
-                </tr>
-              </table>
+            <td style="background-color:${NAVY};padding:32px 40px 28px;text-align:center;">
+              <a href="${SITE_URL}" style="display:inline-block;margin-bottom:20px;">
+                <img src="${LOGO_URL}" alt="Author's Tranquility Press" width="220" height="55"
+                     style="display:block;width:220px;height:auto;max-width:100%;" />
+              </a>
               <div style="height:1px;background:rgba(201,168,76,0.3);margin-bottom:20px;"></div>
               <p style="margin:0 0 6px;color:rgba(255,255,255,0.65);font-size:14px;font-family:Arial,sans-serif;">
                 support@authorstranquilitypress.com
@@ -149,10 +123,7 @@ export function contactNotification(data: {
   name: string; email: string; phone?: string; interest?: string; message: string
 }): { subject: string; html: string } {
   const body = /* html */`
-    <div style="text-align:center;margin-bottom:8px;">
-      <img src="${ICON_URL}" alt="" width="44" height="44" style="display:inline-block;opacity:0.9;" />
-    </div>
-    ${heading('New Contact Inquiry')}
+${heading('New Contact Inquiry')}
     ${subtext(`Submitted ${new Date().toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short' })} · Requires a response within 1 business day`)}
     ${section('Sender Details',
       fieldRow('Full Name', data.name) +
@@ -201,10 +172,7 @@ export function leadNotification(data: {
   name: string; email: string; title?: string; service?: string; websiteGoals?: string; message?: string
 }): { subject: string; html: string } {
   const body = /* html */`
-    <div style="text-align:center;margin-bottom:8px;">
-      <img src="${ICON_URL}" alt="" width="44" height="44" style="display:inline-block;opacity:0.9;" />
-    </div>
-    ${heading('New Lead Inquiry')}
+${heading('New Lead Inquiry')}
     ${subtext(`Submitted ${new Date().toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short' })}`)}
     ${section('Lead Details',
       fieldRow('Full Name', data.name) +
@@ -251,10 +219,7 @@ export function quizLeadNotification(data: {
   name: string; email: string; phone?: string; recommendedPackage: string
 }): { subject: string; html: string } {
   const body = /* html */`
-    <div style="text-align:center;margin-bottom:8px;">
-      <img src="${ICON_URL}" alt="" width="44" height="44" style="display:inline-block;opacity:0.9;" />
-    </div>
-    ${heading('New Quiz Lead')}
+${heading('New Quiz Lead')}
     ${subtext(`${data.name} completed the Publishing Quiz and was matched with a package.`)}
     <div style="text-align:center;margin-bottom:28px;">
       <p style="margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:${MUTED};font-family:Arial,sans-serif;">Recommended Package</p>
@@ -309,10 +274,7 @@ export function ebookLeadNotification(data: {
   name: string; email: string
 }): { subject: string; html: string } {
   const body = /* html */`
-    <div style="text-align:center;margin-bottom:8px;">
-      <img src="${ICON_URL}" alt="" width="44" height="44" style="display:inline-block;opacity:0.9;" />
-    </div>
-    ${heading('New Free Guide Download')}
+${heading('New Free Guide Download')}
     ${subtext(`Submitted ${new Date().toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short' })}`)}
     ${section('Lead Details',
       fieldRow('Full Name', data.name) +
@@ -364,10 +326,7 @@ export function newsletterNotification(data: {
   email: string
 }): { subject: string; html: string } {
   const body = /* html */`
-    <div style="text-align:center;margin-bottom:8px;">
-      <img src="${ICON_URL}" alt="" width="44" height="44" style="display:inline-block;opacity:0.9;" />
-    </div>
-    ${heading('New Newsletter Subscriber')}
+${heading('New Newsletter Subscriber')}
     ${subtext(`Submitted ${new Date().toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short' })}`)}
     ${section('Subscriber Details', fieldRow('Email', data.email))}
     ${cta('Reply to Subscriber', `mailto:${data.email}`)}
