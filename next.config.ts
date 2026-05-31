@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ['sanity', '@sanity/vision', 'next-sanity'],
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      react: path.resolve('./node_modules/react'),
+      'react-dom': path.resolve('./node_modules/react-dom'),
+    }
+    return config
+  },
   images: {
     qualities: [75, 90, 100],
     remotePatterns: [
