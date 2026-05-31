@@ -7,14 +7,11 @@ import styles from './EbookPopup.module.css'
 const STORAGE_KEY = 'atp_ebook_popup_seen'
 
 type PopupState = 'tab' | 'open' | 'closed'
-type DownloadStatus = 'idle' | 'downloading' | 'done' | 'limit_reached' | 'error'
 
 export default function EbookPopup() {
   const [popupState, setPopupState] = useState<PopupState>('tab')
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [formData, setFormData] = useState({ name: '', email: '' })
-  const [downloadStatus, setDownloadStatus] = useState<DownloadStatus>('idle')
-  const [downloadToken, setDownloadToken] = useState<string>('')
 
   useEffect(() => {
     // Auto-open after 6 s or 40 % scroll — only if visitor hasn't submitted before
@@ -68,37 +65,9 @@ export default function EbookPopup() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-      if (res.ok) {
-        const data = await res.json()
-        setDownloadToken(data.downloadToken ?? '')
-        setStatus('success')
-      } else {
-        setStatus('error')
-      }
+      setStatus(res.ok ? 'success' : 'error')
     } catch {
       setStatus('error')
-    }
-  }
-
-  const handleDownload = async () => {
-    setDownloadStatus('downloading')
-    try {
-      const res = await fetch(`/api/download-guide?token=${encodeURIComponent(downloadToken)}`)
-      if (res.ok) {
-        const a = document.createElement('a')
-        a.href = '/ATP_Authors_Publishing_Guide.pdf'
-        a.download = 'ATP_Authors_Publishing_Guide.pdf'
-        document.body.appendChild(a)
-        a.click()
-        document.body.removeChild(a)
-        setDownloadStatus('done')
-      } else if (res.status === 429) {
-        setDownloadStatus('limit_reached')
-      } else {
-        setDownloadStatus('error')
-      }
-    } catch {
-      setDownloadStatus('error')
     }
   }
 
@@ -152,36 +121,11 @@ export default function EbookPopup() {
                 {status === 'success' ? (
                   <div className={styles.successState}>
                     <span className={styles.successIcon}>✓</span>
-                    <h3 className={styles.successTitle}>Your guide is ready!</h3>
-
-                    {downloadStatus === 'limit_reached' ? (
-                      <>
-                        <p className={styles.limitText}>
-                          This guide has already been downloaded with your email address.
-                          Please <a href="/contact" className={styles.limitLink}>contact us</a> if
-                          you need assistance accessing your copy.
-                        </p>
-                      </>
-                    ) : downloadStatus === 'done' ? (
-                      <p className={styles.successText}>
-                        Your download has started. We&rsquo;ve also emailed you a copy for future access.
-                      </p>
-                    ) : (
-                      <>
-                        <p className={styles.successText}>
-                          Click below to download instantly. We&rsquo;ve also emailed you a
-                          copy so you can access it any time.
-                        </p>
-                        <button
-                          className={styles.downloadBtn}
-                          onClick={handleDownload}
-                          disabled={downloadStatus === 'downloading'}
-                        >
-                          {downloadStatus === 'downloading' ? 'Preparing…' : 'Download Free Guide →'}
-                        </button>
-                      </>
-                    )}
-
+                    <h3 className={styles.successTitle}>Check your inbox!</h3>
+                    <p className={styles.successText}>
+                      We&rsquo;ve sent the free guide to <strong>{formData.email}</strong>.
+                      Click the download link in the email to access your copy.
+                    </p>
                     <button className={styles.successClose} onClick={fullClose}>
                       Close
                     </button>
