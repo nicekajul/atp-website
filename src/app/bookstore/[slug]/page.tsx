@@ -1,12 +1,14 @@
-export const runtime = 'edge'
-export const dynamic = 'force-dynamic'
-
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { client } from '@/sanity/lib/client'
-import { bookBySlugQuery, booksByGenreQuery } from '@/sanity/queries'
+import { bookBySlugQuery, booksByGenreQuery, allSlugsQuery } from '@/sanity/queries'
 import { SanityBook, getCoverUrl } from '@/sanity/types'
 import BookDetail from '@/components/books/BookDetail'
+
+export async function generateStaticParams() {
+  const slugs: { slug: string }[] = await client.fetch(allSlugsQuery)
+  return slugs.map((s) => ({ slug: s.slug }))
+}
 
 interface Props {
   params: Promise<{ slug: string }>

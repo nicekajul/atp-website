@@ -1,7 +1,8 @@
-import { redirect } from 'next/navigation'
+'use client'
 
-// Sanity Studio is hosted at the Sanity-managed URL.
-// Run `npx sanity deploy` from your project root to publish it there.
+import { NextStudio } from 'next-sanity/studio'
+import config from '../../../../sanity.config'
+
 export default function StudioPage() {
-  redirect('https://lkry447y.sanity.studio')
+  return <NextStudio config={config} />
 }

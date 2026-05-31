@@ -1,5 +1,3 @@
-export const runtime = 'edge'
-
 import { NextRequest, NextResponse } from 'next/server'
 import { sendMail, TO_ADDRESS } from '@/lib/email/mailer'
 import { contactNotification, contactAutoReply } from '@/lib/email/template'

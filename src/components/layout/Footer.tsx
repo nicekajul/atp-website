@@ -9,16 +9,16 @@ import styles from './Footer.module.css'
 const footerLinks = {
   Services: [
     { label: 'Publishing Packages', href: '/services/publishing-packages' },
+    { label: 'Marketing Services', href: '/marketing' },
     { label: 'Authors Tranquility Junior', href: '/services/authors-tranquility-junior' },
+    { label: 'Audiobook', href: '/services/audiobook' },
     { label: 'Book Illustration', href: '/services/book-illustration' },
-    { label: 'Marketing & PR', href: '/services/marketing' },
     { label: 'eBook Conversion', href: '/services/ebook-conversion' },
-    { label: 'Author Website', href: '/services/author-website' },
   ],
   Explore: [
     { label: 'Bookstore', href: '/bookstore' },
     { label: 'About ATP', href: '/about' },
-    { label: 'Resources', href: '/resources' },
+    // { label: 'Resources', href: '/resources' },
     { label: 'FAQ', href: '/faq' },
   ],
   Support: [

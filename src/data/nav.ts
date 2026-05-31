@@ -243,6 +243,7 @@ export const navItems: NavItem[] = [
     ],
   },
   { label: 'Bookstore', href: '/bookstore' },
+  { label: 'Marketing', href: '/marketing' },
   { label: 'About',     href: '/about' },
   { label: 'Resources', href: '/resources' },
   { label: 'FAQ',       href: '/faq' },

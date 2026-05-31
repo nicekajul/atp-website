@@ -1,9 +1,11 @@
-export const runtime = 'edge'
-
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { services, getServiceBySlug } from '@/data/services'
 import ServiceDetail from '@/components/services/ServiceDetail'
+
+export async function generateStaticParams() {
+  return services.map((s) => ({ slug: s.slug }))
+}
 
 interface Props {
   params: Promise<{ slug: string }>

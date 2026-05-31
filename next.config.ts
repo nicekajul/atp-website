@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
-import path from "path";
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ['sanity', '@sanity/vision', 'next-sanity'],
   images: {
     qualities: [75, 90, 100],
     remotePatterns: [
@@ -21,16 +21,6 @@ const nextConfig: NextConfig = {
         pathname: '/images/**',
       },
     ],
-  },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        react: path.resolve('./node_modules/react'),
-        'react-dom': path.resolve('./node_modules/react-dom'),
-      }
-    }
-    return config
   },
 };
 
