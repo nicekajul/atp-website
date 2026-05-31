@@ -1,22 +1,34 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { createHmac, timingSafeEqual } from 'crypto'
 import { logToLeadsSheet } from '@/lib/email/sheets'
 
-// Edge-compatible in-memory tracker (resets on cold start — Sheets log is the durable audit trail)
-const downloaded = new Set<string>()
+function verifyDownloadToken(token: string): string | null {
+  const parts = token.split('.')
+  if (parts.length !== 2) return null
+  const [payload, sig] = parts
+  const secret = process.env.DOWNLOAD_SECRET ?? 'atp-fallback-secret'
+  const expected = createHmac('sha256', secret).update(payload).digest('base64url')
+  try {
+    const match = timingSafeEqual(Buffer.from(sig), Buffer.from(expected))
+    if (!match) return null
+  } catch {
+    return null
+  }
+  return Buffer.from(payload, 'base64url').toString('utf-8')
+}
 
 export async function GET(req: NextRequest) {
-  const email = req.nextUrl.searchParams.get('email')?.trim()
+  const token = req.nextUrl.searchParams.get('token')?.trim()
 
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return NextResponse.json({ error: 'Valid email required.' }, { status: 400 })
+  if (!token) {
+    return NextResponse.json({ error: 'Missing download token.' }, { status: 400 })
   }
 
-  if (downloaded.has(email.toLowerCase())) {
-    await logToLeadsSheet({ source: 'Free Guide Download - Limit Reached', email })
-    return NextResponse.json({ error: 'limit_reached' }, { status: 429 })
+  const email = verifyDownloadToken(token)
+  if (!email) {
+    return NextResponse.json({ error: 'Invalid or expired download token.' }, { status: 403 })
   }
 
-  downloaded.add(email.toLowerCase())
   await logToLeadsSheet({ source: 'Free Guide Download', email })
   return NextResponse.json({ ok: true })
 }

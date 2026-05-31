@@ -14,6 +14,7 @@ export default function EbookPopup() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [formData, setFormData] = useState({ name: '', email: '' })
   const [downloadStatus, setDownloadStatus] = useState<DownloadStatus>('idle')
+  const [downloadToken, setDownloadToken] = useState<string>('')
 
   useEffect(() => {
     // Auto-open after 6 s or 40 % scroll — only if visitor hasn't submitted before
@@ -67,7 +68,13 @@ export default function EbookPopup() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-      setStatus(res.ok ? 'success' : 'error')
+      if (res.ok) {
+        const data = await res.json()
+        setDownloadToken(data.downloadToken ?? '')
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
     } catch {
       setStatus('error')
     }
@@ -76,7 +83,7 @@ export default function EbookPopup() {
   const handleDownload = async () => {
     setDownloadStatus('downloading')
     try {
-      const res = await fetch(`/api/download-guide?email=${encodeURIComponent(formData.email)}`)
+      const res = await fetch(`/api/download-guide?token=${encodeURIComponent(downloadToken)}`)
       if (res.ok) {
         const a = document.createElement('a')
         a.href = '/ATP_Authors_Publishing_Guide.pdf'
