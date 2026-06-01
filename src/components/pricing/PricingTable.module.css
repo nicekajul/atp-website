@@ -384,13 +384,15 @@
 }
 
 .col--popular.highlightCol {
-  background: linear-gradient(180deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.03) 100%) !important;
-  border-top: 3px solid var(--atp-gold) !important;
+  background: rgba(201,168,76,0.12) !important;
 }
 
 .col--value.highlightCol {
-  background: linear-gradient(180deg, rgba(45,122,79,0.07) 0%, rgba(45,122,79,0.02) 100%) !important;
-  border-top: 3px solid #2D7A4F !important;
+  background: rgba(45,122,79,0.10) !important;
+}
+
+.col--elite.highlightCol {
+  background: rgba(15,31,61,0.08) !important;
 }
 
 .compareTable th, .compareTable td {
@@ -401,11 +403,8 @@
 
 .compareTable td:last-child, .compareTable th:last-child { border-right: none; }
 
-/* Sticky Header */
-.stickyHeader th { position: sticky; top: 0; background: var(--atp-white); z-index: 40; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-
 .thContent { display: flex; flex-direction: column; gap: var(--space-1); text-align: center; }
-.thName { font-size: 10px; font-weight: 700; color: var(--atp-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+.thName { font-size: var(--text-sm); font-weight: 700; color: var(--atp-navy); letter-spacing: 0.01em; }
 .thPrice { font-size: var(--text-lg); font-family: var(--font-serif); color: var(--atp-navy); }
 .thAction { margin-top: var(--space-2); }
 
@@ -416,7 +415,7 @@
 /* Category Sticky Header */
 .categoryRow td {
   position: sticky;
-  top: 130px; /* Offset to sit below main sticky header */
+  top: 130px; /* offset below the sticky thead inside the scroll container */
   z-index: 30;
   background: var(--atp-cream-dark) !important;
   text-align: left;

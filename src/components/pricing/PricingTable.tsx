@@ -303,7 +303,7 @@ export default function PricingTable({
                 <tr className={styles.summaryRow}>
                    <td className={styles.featureName}>Recommendation</td>
                    {packages.map((pkg, i) => (
-                      <td key={i} className={styles.summaryCell}>
+                      <td key={i} className={[styles.summaryCell, styles[`col--${pkg.tier || 'standard'}`], pkg.highlight ? styles.highlightCol : ''].join(' ')}>
                          {pkg.bestForNote || pkg.bestFor}
                       </td>
                    ))}
@@ -329,6 +329,7 @@ export default function PricingTable({
                             <td key={pi} className={[
                               styles.featureCell,
                               styles[`col--${tier}`],
+                              pkg.highlight ? styles.highlightCol : '',
                             ].join(' ')}>
                               {hasFeature ? (
                                 featureValue ? (
@@ -353,15 +354,18 @@ export default function PricingTable({
               </tbody>
             </table>
             
-            {!isTableExpanded && !isAdaptiveMedium && allFeaturesAcrossCategories.length > 2 && (
-               <div className={styles.tableToggle}>
-                  <Button
-                    onClick={() => setIsTableExpanded(true)}
-                    variant="outline"
-                  >
+            {!isAdaptiveMedium && allFeaturesAcrossCategories.length > 2 && (
+              <div className={styles.tableToggle}>
+                {isTableExpanded ? (
+                  <Button onClick={() => setIsTableExpanded(false)} variant="outline">
+                    Show Less ↑
+                  </Button>
+                ) : (
+                  <Button onClick={() => setIsTableExpanded(true)} variant="outline">
                     Show Full Comparison (+{allFeaturesAcrossCategories.length - 2} Categories)
                   </Button>
-               </div>
+                )}
+              </div>
             )}
           </div>
         </div>

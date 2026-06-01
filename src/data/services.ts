@@ -321,6 +321,7 @@ export const services: Service[] = [
         price: '$12,999',
         colorPrice: '$13,199',
         tier: 'elite',
+        highlight: true,
         description: 'White-glove prestige publishing with TV interview, NY Times Square Billboard & national media.',
         bestFor: 'Legacy authors',
         bestForNote: 'All-inclusive elite',
