@@ -45,14 +45,15 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
               
               <div className={styles.metaInfo}>
                 {service.turnaround && (
-                  <div className={styles.metaItem}>
-                    <strong>Turnaround:</strong> {service.turnaround}
+                  <div className={styles.metaCard}>
+                    <p className={styles.metaCardLabel}>⏱ Turnaround Time</p>
+                    <p className={styles.metaCardValue}>{service.turnaround}</p>
                   </div>
                 )}
                 {service.deliverables && service.deliverables.length > 0 && (
-                  <div className={styles.metaItem}>
-                    <strong>Deliverables:</strong>
-                    <ul>
+                  <div className={styles.metaCard}>
+                    <p className={styles.metaCardLabel}>✦ Deliverables</p>
+                    <ul className={styles.metaCardList}>
                       {service.deliverables.map((item, idx) => (
                         <li key={idx}>{item}</li>
                       ))}

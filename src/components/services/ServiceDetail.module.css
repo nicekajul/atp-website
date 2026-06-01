@@ -55,31 +55,67 @@
 }
 
 .metaInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+.metaCard {
   background: var(--atp-white);
   border: 1px solid var(--atp-border);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
-.metaItem {
+.metaCardLabel {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--atp-gold);
+  margin: 0;
+}
+
+.metaCardValue {
   font-size: var(--text-base);
-}
-
-.metaItem strong {
+  font-weight: 600;
   color: var(--atp-navy);
-  margin-right: var(--space-2);
+  margin: 0;
+  line-height: 1.5;
 }
 
-.metaItem ul {
-  list-style: disc;
-  margin-top: var(--space-2);
-  margin-left: var(--space-6);
+.metaCardList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: var(--space-2);
+}
+
+.metaCardList li {
+  font-size: var(--text-sm);
+  color: var(--atp-charcoal);
+  padding-left: var(--space-4);
+  position: relative;
+  line-height: 1.5;
+}
+
+.metaCardList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--atp-gold);
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  .metaInfo {
+    grid-template-columns: 1fr;
+  }
 }
 
 .sectionHeading {
