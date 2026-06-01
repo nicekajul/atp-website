@@ -15,7 +15,7 @@ export default function PricingTable({
   packages,
   ctaHref = '/contact',
 }: PricingTableProps) {
-  const [viewMode, setViewMode] = useState<'grid' | 'compare'>('grid')
+  const [viewMode, setViewMode] = useState<'grid' | 'compare'>('compare')
   const [expandedCards, setExpandedCards] = useState<number[]>([])
   const [isTableExpanded, setIsTableExpanded] = useState(false)
   const [printType, setPrintType] = useState<'bw' | 'color'>('bw')
