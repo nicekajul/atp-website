@@ -209,13 +209,13 @@ export const navItems: NavItem[] = [
         },
       ],
       featured: {
-        badge: 'Annual Release',
+        badge: 'Limited Edition',
         title: "ATP Author's Quarterly",
         edition: '2025 Edition',
         description:
-          'Author success stories, industry insights, and expert publishing tips — curated for serious writers.',
-        href: '/magazine',
-        cta: 'Read the Magazine',
+          "Contact our literary agents to secure your copy.",
+        href: '/contact',
+        cta: 'Contact Your Literary Agent',
       },
     },
 
