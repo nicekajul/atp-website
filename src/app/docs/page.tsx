@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import styles from './docs.module.css'
 
 export const metadata: Metadata = {
-  title: 'Website Documentation | Authors Tranquility Press',
-  description: 'Internal website documentation for Authors Tranquility Press.',
+  title: "Website Documentation | Author's Tranquility Press",
+  description: "Internal website documentation for Author's Tranquility Press.",
   robots: { index: false, follow: false },
 }
 
@@ -59,7 +59,7 @@ export default function DocsPage() {
       <main className={styles.main}>
         <header className={styles.hero}>
           <span className={styles.eyebrow}>Internal Documentation</span>
-          <h1 className={styles.heading}>Authors Tranquility Press<br/>Website Documentation</h1>
+          <h1 className={styles.heading}>Author's Tranquility Press<br/>Website Documentation</h1>
           <div className={styles.meta}>
             <span className={styles.metaItem}>📅 June 3, 2026</span>
             <span className={styles.metaDot}/>
@@ -72,7 +72,7 @@ export default function DocsPage() {
         {/* 1. Overview */}
         <section id="overview" className={styles.section}>
           <h2 className={styles.sectionTitle}>1. Project Overview</h2>
-          <p>Authors Tranquility Press (ATP) is a full-service self-publishing company. This website is the primary marketing and conversion platform for the business, enabling authors to:</p>
+          <p>Author's Tranquility Press (ATP) is a full-service self-publishing company. This website is the primary marketing and conversion platform for the business, enabling authors to:</p>
           <ul className={styles.list}>
             <li>Discover and compare publishing service packages</li>
             <li>Take a guided quiz to find the right publishing package</li>
@@ -557,7 +557,7 @@ export default function DocsPage() {
         </section>
 
         <footer className={styles.footer}>
-          <p>Authors Tranquility Press · Internal Documentation · {new Date().getFullYear()}</p>
+          <p>Author's Tranquility Press · Internal Documentation · {new Date().getFullYear()}</p>
           <p>
             Developed by <strong>Alreen Christian Jul R. Omang</strong> —
             Marketing Technology Manager / Senior Full-Stack Developer

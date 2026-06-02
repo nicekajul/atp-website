@@ -1,4 +1,4 @@
-# Authors Tranquility Press — Website Documentation
+# Author's Tranquility Press — Website Documentation
 
 **Version:** Revamp (June 2026)
 **Repository:** `nicekajul/atp-website` (GitHub)
@@ -25,7 +25,7 @@
 
 ## 1. Project Overview
 
-Authors Tranquility Press (ATP) is a full-service self-publishing company. This website serves as the primary marketing and conversion platform for the business, enabling authors to:
+Author's Tranquility Press (ATP) is a full-service self-publishing company. This website serves as the primary marketing and conversion platform for the business, enabling authors to:
 
 - Discover and compare publishing service packages
 - Take a guided quiz to find the right package
