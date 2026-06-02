@@ -19,6 +19,7 @@ interface Props {
 }
 
 function getStartingPrice(service: Service): string {
+  if (service.startingPrice) return service.startingPrice
   if (service.packages.length === 0) return 'Custom pricing'
   return `From ${service.packages[0].price}`
 }

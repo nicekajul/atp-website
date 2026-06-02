@@ -35,6 +35,7 @@ export interface Service {
   featured: boolean
   turnaround?: string
   deliverables?: string[]
+  startingPrice?: string
 }
 
 export const services: Service[] = [
@@ -1280,6 +1281,7 @@ export const services: Service[] = [
     longDescription: `Book reviews from respected third-party platforms remain one of the most powerful ways to establish credibility and reach new readers. Unlike testimonials or author bios, independent editorial reviews signal to readers, booksellers, librarians, and literary agents that your work has been evaluated on its own merits. Authors Tranquility Press handles the entire submission and coordination process — from selecting the right reviewer for your genre to managing timelines and delivering your review copy. Choose from individual platform reviews or our Trifecta Review Bundle for comprehensive critical coverage.`,
     icon: '⭐',
     category: 'marketing',
+    startingPrice: 'From $899',
     packages: [],
     faqs: [
       {
@@ -1413,6 +1415,7 @@ export const services: Service[] = [
     longDescription: `Whether you are exploring adaptation for the first time or actively pursuing opportunities, our services provide a structured, professional approach to preparing and presenting your work for the entertainment industry.`,
     icon: '🎬',
     category: 'marketing',
+    startingPrice: 'From $999',
     packages: [],
     faqs: [],
     featured: false,
