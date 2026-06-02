@@ -1,16 +1,18 @@
 import { Metadata } from 'next'
 import Container from '@/components/layout/Container'
 import PageCTA from '@/components/shared/PageCTA'
+import FAQClient from './FAQClient'
 import styles from './faq.module.css'
 
 export const metadata: Metadata = {
   title: 'FAQ | Authors Tranquility Press',
-  description: 'Frequently asked questions about publishing with Authors Tranquility Press — packages, timelines, royalties, and more.',
+  description: 'Frequently asked questions about publishing with Authors Tranquility Press — packages, timelines, royalties, rights, marketing, and more.',
 }
 
 export default function FAQPage() {
   return (
     <>
+      {/* ── Hero ─────────────────────────────────────────── */}
       <header className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.patternLayer} />
@@ -22,16 +24,48 @@ export default function FAQPage() {
               <span className={styles.heroHighlight}>Questions</span>
             </h1>
             <p className={styles.heroSub}>
-              Everything you need to know about publishing with Authors Tranquility Press — packages, timelines, royalties, and more.
+              Everything you need to know about publishing, marketing, rights, and working with Authors Tranquility Press — answered in one place.
             </p>
+            <div className={styles.heroStats}>
+              <div className={styles.heroStat}>
+                <span className={styles.heroStatNum}>7</span>
+                <span className={styles.heroStatLabel}>Categories</span>
+              </div>
+              <div className={styles.heroStatDivider} />
+              <div className={styles.heroStat}>
+                <span className={styles.heroStatNum}>60+</span>
+                <span className={styles.heroStatLabel}>Questions Answered</span>
+              </div>
+              <div className={styles.heroStatDivider} />
+              <div className={styles.heroStat}>
+                <span className={styles.heroStatNum}>Free</span>
+                <span className={styles.heroStatLabel}>Consultation Available</span>
+              </div>
+            </div>
           </div>
         </Container>
       </header>
 
+      {/* ── FAQ Body ─────────────────────────────────────── */}
       <section className={styles.content}>
         <Container>
-          <div style={{ maxWidth: 800, margin: '0 auto', fontSize: 'var(--text-lg)', lineHeight: 1.8 }}>
-            <p>This is a placeholder for the FAQ page content.</p>
+          <FAQClient />
+        </Container>
+      </section>
+
+      {/* ── Still have questions? ─────────────────────────── */}
+      <section className={styles.contactNudge}>
+        <Container>
+          <div className={styles.nudgeInner}>
+            <div className={styles.nudgeIcon}>💬</div>
+            <div className={styles.nudgeText}>
+              <h2 className={styles.nudgeHeading}>Still have questions?</h2>
+              <p className={styles.nudgeSub}>
+                Our publishing advisors are happy to answer anything not covered here.
+                Book a free consultation — no pressure, no obligation.
+              </p>
+            </div>
+            <a href="/contact" className={styles.nudgeBtn}>Talk to an Advisor →</a>
           </div>
         </Container>
       </section>
