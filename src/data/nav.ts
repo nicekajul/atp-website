@@ -115,7 +115,7 @@ export const navItems: NavItem[] = [
               ],
             },
             {
-              label: 'Marketing & Exposure',
+              label: 'Launch & Promotion',
               links: [
                 {
                   label: 'Social Media Ads',
@@ -129,6 +129,11 @@ export const navItems: NavItem[] = [
                   description: 'YouTube & video ad campaigns',
                   icon: '\u{1F4E1}',
                 },
+              ],
+            },
+            {
+              label: 'Media & Press',
+              links: [
                 {
                   label: 'Press Release',
                   href: '/services/press-release',
@@ -141,10 +146,16 @@ export const navItems: NavItem[] = [
                   description: 'TV & podcast interview placements',
                   icon: '\u{1F399}️',
                 },
+                {
+                  label: 'Print Advertising',
+                  href: '/services/print-advertising',
+                  description: 'Ad placements in trusted print publications',
+                  icon: '\u{1F4F0}',
+                },
               ],
             },
             {
-              label: 'Engagement & Reviews',
+              label: 'Content & Video',
               links: [
                 {
                   label: 'Book Trailers',
@@ -153,16 +164,22 @@ export const navItems: NavItem[] = [
                   icon: '\u{1F3AC}',
                 },
                 {
+                  label: 'Book-to-Screen Services',
+                  href: '/services/book-to-screen',
+                  description: 'Film & TV adaptation development for authors',
+                  icon: '\u{1F3AC}',
+                },
+              ],
+            },
+            {
+              label: 'Credibility & Recognition',
+              links: [
+                {
                   label: 'Book Reviews',
                   href: '/services/book-reviews',
                   description: 'Third-party reviews from top platforms',
                   icon: '⭐',
                 },
-              ],
-            },
-            {
-              label: 'Credibility',
-              links: [
                 {
                   label: 'Book Awards',
                   href: '/services/book-awards',
@@ -172,7 +189,7 @@ export const navItems: NavItem[] = [
               ],
             },
             {
-              label: 'Premium Opportunities',
+              label: 'Premium Exposure',
               links: [
                 {
                   label: 'International Book Fairs',
@@ -181,27 +198,10 @@ export const navItems: NavItem[] = [
                   icon: '\u{1F30D}',
                 },
                 {
-                  label: 'Print Advertising',
-                  href: '/services/print-advertising',
-                  description: 'Ad placements in trusted print publications',
-                  icon: '\u{1F4F0}',
-                },
-                {
                   label: 'Times Square Billboard',
                   href: '/services/times-square-billboard',
                   description: 'Feature your book on a NYC digital billboard',
                   icon: '\u{1F3D9}️',
-                },
-              ],
-            },
-            {
-              label: 'Advanced Opportunities',
-              links: [
-                {
-                  label: 'Book-to-Screen Services',
-                  href: '/services/book-to-screen',
-                  description: 'Film & TV adaptation development for authors',
-                  icon: '\u{1F3AC}',
                 },
               ],
             },
@@ -226,7 +226,6 @@ export const navItems: NavItem[] = [
       { label: "Children's Book Publishing", href: '/services/authors-tranquility-junior', description: 'Illustrated picture books & early readers' },
       { label: 'eBook Conversion',           href: '/services/ebook-conversion',         description: 'Multi-format digital distribution' },
       { label: 'Book Illustration',          href: '/services/book-illustration',        description: 'Professional illustrations for your book' },
-      { label: 'Marketing & PR',             href: '/services/marketing',                description: 'Author platform & book promotion' },
       { label: 'Author Website',             href: '/services/author-website',           description: 'Professional author presence online' },
       { label: 'Book Spark',                 href: '/services/book-spark',               description: 'Bookmarks, business cards & postcards' },
       { label: 'Social Media Ads',           href: '/services/social-media-advertising', description: 'Targeted campaigns for authors' },

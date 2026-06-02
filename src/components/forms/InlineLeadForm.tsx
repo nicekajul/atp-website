@@ -93,7 +93,6 @@ export default function InlineLeadForm({ submitLabel, helperText }: InlineLeadFo
               <option value="Publishing Packages">Publishing Packages</option>
               <option value="Editorial Services">Editorial Services</option>
               <option value="Book Design">Book Design</option>
-              <option value="Marketing & PR">Marketing &amp; PR</option>
               <option value="eBook Conversion">eBook Conversion</option>
               <option value="Author Website">Author Website</option>
             </select>

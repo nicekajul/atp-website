@@ -23,7 +23,7 @@ const categories = [
     heading: 'Launch & Promotion',
     icon: '🚀',
     description: 'Targeted campaigns that connect your book with the right readers.',
-    slugs: ['marketing', 'social-media-advertising', 'digital-advertising'],
+    slugs: ['social-media-advertising', 'digital-advertising'],
   },
   {
     id: 'media',

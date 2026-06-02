@@ -44,7 +44,7 @@ export default function HeroSection() {
             <div className={styles.segmentationButtons}>
               <Button href="/services/publishing-packages" variant="ghost" size="sm" className={styles.segBtn}>New Author</Button>
               <Button href="/quiz" variant="ghost" size="sm" className={styles.segBtn}>Published Author</Button>
-              <Button href="/services/marketing" variant="ghost" size="sm" className={styles.segBtn}>Need Marketing Help</Button>
+              <Button href="/marketing" variant="ghost" size="sm" className={styles.segBtn}>Need Marketing Help</Button>
             </div>
           </div>
 
