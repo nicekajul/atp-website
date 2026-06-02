@@ -84,7 +84,7 @@ export default function EbookPopup() {
         >
           <span className={styles.tabIcon}>📚</span>
           <span className={styles.tabText}>Free Guide</span>
-          <span className={styles.tabArrow}>‹</span>
+          <span className={styles.tabArrow}>›</span>
         </button>
       )}
 

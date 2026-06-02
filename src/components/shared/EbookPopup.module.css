@@ -3,7 +3,7 @@
    ============================================================ */
 .tab {
   position: fixed;
-  right: 0;
+  left: 0;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1800;
@@ -15,14 +15,14 @@
 
   background: var(--atp-navy);
   border: 1px solid var(--atp-gold);
-  border-right: none;
-  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  border-left: none;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   padding: var(--space-5) var(--space-3);
 
   cursor: pointer;
-  box-shadow: -4px 0 24px rgba(15, 27, 45, 0.3);
+  box-shadow: 4px 0 24px rgba(15, 27, 45, 0.3);
 
-  /* Slide in from right on mount, then hold position */
+  /* Slide in from left on mount, then hold position */
   animation: slideInTab 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
 
   /* Hover uses a separate transition so it doesn't fight the animation */
@@ -31,12 +31,11 @@
     box-shadow var(--transition-base);
 }
 
-/* Drawer-handle pull effect — done with a separate wrapper trick via padding */
+/* Drawer-handle pull effect — pulls slightly to the right */
 .tab:hover {
   background: var(--atp-navy-light);
-  box-shadow: -8px 0 32px rgba(15, 27, 45, 0.4);
-  /* translateY keeps vertical center, translateX pulls left */
-  transform: translateY(-50%) translateX(-5px);
+  box-shadow: 8px 0 32px rgba(15, 27, 45, 0.4);
+  transform: translateY(-50%) translateX(5px);
   transition:
     background var(--transition-base),
     box-shadow var(--transition-base),
@@ -73,7 +72,7 @@
 }
 
 @keyframes slideInTab {
-  from { opacity: 0; transform: translateY(-50%) translateX(100%); }
+  from { opacity: 0; transform: translateY(-50%) translateX(-100%); }
   to   { opacity: 1; transform: translateY(-50%) translateX(0); }
 }
 
@@ -130,9 +129,9 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.75);
+  background: rgba(15, 27, 45, 0.07);
+  border: 1px solid var(--atp-border);
+  color: var(--atp-slate);
   font-size: 1.35rem;
   line-height: 1;
   cursor: pointer;
@@ -144,8 +143,8 @@
 }
 
 .closeBtn:hover {
-  background: rgba(255, 255, 255, 0.22);
-  color: var(--atp-white);
+  background: rgba(15, 27, 45, 0.13);
+  color: var(--atp-navy);
 }
 
 /* ============================================================
@@ -406,16 +405,6 @@
     border-radius: 0;
   }
 
-  .closeBtn {
-    background: rgba(15, 27, 45, 0.07);
-    border-color: var(--atp-border);
-    color: var(--atp-slate);
-  }
-
-  .closeBtn:hover {
-    background: var(--atp-cream-dark);
-    color: var(--atp-navy);
-  }
 }
 
 @keyframes slideUp {
