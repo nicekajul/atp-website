@@ -9,8 +9,9 @@ import EbookPopup from '@/components/shared/EbookPopup'
 export default function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const isStudio = pathname?.startsWith('/studio')
+  const isDocs   = pathname?.startsWith('/docs')
 
-  if (isStudio) {
+  if (isStudio || isDocs) {
     return <>{children}</>
   }
 

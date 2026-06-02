@@ -134,7 +134,7 @@ D:\ATP\Revamp\
 │       └── formatPhone.ts          # US phone number formatter
 │
 ├── next.config.ts                  # Next.js config (webpack aliases, ESLint bypass)
-├── CLAUDE.md / AGENTS.md           # AI agent instructions
+├── CLAUDE.md / AGENTS.md           # Project development configuration
 └── DOCUMENTATION.md                # This file
 ```
 
@@ -572,4 +572,8 @@ All changes in this session are on branch `master`. Commits are in chronological
 
 ---
 
-*Documentation generated June 3, 2026. For questions, contact the development team.*
+---
+
+**Developed by:** Alreen Christian Jul R. Omang
+**Title:** Marketing Technology Manager / Senior Full-Stack Developer
+**Date:** June 3, 2026

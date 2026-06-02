@@ -45,6 +45,13 @@ export default function DocsPage() {
             </ul>
           </nav>
           <div className={styles.sidebarBadge}>Internal Use Only</div>
+
+          <div className={styles.devCard}>
+            <p className={styles.devLabel}>Developed by</p>
+            <p className={styles.devName}>Alreen Christian Jul R. Omang</p>
+            <p className={styles.devRole}>Marketing Technology Manager</p>
+            <p className={styles.devRole}>Senior Full-Stack Developer</p>
+          </div>
         </div>
       </aside>
 
@@ -551,6 +558,10 @@ export default function DocsPage() {
 
         <footer className={styles.footer}>
           <p>Authors Tranquility Press · Internal Documentation · {new Date().getFullYear()}</p>
+          <p>
+            Developed by <strong>Alreen Christian Jul R. Omang</strong> —
+            Marketing Technology Manager / Senior Full-Stack Developer
+          </p>
           <p>This page is not indexed by search engines and is not linked from the public navigation.</p>
         </footer>
       </main>
