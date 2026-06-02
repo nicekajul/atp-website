@@ -241,7 +241,6 @@ export const navItems: NavItem[] = [
       { label: 'Book-to-Screen Services',    href: '/services/book-to-screen',           description: 'Film & TV adaptation development for authors' },
     ],
   },
-  { label: 'Bookstore', href: '/bookstore' },
   { label: 'About',     href: '/about' },
   { label: 'Resources', href: '/resources' },
   { label: 'FAQ',       href: '/faq' },
