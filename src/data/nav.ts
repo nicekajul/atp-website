@@ -215,7 +215,7 @@ export const navItems: NavItem[] = [
         description:
           "Contact our literary agents to secure your copy.",
         href: '/contact',
-        cta: 'Contact Your Literary Agent',
+        cta: 'Contact Your Literary Consultant',
       },
     },
 
