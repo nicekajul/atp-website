@@ -126,15 +126,6 @@ export default function AboutPage() {
                 The result: books that compete at the highest level, authors who retain their rights, and a publishing experience rooted in respect for the craft.
               </p>
             </div>
-            <div className={styles.missionVisual}>
-              <div className={styles.quoteCard}>
-                <span className={styles.quoteGlyph}>&ldquo;</span>
-                <p className={styles.quoteText}>
-                  Every story deserves a professional advocate — someone who believes in it as deeply as its author does.
-                </p>
-                <p className={styles.quoteAuthor}>— Victoria Lane, Founder</p>
-              </div>
-            </div>
           </div>
         </Container>
       </section>
