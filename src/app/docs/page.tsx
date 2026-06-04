@@ -18,7 +18,39 @@ const sections = [
   { id: 'forms',         label: 'Forms & Integrations' },
   { id: 'env',           label: 'Environment Variables' },
   { id: 'deployment',    label: 'Deployment' },
+  { id: 'brand-assets',  label: 'Brand Assets' },
   { id: 'changelog',     label: 'Changelog — June 3, 2026' },
+]
+
+const BRAND_ASSETS = [
+  {
+    file: 'ATP-logo-full-dark.png',
+    label: 'Full Logo — Dark',
+    desc: 'Primary logo. Dark navy text on light/white backgrounds.',
+    bg: '#ffffff',
+    border: true,
+  },
+  {
+    file: 'ATP-logo-full-light.png',
+    label: 'Full Logo — Light',
+    desc: 'Reversed logo. White text for use on dark/navy backgrounds.',
+    bg: '#0f1f3d',
+    border: false,
+  },
+  {
+    file: 'atp-logo-alt.png',
+    label: 'App Icon',
+    desc: 'Square icon mark with gold background. Use for favicons, social profiles, and app icons.',
+    bg: '#f7f4ef',
+    border: true,
+  },
+  {
+    file: 'ATP-logo-dark.png',
+    label: 'Icon Mark — Gold',
+    desc: 'Standalone gold icon on transparent background. Use on light or navy surfaces.',
+    bg: '#ffffff',
+    border: true,
+  },
 ]
 
 export default function DocsPage() {
@@ -442,9 +474,40 @@ export default function DocsPage() {
           </ul>
         </section>
 
-        {/* 11. Changelog */}
+        {/* 11. Brand Assets */}
+        <section id="brand-assets" className={styles.section}>
+          <h2 className={styles.sectionTitle}>11. Brand Assets</h2>
+          <p>Official logos and icons for Author&rsquo;s Tranquility Press. Click <strong>Download</strong> on any asset to save the file.</p>
+          <div className={styles.assetGrid}>
+            {BRAND_ASSETS.map(asset => (
+              <div key={asset.file} className={styles.assetCard}>
+                <div
+                  className={styles.assetPreview}
+                  style={{ background: asset.bg, border: asset.border ? '1px solid #e5e7eb' : 'none' }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/${asset.file}`} alt={asset.label} className={styles.assetImg} />
+                </div>
+                <div className={styles.assetInfo}>
+                  <p className={styles.assetLabel}>{asset.label}</p>
+                  <p className={styles.assetDesc}>{asset.desc}</p>
+                  <code className={styles.assetFile}>{asset.file}</code>
+                  <a
+                    href={`/${asset.file}`}
+                    download={asset.file}
+                    className={styles.assetDownload}
+                  >
+                    ↓ Download
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 12. Changelog */}
         <section id="changelog" className={styles.section}>
-          <h2 className={styles.sectionTitle}>11. Changelog — June 3, 2026</h2>
+          <h2 className={styles.sectionTitle}>12. Changelog — June 3, 2026</h2>
           <p>All changes on branch <code className={styles.code}>master</code>, in chronological order.</p>
 
           {[
