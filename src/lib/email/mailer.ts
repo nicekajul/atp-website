@@ -1,7 +1,7 @@
 const RESEND_API = 'https://api.resend.com/emails'
 
-export const FROM       = 'Authors Tranquility Press <webdev@authorstranquilitypress.com>'
-export const TO_ADDRESS = 'webdev@authorstranquilitypress.com'
+export const FROM       = "Author's Tranquility Press <support@authorstranquilitypress.com>"
+export const TO_ADDRESS = 'support@authorstranquilitypress.com'
 
 interface MailOptions {
   to: string
