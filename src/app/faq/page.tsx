@@ -5,8 +5,8 @@ import FAQClient from './FAQClient'
 import styles from './faq.module.css'
 
 export const metadata: Metadata = {
-  title: 'FAQ | Authors Tranquility Press',
-  description: 'Frequently asked questions about publishing with Authors Tranquility Press — packages, timelines, royalties, rights, marketing, and more.',
+  title: 'FAQ | Author\'s Tranquility Press',
+  description: 'Frequently asked questions about publishing with Author\'s Tranquility Press, packages, timelines, royalties, rights, marketing, and more.',
 }
 
 export default function FAQPage() {
@@ -24,7 +24,7 @@ export default function FAQPage() {
               <span className={styles.heroHighlight}>Questions</span>
             </h1>
             <p className={styles.heroSub}>
-              Everything you need to know about publishing, marketing, rights, and working with Authors Tranquility Press — answered in one place.
+              Everything you need to know about publishing, marketing, rights, and working with Author&apos;s Tranquility Press, answered in one place.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.heroStat}>
@@ -62,7 +62,7 @@ export default function FAQPage() {
               <h2 className={styles.nudgeHeading}>Still have questions?</h2>
               <p className={styles.nudgeSub}>
                 Our publishing advisors are happy to answer anything not covered here.
-                Book a free consultation — no pressure, no obligation.
+                Book a free consultation, no pressure, no obligation.
               </p>
             </div>
             <a href="/contact" className={styles.nudgeBtn}>Talk to an Advisor →</a>

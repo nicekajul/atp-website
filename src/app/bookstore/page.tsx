@@ -9,7 +9,7 @@ import styles from './page.module.css'
 
 export const metadata: Metadata = {
   title: 'Bookstore',
-  description: 'Browse the latest titles published by Authors Tranquility Press authors.',
+  description: 'Browse the latest titles published by Author\'s Tranquility Press authors.',
 }
 
 export default async function BookstorePage() {
@@ -30,7 +30,7 @@ export default async function BookstorePage() {
               <span className={styles.heroHighlight}>reading.</span>
             </h1>
             <p className={styles.heroSub}>
-              Discover captivating fiction, insightful memoirs, and actionable business guides — every title independently published by an ATP author.
+              Discover captivating fiction, insightful memoirs, and actionable business guides, every title independently published by an ATP author.
             </p>
 
             <div className={styles.heroStats}>

@@ -11,7 +11,7 @@ export default function HomeCTA() {
         <div className={styles.content}>
           <h2 className={styles.heading}>Ready to bring your book to the world?</h2>
           <p className={styles.subheading}>
-            Join the hundreds of authors who have built their legacy with Authors Tranquility Press.
+            Join the hundreds of authors who have built their legacy with Author's Tranquility Press.
             Schedule a free consultation with our publishing experts today.
           </p>
           <div className={styles.actions}>

@@ -9,7 +9,7 @@ const RoyaltyCalc          = dynamic(() => import('./RoyaltyCalc'),          { s
 const LaunchChecklist      = dynamic(() => import('./LaunchChecklist'),      { ssr: false })
 const TitleGenerator       = dynamic(() => import('./TitleGenerator'),       { ssr: false })
 const ReadingTimeEstimator = dynamic(() => import('./ReadingTimeEstimator'), { ssr: false })
-const QueryLetterBuilder   = dynamic(() => import('./QueryLetterBuilder'),   { ssr: false })
+// const QueryLetterBuilder   = dynamic(() => import('./QueryLetterBuilder'),   { ssr: false })
 const BlurbBuilder         = dynamic(() => import('./BlurbBuilder'),         { ssr: false })
 
 const TOOLS = [
@@ -53,14 +53,14 @@ const TOOLS = [
     desc: 'Generate catchy title ideas by genre and keyword using proven titling formulas.',
     component: <TitleGenerator />,
   },
-  {
-    id: 'query',
-    category: 'writing',
-    icon: '✉️',
-    title: 'Query Letter Builder',
-    desc: 'Build a professional query letter from your plot details, bio, and comp titles.',
-    component: <QueryLetterBuilder />,
-  },
+  // {
+  //   id: 'query',
+  //   category: 'writing',
+  //   icon: '✉️',
+  //   title: 'Query Letter Builder',
+  //   desc: 'Build a professional query letter from your plot details, bio, and comp titles.',
+  //   component: <QueryLetterBuilder />,
+  // },
   {
     id: 'blurb',
     category: 'writing',

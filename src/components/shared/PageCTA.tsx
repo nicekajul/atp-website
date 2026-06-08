@@ -16,7 +16,7 @@ const VARIANTS = {
     eyebrow: 'Start Your Journey',
     heading: 'Ready to bring your manuscript',
     headingHighlight: 'to life?',
-    body: 'Join hundreds of authors who have built their legacy with Authors Tranquility Press — from first draft to Amazon launch, we handle every step.',
+    body: 'Join hundreds of authors who have built their legacy with Author\'s Tranquility Press. from first draft to Amazon launch, we handle every step.',
     features: [
       'Professional editing & proofreading',
       'Custom cover design that sells',
@@ -32,10 +32,10 @@ const VARIANTS = {
     cards: null,
   },
   reader: {
-    eyebrow: 'Published by Authors Tranquility Press',
+    eyebrow: 'Published by Author\'s Tranquility Press',
     heading: 'Your story deserves',
     headingHighlight: 'to be read.',
-    body: 'Every book in our store was written by an independent author we helped bring to life — from first draft to finished cover to Amazon listing.',
+    body: 'Every book in our store was written by an independent author we helped bring to life, from first draft to finished cover to Amazon listing.',
     features: [
       'Professional editing & proofreading',
       'Custom cover design that sells',
@@ -55,10 +55,10 @@ const VARIANTS = {
     cards: null,
   },
   discover: {
-    eyebrow: 'Authors Tranquility Press',
+    eyebrow: 'Author\'s Tranquility Press',
     heading: 'See what\'s possible',
     headingHighlight: 'with ATP.',
-    body: 'From first draft to bestseller — we guide independent authors through every stage of the publishing journey.',
+    body: 'From first draft to bestseller, we guide independent authors through every stage of the publishing journey.',
     features: null,
     primaryLabel: 'Explore Our Services',
     primaryHref: '/services',

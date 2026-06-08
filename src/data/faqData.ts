@@ -23,12 +23,12 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "I've never published before — where do I start?",
         answer:
-          "Start by taking our free 30-second Package Quiz on the website — it asks a few quick questions about your manuscript and goals, then recommends the right package for you. You can also book a free consultation call with our publishing advisors who will walk you through the entire process step by step.",
+          "Start by taking our free 30-second Package Quiz on the website, it asks a few quick questions about your manuscript and goals, then recommends the right package for you. You can also book a free consultation call with our publishing advisors who will walk you through the entire process step by step.",
       },
       {
         question: 'What genres and book types do you work with?',
         answer:
-          "We work across all genres and formats — fiction, non-fiction, memoir, biography, business, self-help, children's picture books, early readers, poetry, academic, and more. Our team has experience with both first-time authors and seasoned publishing professionals.",
+          "We work across all genres and formats, fiction, non-fiction, memoir, biography, business, self-help, children's picture books, early readers, poetry, academic, and more. Our team has experience with both first-time authors and seasoned publishing professionals.",
       },
       {
         question: 'Do you offer a free consultation?',
@@ -43,7 +43,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'Can I work with you if I live outside the United States?',
         answer:
-          "Absolutely. Authors Tranquility Press works with authors worldwide. Our process is fully remote — all communication, file sharing, and approvals are handled digitally. We distribute to global retail platforms including Amazon, IngramSpark, and Barnes & Noble regardless of where you are located.",
+          "Absolutely. Author\'s Tranquility Press works with authors worldwide. Our process is fully remote, all communication, file sharing, and approvals are handled digitally. We distribute to global retail platforms including Amazon, IngramSpark, and Barnes & Noble regardless of where you are located.",
       },
       {
         question: 'What do I need to have ready before I get started?',
@@ -60,7 +60,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'How much does it cost to publish a book?',
         answer:
-          "Professional publishing packages range from $599 for basic guided self-publishing to $6,499+ for full-service executive packages. Most authors choose our Professional tier at $2,499 for the best balance of editing, design, and distribution.",
+          "Professional publishing packages range from $899 for basic guided self-publishing to $12,999 for full-service executive packages. Most authors choose our Professional tier at $3,199 for the best balance of editing, design, and distribution.",
       },
       {
         question: "What's included in each package?",
@@ -97,7 +97,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'Do you work with all genres?',
         answer:
-          "Yes — fiction, non-fiction, memoir, children's books, academic, and business books are all covered. Our editorial team matches you with an editor experienced in your genre.",
+          "Yes. Fiction, non-fiction, memoir, children's books, academic, and business books are all covered. Our editorial team matches you with an editor experienced in your genre.",
       },
       {
         question: 'Can I provide my own images or artwork for my cover?',
@@ -176,7 +176,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'How long does it take to receive a book review?',
         answer:
-          "Turnaround times vary by platform — typically 4 to 12 weeks. Kirkus Reviews and Publishers Weekly tend to take longer due to high submission volume. ATP will keep you informed throughout the process.",
+          "Turnaround times vary by platform, typically 4 to 12 weeks. Kirkus Reviews and Publishers Weekly tend to take longer due to high submission volume. ATP will keep you informed throughout the process.",
       },
       {
         question: 'Will my book review be positive?',
@@ -211,7 +211,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'Where is the Times Square billboard located?',
         answer:
-          "Your book will be featured on a large-format LED digital billboard at 1560 Broadway — one of the most trafficked and photographed corners in all of Times Square, New York City.",
+          "Your book will be featured on a large-format LED digital billboard at 1560 Broadway, one of the most trafficked and photographed corners in all of Times Square, New York City.",
       },
       {
         question: 'How long does my book appear on the Times Square billboard?',
@@ -290,12 +290,12 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'Do I retain full rights and royalties?',
         answer:
-          "Yes, 100%. At Authors Tranquility Press, you retain all intellectual property rights and receive 100% of the royalties from your book sales. We are your service partner, not your publisher — you own everything.",
+          "Yes, 100%. At Author\'s Tranquility Press, you retain all intellectual property rights and receive 100% net of the royalties from your book sales. We are your service partner, not your publisher, you own everything.",
       },
       {
         question: "What's the difference between self-publishing and traditional publishing?",
         answer:
-          "In traditional publishing, you sign over rights to a publisher who covers production costs but takes the majority of royalties and creative control. With self-publishing through ATP, you pay for services upfront, retain all rights and 100% of royalties, and maintain full creative control over your book.",
+          "In traditional publishing, you sign over rights to a publisher who covers production costs but takes the majority of royalties and creative control. With self-publishing through ATP, you pay for services upfront, retain all rights and 100% net royalties, and maintain full creative control over your book.",
       },
       {
         question: 'Will I receive an ISBN for my book?',

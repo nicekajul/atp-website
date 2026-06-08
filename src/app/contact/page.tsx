@@ -7,7 +7,7 @@ import styles from './contact.module.css'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
-  description: 'Get in touch with the Authors Tranquility Press team. We\'d love to hear about your book and help you publish with excellence.',
+  description: 'Get in touch with the Author\'s Tranquility Press team. We\'d love to hear about your book and help you publish with excellence.',
 }
 
 const INFO_CARDS = [

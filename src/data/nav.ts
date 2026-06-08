@@ -213,9 +213,9 @@ export const navItems: NavItem[] = [
         title: "ATP Author's Quarterly",
         edition: '2025 Edition',
         description:
-          "Contact our literary agents to secure your copy.",
+          "Contact our literary consultant to secure your copy.",
         href: '/contact',
-        cta: 'Contact Your Literary Consultant',
+        cta: 'Secure Your Copy Now',
       },
     },
 

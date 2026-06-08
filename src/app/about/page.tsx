@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 }
 
 const STATS = [
-  { value: '500+', label: 'Books Published' },
+  { value: '500+', label: 'Authors Published' },
   { value: '4.9★', label: 'Author Satisfaction' },
   { value: '12+',  label: 'Years of Experience' },
   { value: '40+',  label: 'Countries Reached' },
@@ -120,7 +120,7 @@ export default function AboutPage() {
                 The traditional publishing gatekeeping system was never built for the author — it was built for the industry. Countless manuscripts with real potential are rejected every year not because they lack merit, but because they don&rsquo;t fit a commercial formula, come from an unknown name, or arrived at the wrong time.
               </p>
               <p className={styles.sectionBody}>
-                Authors Tranquility Press was built to change that. We combine the rigour of traditional publishing — professional editing, commercial-quality design, global distribution — with the flexibility and author-ownership that self-publishing promises but rarely delivers on its own.
+                Author&rsquo;s Tranquility Press was built to change that. We combine the rigour of traditional publishing — professional editing, commercial-quality design, global distribution — with the flexibility and author-ownership that self-publishing promises but rarely delivers on its own.
               </p>
               <p className={styles.sectionBody}>
                 The result: books that compete at the highest level, authors who retain their rights, and a publishing experience rooted in respect for the craft.
