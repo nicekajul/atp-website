@@ -227,9 +227,11 @@ function signatureHTML(): string {
       <!-- Row 1: Logo + Info -->
       <tr>
         <!-- Left: vertical logo -->
-        <td style="padding-right:22px;padding-bottom:16px;border-right:3px solid ${GOLD};vertical-align:top;text-align:center;width:130px;">
-          <img src="${LOGO_VERTICAL}" alt="Author's Tranquility Press"
-               width="110" style="display:block;width:110px;height:auto;"/>
+        <td style="padding:0;vertical-align:middle;text-align:center;width:130px;">
+          <div style="display:inline-block;padding-right:22px;border-right:3px solid ${GOLD};text-align:center;">
+            <img src="${LOGO_VERTICAL}" alt="Author's Tranquility Press"
+                 width="110" style="display:block;width:110px;height:auto;"/>
+          </div>
         </td>
 
         <!-- Right: info -->
@@ -241,24 +243,6 @@ function signatureHTML(): string {
           <p style="margin:0 0 10px;color:${MUTED};font-size:12px;">
             [Your Title]
           </p>
-
-          <!-- Social icons -->
-          <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:10px;">
-            <tr>
-              <td style="padding-right:6px;">
-                <a href="[FACEBOOK_URL]" style="display:inline-block;background:${NAVY};color:${GOLD};font-size:10px;font-weight:700;padding:4px 10px;border-radius:3px;text-decoration:none;letter-spacing:0.04em;">f</a>
-              </td>
-              <td style="padding-right:6px;">
-                <a href="[TIKTOK_URL]" style="display:inline-block;background:${NAVY};color:${GOLD};font-size:10px;font-weight:700;padding:4px 10px;border-radius:3px;text-decoration:none;letter-spacing:0.04em;">tt</a>
-              </td>
-              <td style="padding-right:6px;">
-                <a href="[INSTAGRAM_URL]" style="display:inline-block;background:${NAVY};color:${GOLD};font-size:10px;font-weight:700;padding:4px 10px;border-radius:3px;text-decoration:none;letter-spacing:0.04em;">in</a>
-              </td>
-              <td>
-                <a href="[YOUTUBE_URL]" style="display:inline-block;background:${NAVY};color:${GOLD};font-size:10px;font-weight:700;padding:4px 10px;border-radius:3px;text-decoration:none;letter-spacing:0.04em;">yt</a>
-              </td>
-            </tr>
-          </table>
 
           <!-- Contact details -->
           <p style="margin:0 0 3px;font-size:12px;color:${TEXT};">
