@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import styles from './docs.module.css'
+import DocsChangelog from './DocsChangelog'
 
 export const metadata: Metadata = {
   title: 'Website Documentation | Author\'s Tranquility Press',
@@ -19,7 +20,8 @@ const sections = [
   { id: 'env',           label: 'Environment Variables' },
   { id: 'deployment',    label: 'Deployment' },
   { id: 'brand-assets',  label: 'Brand Assets' },
-  { id: 'changelog',     label: 'Changelog — June 3, 2026' },
+  { id: 'branding',      label: 'Branding Guidelines' },
+  { id: 'changelog',     label: 'Changelog — June 2026' },
 ]
 
 const BRAND_ASSETS = [
@@ -501,119 +503,116 @@ export default function DocsPage() {
           </div>
         </section>
 
-        {/* 12. Changelog */}
-        <section id="changelog" className={styles.section}>
-          <h2 className={styles.sectionTitle}>12. Changelog — June 3, 2026</h2>
-          <p>All changes on branch <code className={styles.code}>master</code>, in chronological order.</p>
+        {/* 12. Branding Guidelines */}
+        <section id="branding" className={styles.section}>
+          <h2 className={styles.sectionTitle}>12. Branding Guidelines</h2>
+          <p>These guidelines ensure consistent brand presentation across all digital and print materials.</p>
 
-          {[
-            {
-              commit: 'b642df9',
-              title: 'Remove Marketing & PR service, align nav with marketing hub',
-              items: [
-                'Removed the marketing slug service entry from services.ts (no live route existed)',
-                'Removed Marketing & PR from mobile nav list in nav.ts',
-                'Removed Marketing & PR option from InlineLeadForm service dropdown',
-                'Redirected "Need Marketing Help" hero button from /services/marketing → /marketing',
-                "Removed 'marketing' slug from the Launch & Promotion category in marketing/page.tsx",
-              ],
-            },
-            {
-              commit: '4fc70af',
-              title: 'Align Marketing & Distribution submenu with marketing hub categories',
-              items: [
-                'Restructured desktop mega menu Marketing & Distribution column to match /marketing page',
-                'New groups: Foundation · Launch & Promotion · Media & Press · Content & Video · Credibility & Recognition · Premium Exposure',
-                'Print Advertising moved: Premium Opportunities → Media & Press',
-                'Book-to-Screen moved: Advanced Opportunities → Content & Video',
-                'Book Reviews joined Book Awards under Credibility & Recognition',
-              ],
-            },
-            {
-              commit: '4d71514',
-              title: 'Remove Marketing and Bookstore from main navbar',
-              items: [
-                'Removed standalone Marketing top-level nav item (covered by Services submenu)',
-                'Removed Bookstore top-level nav item (Browse Bookstore button in nav CTA area already exists)',
-              ],
-            },
-            {
-              commit: '4fc70af',
-              title: 'Add starting prices to marketing hub cards',
-              items: [
-                'Added optional startingPrice?: string field to Service interface',
-                'Book Reviews: startingPrice = "From $899"',
-                'Book-to-Screen: startingPrice = "From $999"',
-                'getStartingPrice() in MarketingHub.tsx uses the override before falling back to packages[0].price',
-              ],
-            },
-            {
-              commit: 'c724b76',
-              title: 'Speed dial FAB replaces floating CTA button',
-              items: [
-                'Replaced pill button with 56px gold circle trigger (+ rotates to × when open)',
-                '4 icon-only action buttons expand upward with 55ms stagger: Find My Package · View Packages · Get in Touch · Browse Bookstore',
-                'Each button shows a label tooltip to the left on hover',
-                'Quiz panel (quiz → lead capture → recommendation) retained, triggered by first action',
-                'Floating button (EbookPopup FAB) excluded from changes',
-              ],
-            },
-            {
-              commit: 'c724b76',
-              title: 'Free Guide tab moved to left; close button color fixed',
-              items: [
-                'Side tab moved from right: 0 to left: 0 to avoid overlap with speed dial',
-                'Border-radius, shadow direction, hover translateX, and slide animation all flipped for left-side position',
-                'Arrow changed from ‹ to › (points right, indicating open direction)',
-                'Close button: was white-on-white (invisible). Fixed to navy/slate on translucent bg',
-              ],
-            },
-            {
-              commit: 'c024ab4',
-              title: 'Mega menu column headings enhanced',
-              items: [
-                '.megaColHeading color: var(--atp-muted) → var(--atp-navy)',
-                'Font weight: 700 → 800',
-                'Bottom border: 1px solid var(--atp-border) → 2px solid var(--atp-gold)',
-              ],
-            },
-            {
-              commit: '79d6a0e',
-              title: 'Full FAQ page built',
-              items: [
-                'Created src/data/faqData.ts — 7 categories, 60+ Q&As from all service pages + new general sections',
-                'FAQClient.tsx — category filter tabs + individual accordion items with animated chevron',
-                'Hero with stats bar: 7 Categories · 60+ Questions · Free Consultation Available',
-                '"Still have questions?" contact nudge section above PageCTA',
-                'Fixed syntax error: apostrophe in single-quoted string on line 244',
-              ],
-            },
-            {
-              commit: '0fafcc7',
-              title: 'Shimmer hover effects applied to all button variants',
-              items: [
-                'position: relative; overflow: hidden moved to base .btn class',
-                '::after shimmer sweep added globally (white gradient, left-to-right, 0.55s ease)',
-                'Hover lift increased: translateY(-1px) → translateY(-2px)',
-                'primary: box-shadow 0 6px 28px rgba(201,168,76,0.5)',
-                'secondary: box-shadow 0 6px 28px rgba(15,31,61,0.4)',
-                'outline: fills navy + shadow on hover',
-                'gold: fills gold + glow on hover',
-                'ghost: shimmer suppressed (display: none on ::after) — subtle cream fill only',
-              ],
-            },
-          ].map(entry => (
-            <div key={entry.commit} className={styles.changeEntry}>
-              <div className={styles.changeHeader}>
-                <code className={styles.commitHash}>{entry.commit}</code>
-                <h3 className={styles.changeTitle}>{entry.title}</h3>
+          {/* Color Palette */}
+          <h3 className={styles.subTitle}>Color Palette</h3>
+          <div className={styles.colorGrid}>
+            {[
+              { name: 'Navy',        hex: '#0F1B2D', variable: '--atp-navy',       dark: true  },
+              { name: 'Navy Dark',   hex: '#07111D', variable: '--atp-navy-dark',  dark: true  },
+              { name: 'Navy Light',  hex: '#1A2E48', variable: '--atp-navy-light', dark: true  },
+              { name: 'Gold',        hex: '#C9A84C', variable: '--atp-gold',       dark: false },
+              { name: 'Gold Light',  hex: '#E2C070', variable: '--atp-gold-light', dark: false },
+              { name: 'Gold Dark',   hex: '#A8882C', variable: '--atp-gold-dark',  dark: false },
+              { name: 'Cream',       hex: '#F8F5EF', variable: '--atp-cream',      dark: false },
+              { name: 'Charcoal',    hex: '#2D3748', variable: '--atp-charcoal',   dark: true  },
+              { name: 'White',       hex: '#FFFFFF', variable: '--atp-white',      dark: false },
+            ].map(c => (
+              <div key={c.hex} className={styles.colorCard}>
+                <div className={styles.colorSwatch} style={{ background: c.hex }}>
+                  <span className={styles.colorHex} style={{ color: c.dark ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.6)' }}>{c.hex}</span>
+                </div>
+                <div className={styles.colorInfo}>
+                  <p className={styles.colorName}>{c.name}</p>
+                  <code className={styles.assetFile}>{c.variable}</code>
+                </div>
               </div>
-              <ul className={styles.changeList}>
-                {entry.items.map((item, i) => <li key={i}>{item}</li>)}
-              </ul>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Typography */}
+          <h3 className={styles.subTitle}>Typography</h3>
+          <div className={styles.tableWrap}>
+            <table className={styles.table}>
+              <thead><tr><th>Role</th><th>Font Family</th><th>CSS Variable</th><th>Usage</th></tr></thead>
+              <tbody>
+                {[
+                  ['Serif', 'Playfair Display', '--font-serif', 'H1–H4 headings, hero text, section titles, pull quotes'],
+                  ['Sans', 'Inter', '--font-sans', 'Body copy, nav, labels, buttons, captions, UI elements'],
+                ].map(([role, font, variable, usage]) => (
+                  <tr key={role}>
+                    <td><strong>{role}</strong></td>
+                    <td>{font}</td>
+                    <td><code className={styles.code}>{variable}</code></td>
+                    <td>{usage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className={styles.callout}>
+            Both fonts are loaded via Google Fonts in the Next.js root layout. Always use the CSS variables — never hardcode font names in components.
+          </div>
+
+          {/* Logo Usage */}
+          <h3 className={styles.subTitle}>Logo Usage</h3>
+          <div className={styles.tableWrap}>
+            <table className={styles.table}>
+              <thead><tr><th>Scenario</th><th>Use</th></tr></thead>
+              <tbody>
+                {[
+                  ['Light / white background', 'Full Logo — Dark (ATP-logo-full-dark.png)'],
+                  ['Dark / navy background', 'Full Logo — Light (ATP-logo-full-light.png)'],
+                  ['Favicon, app icon, social profile picture', 'App Icon (atp-logo-alt.png)'],
+                  ['Standalone mark on any background', 'Icon Mark — Gold (ATP-logo-dark.png)'],
+                  ['Transactional emails (header & footer)', 'Full Logo — Light via NEXT_PUBLIC_SITE_URL/ATP-logo-full-light.png'],
+                ].map(([scenario, use]) => (
+                  <tr key={scenario}><td>{scenario}</td><td>{use}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <ul className={styles.list}>
+            <li><strong>Minimum size:</strong> 120px wide for full logo; 32px for icon mark</li>
+            <li><strong>Clear space:</strong> Maintain padding equal to the height of the icon on all sides</li>
+            <li><strong>Never:</strong> stretch, skew, rotate, recolor, or place on a busy/patterned background without a backing shape</li>
+            <li><strong>Never:</strong> use a rasterized logo smaller than its minimum size — use the icon mark instead</li>
+          </ul>
+
+          {/* Brand Voice */}
+          <h3 className={styles.subTitle}>Brand Voice & Tone</h3>
+          <div className={styles.compGrid}>
+            {[
+              { name: 'Empowering', desc: 'Authors are the heroes. ATP is the guide. Every line of copy puts the author\'s success at the centre.' },
+              { name: 'Professional', desc: 'We speak with expertise and confidence. Avoid slang, excessive exclamation marks, and vague claims without backing.' },
+              { name: 'Warm', desc: 'We are not a corporation. Use "we" and "you" freely. Write the way a knowledgeable friend would explain publishing.' },
+              { name: 'Precise', desc: 'Clear over clever. If a sentence can be shorter without losing meaning, shorten it. No filler phrases.' },
+            ].map(v => (
+              <div key={v.name} className={styles.compCard}>
+                <code className={styles.compName}>{v.name}</code>
+                <p className={styles.compDesc}>{v.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Brand Don'ts */}
+          <h3 className={styles.subTitle}>Copy Rules</h3>
+          <ul className={styles.list}>
+            <li>Brand name is <strong>Author&rsquo;s Tranquility Press</strong> — always with the apostrophe. Never "Authors Tranquility Press".</li>
+            <li>Short form: <strong>ATP</strong> — acceptable after first full mention on a page.</li>
+            <li>Email sender: <strong>support@authorstranquilitypress.com</strong></li>
+            <li>Primary CTA: <strong>Start Publishing</strong> (header) · <strong>Book a Free Consultation</strong> (body)</li>
+            <li>Avoid em-dash overuse — use it for strong breaks only, not as a comma substitute.</li>
+            <li>Prices should always be preceded by "From" when showing a starting price (e.g., "From $899").</li>
+          </ul>
         </section>
+
+        {/* 13. Changelog */}
+        <DocsChangelog sectionNumber={13} />
 
         <footer className={styles.footer}>
           <p>Author&rsquo;s Tranquility Press · Internal Documentation · {new Date().getFullYear()}</p>

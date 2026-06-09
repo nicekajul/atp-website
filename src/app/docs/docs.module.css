@@ -387,6 +387,94 @@
   margin: 0;
 }
 
+/* ── Color swatches ─────────────────────────────────── */
+.colorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.colorCard {
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.colorSwatch {
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-2) var(--space-3);
+}
+
+.colorHex {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.colorInfo {
+  padding: var(--space-2) var(--space-3) var(--space-3);
+  background: var(--atp-white);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.colorName {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--atp-navy);
+  margin: 0;
+}
+
+/* ── Changelog toggle ───────────────────────────────── */
+.changelogToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--atp-border);
+  padding: 0 0 var(--space-4);
+  margin-bottom: var(--space-6);
+  cursor: pointer;
+  text-align: left;
+}
+
+.changelogToggle:hover .sectionTitleInline {
+  color: var(--atp-gold);
+}
+
+.sectionTitleInline {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--atp-navy);
+  margin: 0;
+  transition: color 0.15s ease;
+}
+
+.changelogChevron {
+  font-size: 1.25rem;
+  color: var(--atp-muted);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.changelogChevronOpen {
+  transform: rotate(180deg);
+}
+
+.changelogMeta {
+  font-size: var(--text-sm);
+  color: var(--atp-slate);
+  margin: 0 0 var(--space-5);
+}
+
 /* ── Brand Assets ───────────────────────────────────── */
 .assetGrid {
   display: grid;
