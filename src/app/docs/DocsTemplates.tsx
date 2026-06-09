@@ -227,12 +227,13 @@ function signatureHTML(): string {
       <!-- Row 1: Logo + Info -->
       <tr>
         <!-- Left: vertical logo -->
-        <td style="padding:0;vertical-align:middle;text-align:center;width:130px;">
-          <div style="display:inline-block;padding-right:22px;border-right:3px solid ${GOLD};text-align:center;">
-            <img src="${LOGO_VERTICAL}" alt="Author's Tranquility Press"
-                 width="110" style="display:block;width:110px;height:auto;"/>
-          </div>
+        <td style="padding:0 22px 0 0;vertical-align:middle;text-align:center;width:130px;">
+          <img src="${LOGO_VERTICAL}" alt="Author's Tranquility Press"
+               width="110" style="display:block;width:110px;height:auto;margin:0 auto;"/>
         </td>
+
+        <!-- Gold separator -->
+        <td style="width:3px;padding:0 0 16px 0;background:${GOLD};background-clip:content-box;-webkit-background-clip:content-box;"></td>
 
         <!-- Right: info -->
         <td style="padding-left:22px;padding-bottom:16px;vertical-align:top;">
@@ -268,7 +269,7 @@ function signatureHTML(): string {
 
       <!-- Row 2: Full-width disclaimer -->
       <tr>
-        <td colspan="2" style="padding-top:14px;border-top:1px solid #e5e7eb;margin-top:14px;">
+        <td colspan="3" style="padding-top:14px;border-top:1px solid #e5e7eb;margin-top:14px;">
           <p style="margin:10px 0 0;font-size:10px;color:#999;line-height:1.5;">
             <em>Disclaimer: This email and any attachments are confidential and may contain privileged information.
             If you are not the intended recipient, please delete this email and notify the sender immediately.
