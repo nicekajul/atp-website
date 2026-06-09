@@ -8,7 +8,7 @@ type TemplateId = 'email' | 'word' | 'signature'
 const SITE      = 'https://authorstranquilitypress.com'
 const LOGO_LIGHT = `${SITE}/ATP-Logo-Horizontal-Light.png`
 const LOGO_DARK  = `${SITE}/ATP-Logo-Horizontal-Dark.png`
-const NAVY  = '#0F1B2D'
+const NAVY  = '#07111D'
 const GOLD  = '#C9A84C'
 const CREAM = '#F8F5EF'
 const TEXT  = '#2D3748'
@@ -247,16 +247,16 @@ function signatureHTML(): string {
 
           <!-- Contact details -->
           <p style="margin:0 0 3px;font-size:12px;color:${TEXT};">
-            &#128222;&nbsp;<a href="tel:+18664118655" style="color:${TEXT};text-decoration:none;">+1 (866) 411 8655</a>
+            <span style="color:${GOLD};margin-right:6px;">&bull;</span><a href="tel:+18664118655" style="color:${TEXT};text-decoration:none;">+1 (866) 411 8655</a>
           </p>
           <p style="margin:0 0 3px;font-size:12px;color:${TEXT};">
-            &#9993;&nbsp;<a href="mailto:[YOUR_EMAIL]" style="color:${GOLD};text-decoration:none;">[your.name@authorstranquilitypress.com]</a>
+            <span style="color:${GOLD};margin-right:6px;">&bull;</span><a href="mailto:[YOUR_EMAIL]" style="color:${GOLD};text-decoration:none;">[your.name@authorstranquilitypress.com]</a>
           </p>
           <p style="margin:0 0 3px;font-size:12px;color:${TEXT};">
-            &#127759;&nbsp;<a href="${SITE}" style="color:${GOLD};text-decoration:none;">www.authorstranquilitypress.com</a>
+            <span style="color:${GOLD};margin-right:6px;">&bull;</span><a href="${SITE}" style="color:${GOLD};text-decoration:none;">www.authorstranquilitypress.com</a>
           </p>
           <p style="margin:0 0 14px;font-size:12px;color:${TEXT};">
-            &#128205;&nbsp;531 Roselane Street NW Suite 400-175, Marietta, GA 30060
+            <span style="color:${GOLD};margin-right:6px;">&bull;</span>531 Roselane Street NW Suite 400-175, Marietta, GA 30060
           </p>
 
           <!-- Google Review CTA -->
