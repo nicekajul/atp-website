@@ -430,6 +430,90 @@
   margin: 0;
 }
 
+/* ── Templates ──────────────────────────────────────── */
+.templateTabs {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.templateTab {
+  padding: 8px 20px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-full);
+  background: var(--atp-white);
+  color: var(--atp-slate);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.templateTab:hover {
+  border-color: var(--atp-gold);
+  color: var(--atp-navy);
+}
+
+.templateTabActive {
+  background: var(--atp-navy);
+  color: var(--atp-gold);
+  border-color: var(--atp-navy);
+}
+
+.templateActions {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.tplCopyBtn,
+.tplDownloadBtn {
+  padding: 9px 20px;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  letter-spacing: 0.02em;
+}
+
+.tplCopyBtn {
+  background: var(--atp-white);
+  color: var(--atp-navy);
+  border: 1px solid var(--atp-border);
+}
+
+.tplCopyBtn:hover {
+  background: var(--atp-cream);
+  border-color: var(--atp-navy);
+}
+
+.tplDownloadBtn {
+  background: var(--atp-navy);
+  color: var(--atp-gold);
+  border: 1px solid var(--atp-navy);
+}
+
+.tplDownloadBtn:hover {
+  background: var(--atp-gold);
+  color: var(--atp-navy);
+  border-color: var(--atp-gold);
+}
+
+.templatePreviewWrap {
+  border: 1px solid var(--atp-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.templateIframe {
+  width: 100%;
+  border: none;
+  display: block;
+}
+
 /* ── Changelog toggle ───────────────────────────────── */
 .changelogToggle {
   width: 100%;

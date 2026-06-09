@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     images: [
       {
-        url: '/ATP-logo-full-dark.png',
+        url: '/ATP-Logo-Horizontal-Dark.png',
         width: 1200,
         height: 300,
         alt: "Author's Tranquility Press",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Author's Tranquility Press | Guided Publishing & Book Marketing",
     description:
       "A premium publishing partner helping independent authors publish, market, and distribute their books with confidence.",
-    images: ['/ATP-logo-full-dark.png'],
+    images: ['/ATP-Logo-Horizontal-Dark.png'],
   },
 }
 

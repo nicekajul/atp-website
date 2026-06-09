@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import styles from './docs.module.css'
 import DocsChangelog from './DocsChangelog'
+import DocsTemplates from './DocsTemplates'
 
 export const metadata: Metadata = {
   title: 'Website Documentation | Author\'s Tranquility Press',
@@ -21,22 +22,37 @@ const sections = [
   { id: 'deployment',    label: 'Deployment' },
   { id: 'brand-assets',  label: 'Brand Assets' },
   { id: 'branding',      label: 'Branding Guidelines' },
+  { id: 'templates',     label: 'Brand Templates' },
   { id: 'changelog',     label: 'Changelog — June 2026' },
 ]
 
 const BRAND_ASSETS = [
   {
-    file: 'ATP-logo-full-dark.png',
-    label: 'Full Logo — Dark',
-    desc: 'Primary logo. Dark navy text on light/white backgrounds.',
+    file: 'ATP-Logo-Horizontal-Dark.png',
+    label: 'Horizontal Logo — Dark',
+    desc: 'Primary logo. Use on light/white backgrounds. Main logo variant.',
     bg: '#ffffff',
     border: true,
   },
   {
-    file: 'ATP-logo-full-light.png',
-    label: 'Full Logo — Light',
-    desc: 'Reversed logo. White text for use on dark/navy backgrounds.',
-    bg: '#0f1f3d',
+    file: 'ATP-Logo-Horizontal-Light.png',
+    label: 'Horizontal Logo — Light',
+    desc: 'Reversed primary logo. Use on dark/navy backgrounds and in emails.',
+    bg: '#0f1b2d',
+    border: false,
+  },
+  {
+    file: 'ATP-Logo-Vertical-Dark.png',
+    label: 'Vertical Logo — Dark',
+    desc: 'Vertical variant. Use for email signatures and narrow-space contexts on light backgrounds.',
+    bg: '#ffffff',
+    border: true,
+  },
+  {
+    file: 'ATP-Logo-Vertical-Light.png',
+    label: 'Vertical Logo — Light',
+    desc: 'Vertical variant reversed. Use for email signatures and narrow-space contexts on dark/navy backgrounds.',
+    bg: '#0f1b2d',
     border: false,
   },
   {
@@ -562,25 +578,48 @@ export default function DocsPage() {
           <h3 className={styles.subTitle}>Logo Usage</h3>
           <div className={styles.tableWrap}>
             <table className={styles.table}>
-              <thead><tr><th>Scenario</th><th>Use</th></tr></thead>
+              <thead><tr><th>Scenario</th><th>File</th></tr></thead>
               <tbody>
                 {[
-                  ['Light / white background', 'Full Logo — Dark (ATP-logo-full-dark.png)'],
-                  ['Dark / navy background', 'Full Logo — Light (ATP-logo-full-light.png)'],
-                  ['Favicon, app icon, social profile picture', 'App Icon (atp-logo-alt.png)'],
-                  ['Standalone mark on any background', 'Icon Mark — Gold (ATP-logo-dark.png)'],
-                  ['Transactional emails (header & footer)', 'Full Logo — Light via NEXT_PUBLIC_SITE_URL/ATP-logo-full-light.png'],
-                ].map(([scenario, use]) => (
-                  <tr key={scenario}><td>{scenario}</td><td>{use}</td></tr>
+                  ['Light / white background (primary use)', 'ATP-Logo-Horizontal-Dark.png'],
+                  ['Dark / navy background', 'ATP-Logo-Horizontal-Light.png'],
+                  ['Email signatures, narrow layouts — light background', 'ATP-Logo-Vertical-Dark.png'],
+                  ['Email signatures, narrow layouts — dark background', 'ATP-Logo-Vertical-Light.png'],
+                  ['Favicon, app icon, social profile picture', 'atp-logo-alt.png'],
+                  ['Standalone icon mark on any surface', 'ATP-logo-dark.png'],
+                  ['Transactional emails (header & footer)', 'ATP-Logo-Horizontal-Light.png via NEXT_PUBLIC_SITE_URL'],
+                ].map(([scenario, file]) => (
+                  <tr key={scenario}><td>{scenario}</td><td><code className={styles.code}>{file}</code></td></tr>
                 ))}
               </tbody>
             </table>
           </div>
           <ul className={styles.list}>
-            <li><strong>Minimum size:</strong> 120px wide for full logo; 32px for icon mark</li>
-            <li><strong>Clear space:</strong> Maintain padding equal to the height of the icon on all sides</li>
-            <li><strong>Never:</strong> stretch, skew, rotate, recolor, or place on a busy/patterned background without a backing shape</li>
-            <li><strong>Never:</strong> use a rasterized logo smaller than its minimum size — use the icon mark instead</li>
+            <li><strong>Primary variant:</strong> Horizontal logo — always the default. Vertical is for narrow/email contexts only.</li>
+            <li><strong>Minimum size:</strong> 120px wide for horizontal logo; 80px wide for vertical logo; 32px for icon mark</li>
+            <li><strong>Clear space:</strong> Maintain padding equal to the height of the icon mark on all sides</li>
+            <li><strong>Never:</strong> stretch, skew, rotate, recolor, or place on a busy background without a backing shape</li>
+            <li><strong>Never:</strong> use a rasterized logo below minimum size — use the icon mark instead</li>
+          </ul>
+
+          {/* Proportion Calculations */}
+          <h3 className={styles.subTitle}>Logo Proportion System</h3>
+          <div className={styles.callout}>
+            These proportions were calculated by the brand designer to achieve optical balance between the bird mark and the wordmark across both logo variants.
+          </div>
+
+          <p className={styles.subTitle} style={{ fontSize: 'var(--text-sm)', marginTop: 0 }}>Vertical Logo</p>
+          <ul className={styles.list}>
+            <li><strong>Step 1 — Anchor point:</strong> Measure the exact pixel width of the word &ldquo;Tranquility&rdquo; (the widest word in the lockup).</li>
+            <li><strong>Step 2 — Golden Ratio:</strong> Multiply that width by <strong>0.62</strong>. Set the total width of the bird mark to that value. The 60–65% range is optimal for organic, flowing marks — 0.62 sits precisely at the Golden Ratio.</li>
+            <li><strong>Step 3 — Breathing room:</strong> The bird&rsquo;s tail is a sharp downward point that draws the eye directly into &ldquo;Author&rsquo;s.&rdquo; Use the physical cap-height of the letter &ldquo;A&rdquo; in &ldquo;Author&rsquo;s&rdquo; as the exact vertical gap between the tail tip and the top of the text below.</li>
+          </ul>
+
+          <p className={styles.subTitle} style={{ fontSize: 'var(--text-sm)', marginTop: 0 }}>Horizontal Logo</p>
+          <ul className={styles.list}>
+            <li><strong>Mark sizing:</strong> The bird mark height should be <strong>1.5× to 2.5×</strong> the cap-height of the wordmark. Matching it 1:1 makes the mark look too small.</li>
+            <li><strong>Vertical alignment:</strong> Align the horizontal centerline of the bird mark exactly with the horizontal centerline of the wordmark text.</li>
+            <li><strong>Gap:</strong> Use the pixel width of the lowercase &ldquo;o&rdquo; in &ldquo;Author&rsquo;s&rdquo; as the exact gap between the rightmost edge of the bird and the first letter of the wordmark. Wider logo = less breathing room needed.</li>
           </ul>
 
           {/* Brand Voice */}
@@ -611,8 +650,11 @@ export default function DocsPage() {
           </ul>
         </section>
 
-        {/* 13. Changelog */}
-        <DocsChangelog sectionNumber={13} />
+        {/* 13. Brand Templates */}
+        <DocsTemplates sectionNumber={13} />
+
+        {/* 14. Changelog */}
+        <DocsChangelog sectionNumber={14} />
 
         <footer className={styles.footer}>
           <p>Author&rsquo;s Tranquility Press · Internal Documentation · {new Date().getFullYear()}</p>

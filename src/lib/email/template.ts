@@ -1,5 +1,5 @@
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://authorstranquilitypress.com'
-const LOGO_URL = `${SITE_URL}/ATP-logo-light-1.png`
+const LOGO_URL = `${SITE_URL}/ATP-Logo-Horizontal-Light.png`
 
 const NAVY  = '#0f1f3d'
 const GOLD  = '#c9a84c'
