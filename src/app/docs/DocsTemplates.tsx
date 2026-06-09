@@ -260,7 +260,7 @@ function signatureHTML(): string {
           </p>
 
           <!-- Google Review CTA -->
-          <a href="[YOUR_GOOGLE_REVIEW_LINK]"
+          <a href="https://g.page/r/CQwn5g_P2kgPEAE/review"
              style="display:inline-block;background:${NAVY};color:${GOLD};font-size:11px;font-weight:700;padding:7px 16px;border-radius:4px;text-decoration:none;letter-spacing:0.03em;">
             &#11088; Happy with our work? Leave us a review on Google!
           </a>
