@@ -49,7 +49,7 @@ export default async function FeaturedBooks() {
 
         <div className={styles.grid}>
           {featuredBooks.map(book => {
-            const coverUrl = getCoverUrl(book.isbn, book.amazonUrl)
+            const coverUrl = getCoverUrl(book.isbn, book.amazonUrl, book.coverUrl)
             return (
               <div key={book.slug} className={styles.card}>
                 <div className={styles.coverSide}>
