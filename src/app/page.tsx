@@ -1,4 +1,7 @@
 import React from 'react'
+
+export const revalidate = 60
+
 import HeroSection from '@/components/home/HeroSection'
 import TrustBar from '@/components/shared/TrustBar'
 import StartJourney from '@/components/home/StartJourney'
