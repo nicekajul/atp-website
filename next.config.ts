@@ -19,21 +19,11 @@ const nextConfig: NextConfig = {
   images: {
     qualities: [75, 90, 100],
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'covers.openlibrary.org',
-        pathname: '/b/isbn/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images-na.ssl-images-amazon.com',
-        pathname: '/images/P/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'm.media-amazon.com',
-        pathname: '/images/**',
-      },
+      { protocol: 'https', hostname: 'covers.openlibrary.org',        pathname: '/b/isbn/**' },
+      { protocol: 'https', hostname: 'images-na.ssl-images-amazon.com', pathname: '/images/P/**' },
+      { protocol: 'https', hostname: 'm.media-amazon.com',            pathname: '/images/**' },
+      { protocol: 'https', hostname: 'books.google.com',              pathname: '/books/content/**' },
+      { protocol: 'https', hostname: '**' },
     ],
   },
 };

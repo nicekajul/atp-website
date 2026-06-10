@@ -3,6 +3,7 @@ export interface SanityBook {
   slug: string
   title: string
   author: string
+  coverUrl?: string
   isbn?: string
   amazonUrl?: string
   trailerUrl?: string
@@ -25,17 +26,18 @@ export interface SanityBook {
 
 /**
  * Returns the best available cover image URL.
- * Priority: Amazon (by ASIN extracted from the Amazon URL) → Open Library (by ISBN) → null
+ * Priority: manual coverUrl → Amazon CDN (1500px) → Google Books (zoom=10) → null
  */
-export function getCoverUrl(isbn?: string, amazonUrl?: string): string | null {
+export function getCoverUrl(isbn?: string, amazonUrl?: string, coverUrl?: string): string | null {
+  if (coverUrl) return coverUrl
   if (amazonUrl) {
     const asin = amazonUrl.match(/\/dp\/([A-Z0-9]{10})/i)?.[1]
     if (asin) {
-      return `https://images-na.ssl-images-amazon.com/images/P/${asin}.01._SL1500_.jpg`
+      return `https://m.media-amazon.com/images/P/${asin}.01._AC_SL1500_.jpg`
     }
   }
   if (isbn) {
-    return `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`
+    return `https://books.google.com/books/content?vid=ISBN${isbn}&printsec=frontcover&img=1&zoom=10&source=gbs_api`
   }
   return null
 }

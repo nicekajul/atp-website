@@ -15,7 +15,7 @@ interface BookPreviewModalProps {
 
 export default function BookPreviewModal({ book, isOpen, onClose }: BookPreviewModalProps) {
   const [imgError, setImgError] = useState(false)
-  const coverUrl = getCoverUrl(book.isbn, book.amazonUrl)
+  const coverUrl = getCoverUrl(book.isbn, book.amazonUrl, book.coverUrl)
 
   useEffect(() => {
     if (isOpen) {

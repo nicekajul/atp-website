@@ -3,6 +3,7 @@ const bookFields = `
   "slug": slug.current,
   title,
   author,
+  coverUrl,
   isbn,
   amazonUrl,
   trailerUrl,

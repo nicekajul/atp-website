@@ -38,7 +38,7 @@ export default function BookDetail({ book, relatedBooks }: BookDetailProps) {
   const [selectedFormat, setSelectedFormat] = useState<string>(book.formats?.[0] ?? 'Paperback')
   const [wishlisted, setWishlisted] = useState(false)
   const [imgError, setImgError] = useState(false)
-  const coverUrl = getCoverUrl(book.isbn, book.amazonUrl)
+  const coverUrl = getCoverUrl(book.isbn, book.amazonUrl, book.coverUrl)
 
   const publishedDate = book.publishedDate
     ? new Date(book.publishedDate).toLocaleDateString('en-US', {

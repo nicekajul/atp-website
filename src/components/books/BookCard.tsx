@@ -15,7 +15,7 @@ interface BookCardProps {
 export default function BookCard({ book }: BookCardProps) {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false)
   const [imgError, setImgError] = useState(false)
-  const coverUrl = getCoverUrl(book.isbn, book.amazonUrl)
+  const coverUrl = getCoverUrl(book.isbn, book.amazonUrl, book.coverUrl)
 
   const handleQuickPreview = (e: React.MouseEvent) => {
     e.preventDefault()

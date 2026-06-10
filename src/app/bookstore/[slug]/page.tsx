@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Book Not Found' }
   }
 
-  const coverUrl = getCoverUrl(book.isbn, book.amazonUrl)
+  const coverUrl = getCoverUrl(book.isbn, book.amazonUrl, book.coverUrl)
   const pageUrl = `https://authorstranquilitypress.com/bookstore/${slug}`
   const ogImage = coverUrl ? [{ url: coverUrl, alt: `Cover of ${book.title}` }] : []
 
