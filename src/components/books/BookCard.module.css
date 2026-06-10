@@ -73,7 +73,6 @@
   z-index: 4;
 }
 
-/* Diagonal corner ribbon for featured books */
 .featuredRibbon {
   position: absolute;
   top: 0;
@@ -103,11 +102,12 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Hover Overlay */
+/* ── Hover overlay ──────────────────────────────────── */
+
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(15, 27, 45, 0.6);
+  background: rgba(15, 27, 45, 0.65);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -126,7 +126,7 @@
   flex-direction: column;
   gap: var(--space-3);
   padding: var(--space-4);
-  width: 80%;
+  width: 85%;
   transform: translateY(10px);
   transition: transform 0.3s ease;
 }
@@ -135,41 +135,90 @@
   transform: translateY(0);
 }
 
-.quickPreviewBtn, .viewDetailsBtn {
+/* Shared button base — mirrors Button.module.css */
+.quickPreviewBtn,
+.viewDetailsBtn {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-3);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: 600;
+  letter-spacing: 0.02em;
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.2s ease;
   text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease;
 }
 
+/* Shimmer sweep */
+.quickPreviewBtn::after,
+.viewDetailsBtn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+
+/* Quick Preview — gold / primary */
 .quickPreviewBtn {
   background: var(--atp-gold);
   color: var(--atp-navy);
-  border: none;
+  border: 2px solid var(--atp-gold);
 }
 
 .quickPreviewBtn:hover {
   background: var(--atp-gold-light);
-  transform: scale(1.05);
+  border-color: var(--atp-gold-light);
+  transform: translateY(-2px);
 }
 
+.quickPreviewBtn:hover::after {
+  left: 125%;
+}
+
+.quickPreviewBtn:active {
+  transform: translateY(0);
+}
+
+/* View Details — white outline */
 .viewDetailsBtn {
-  background: rgba(255, 255, 255, 0.1);
+  background: transparent;
   color: var(--atp-white);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(4px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
-.card:hover .viewDetailsBtn:hover {
-  background: rgba(255, 255, 255, 0.2);
+.viewDetailsBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
   border-color: var(--atp-white);
+  transform: translateY(-2px);
 }
+
+.viewDetailsBtn:hover::after {
+  left: 125%;
+}
+
+.viewDetailsBtn:active {
+  transform: translateY(0);
+}
+
+/* ── Card content ───────────────────────────────────── */
 
 .content {
   padding: var(--space-3);
@@ -222,10 +271,7 @@
   gap: 4px;
 }
 
-.star {
-  color: var(--atp-gold);
-  font-size: 14px;
-}
+.star { color: var(--atp-gold); font-size: 14px; }
 
 .ratingNum {
   font-size: var(--text-sm);
@@ -238,10 +284,7 @@
   color: var(--atp-muted);
 }
 
-/* Real cover image (Open Library) */
 .coverImage {
   object-fit: contain;
   object-position: center center;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: high-quality;
 }

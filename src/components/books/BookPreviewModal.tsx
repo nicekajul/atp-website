@@ -18,12 +18,9 @@ export default function BookPreviewModal({ book, isOpen, onClose }: BookPreviewM
   const coverUrl = getCoverUrl(book.isbn, book.amazonUrl, book.coverUrl)
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-    return () => { document.body.style.overflow = '' }
+    const prev = document.body.style.overflow
+    if (isOpen) document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = prev }
   }, [isOpen])
 
   if (!isOpen) return null

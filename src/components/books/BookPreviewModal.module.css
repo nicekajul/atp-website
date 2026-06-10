@@ -1,36 +1,43 @@
+/* ── Backdrop ───────────────────────────────────────── */
+
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 27, 45, 0.4);
+  background: rgba(15, 27, 45, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-6);
-  animation: fadeIn 0.3s ease-out;
+  padding: var(--space-5);
+  animation: fadeIn 0.25s ease-out;
 }
+
+/* ── Modal shell ────────────────────────────────────── */
 
 .modal {
   position: relative;
   background: var(--atp-white);
   border-radius: var(--radius-2xl);
   width: 100%;
-  max-width: 820px;
-  max-height: 88vh;
+  max-width: 860px;
+  /* fixed height so internal scroll works reliably */
+  height: min(88vh, 600px);
   overflow: hidden;
-  box-shadow: 0 32px 64px rgba(15, 27, 45, 0.2);
+  box-shadow: 0 32px 80px rgba(15, 27, 45, 0.25);
   display: flex;
   flex-direction: column;
-  animation: fadeScale 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  animation: fadeScale 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
+
+/* ── Close button ───────────────────────────────────── */
 
 .closeBtn {
   position: absolute;
   top: var(--space-4);
   right: var(--space-4);
-  z-index: 1010;
+  z-index: 20;
   background: var(--atp-white);
   border: 1px solid var(--atp-border);
   color: var(--atp-navy);
@@ -41,8 +48,9 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: var(--shadow-sm);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  flex-shrink: 0;
 }
 
 .closeBtn:hover {
@@ -51,80 +59,98 @@
   color: var(--atp-white);
 }
 
+/* ── Two-column grid ────────────────────────────────── */
+
 .grid {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 240px 1fr;
   flex: 1;
   min-height: 0;
+  overflow: hidden;
 }
 
-/* ── Cover side ─────────────────────────────────────── */
+/* ── Cover column ───────────────────────────────────── */
 
 .coverSide {
   background: var(--atp-cream);
-  padding: var(--space-8);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  padding: var(--space-8);
+  overflow: hidden;
+}
+
+.coverImageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+}
+
+.coverImage {
+  object-fit: cover;
+  object-position: center;
 }
 
 .coverPlaceholder {
   width: 100%;
-  max-width: 180px;
+  max-width: 160px;
   aspect-ratio: 2 / 3;
   background: linear-gradient(135deg, var(--atp-navy-light) 0%, var(--atp-navy) 100%);
   border-radius: var(--radius-md);
-  box-shadow: 0 16px 32px rgba(0,0,0,0.25);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-5);
+  padding: var(--space-4);
   text-align: center;
   color: var(--atp-white);
 }
 
 .coverTitle {
   font-family: var(--font-serif);
-  font-size: var(--text-xl);
+  font-size: var(--text-base);
   font-weight: 700;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
   line-height: 1.2;
 }
 
 .coverAuthor {
-  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--atp-gold);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-/* ── Content side ───────────────────────────────────── */
+/* ── Content column ─────────────────────────────────── */
 
 .contentSide {
   display: flex;
   flex-direction: column;
   min-height: 0;
+  overflow: hidden;
   background: var(--atp-white);
 }
 
-/* Scrollable area — overflow lives here, NOT in .contentSide,
-   so the footer's box-shadows are never clipped */
+/* All text content scrolls here — footer stays pinned below */
 .scrollable {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
-  padding: var(--space-8);
-  padding-bottom: var(--space-4);
+  padding: var(--space-7) var(--space-7) var(--space-4);
 }
 
 .header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-3);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
+  padding-right: var(--space-8); /* clear the close btn */
   flex-wrap: wrap;
 }
 
@@ -141,28 +167,28 @@
   flex-shrink: 0;
 }
 
-.stars { color: var(--atp-gold); font-size: 1rem; letter-spacing: 2px; }
+.stars { color: var(--atp-gold); font-size: 0.9rem; letter-spacing: 2px; }
 .ratingText { font-size: var(--text-sm); font-weight: 600; color: var(--atp-muted); }
 
 .title {
   font-family: var(--font-serif);
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
   color: var(--atp-navy);
   margin-bottom: var(--space-1);
   line-height: 1.2;
 }
 
 .author {
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   color: var(--atp-muted);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
 }
 
 .description {
   font-size: var(--text-sm);
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--atp-charcoal);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
 }
 
 .specs {
@@ -170,17 +196,18 @@
   gap: var(--space-6);
   flex-wrap: wrap;
   border-top: 1px solid var(--atp-border);
-  padding-top: var(--space-5);
+  padding-top: var(--space-4);
 }
 
 .specItem { display: flex; flex-direction: column; gap: 2px; }
 .specLabel { font-size: 10px; text-transform: uppercase; color: var(--atp-muted); letter-spacing: 0.05em; font-weight: 700; }
 .specValue { font-size: var(--text-sm); font-weight: 600; color: var(--atp-navy); }
 
-/* Footer lives outside .scrollable so overflow-y never clips shadows */
+/* Footer is a flex sibling of .scrollable — never inside a scroll container,
+   so box-shadow and transform on buttons are never clipped */
 .footer {
   flex-shrink: 0;
-  padding: var(--space-4) var(--space-8) var(--space-6);
+  padding: var(--space-4) var(--space-7);
   border-top: 1px solid var(--atp-border);
   background: var(--atp-white);
 }
@@ -189,7 +216,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 .price {
@@ -209,121 +236,113 @@
   font-weight: 600;
   font-size: var(--text-sm);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: color 0.2s;
 }
 
-.wishlistBtn:hover {
-  color: var(--atp-gold);
-}
+.wishlistBtn:hover { color: var(--atp-gold); }
 
 .actions {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
 }
+
+/* ── Animations ─────────────────────────────────────── */
 
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
 @keyframes fadeScale {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-/* ── Tablet (641px – 820px) ─────────────────────────── */
+/* ── Tablet: 641 – 860px ────────────────────────────── */
 
-@media (max-width: 820px) {
+@media (max-width: 860px) {
   .overlay { padding: var(--space-4); }
 
+  .modal {
+    height: min(92vh, 580px);
+  }
+
   .grid {
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 180px 1fr;
   }
 
-  .coverSide {
-    padding: var(--space-5);
-  }
+  .coverSide { padding: var(--space-5); }
 
-  .scrollable {
-    padding: var(--space-5);
-    padding-bottom: var(--space-3);
-  }
+  .scrollable { padding: var(--space-5) var(--space-5) var(--space-3); }
 
-  .footer {
-    padding: var(--space-3) var(--space-5) var(--space-5);
-  }
+  .footer { padding: var(--space-3) var(--space-5); }
 
-  .title {
-    font-size: var(--text-2xl);
-  }
-
-  .actions {
-    flex-direction: row;
-    gap: var(--space-2);
-  }
+  .header { padding-right: var(--space-10); }
 }
 
-/* ── Mobile (≤640px) ────────────────────────────────── */
+/* ── Mobile: ≤ 640px — single column, page-style scroll ── */
 
 @media (max-width: 640px) {
-  .overlay { padding: 0; }
-
-  .modal {
-    max-width: none;
-    max-height: none;
-    height: 100dvh;
-    border-radius: 0;
+  .overlay {
+    padding: 0;
+    align-items: flex-end;
   }
 
+  .modal {
+    width: 100%;
+    max-width: 100%;
+    height: 92dvh;
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* On mobile the whole modal scrolls — no nested scroll containers */
   .grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     flex: 1;
+    min-height: 0;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .coverSide {
-    padding: var(--space-6);
-    height: 220px;
+    flex-shrink: 0;
+    height: 200px;
+    padding: var(--space-5);
   }
 
   .contentSide {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
     min-height: 0;
   }
 
   .scrollable {
-    padding: var(--space-5);
-    padding-bottom: var(--space-3);
+    flex: none;
     overflow-y: visible;
+    padding: var(--space-5) var(--space-5) var(--space-2);
   }
 
-  .footer {
-    padding: var(--space-3) var(--space-5) var(--space-5);
-  }
+  .header { padding-right: 0; }
 
   .title { font-size: var(--text-xl); }
 
+  .footer {
+    padding: var(--space-4) var(--space-5) var(--space-6);
+    /* ensure footer is never cut off at bottom */
+    position: sticky;
+    bottom: 0;
+    background: var(--atp-white);
+    border-top: 1px solid var(--atp-border);
+  }
+
   .actions {
-    flex-direction: row;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-2);
   }
-}
-
-/* ── Real cover image ───────────────────────────────── */
-
-.coverImageWrapper {
-  position: relative;
-  width: 100%;
-  max-width: 180px;
-  aspect-ratio: 2 / 3;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: 0 16px 32px rgba(0,0,0,0.25);
-}
-
-.coverImage {
-  object-fit: contain;
-  object-position: center center;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: high-quality;
 }
