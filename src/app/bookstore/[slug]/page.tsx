@@ -5,6 +5,8 @@ import { bookBySlugQuery, booksByGenreQuery, allSlugsQuery } from '@/sanity/quer
 import { SanityBook, getCoverUrl } from '@/sanity/types'
 import BookDetail from '@/components/books/BookDetail'
 
+export const revalidate = 60
+
 export async function generateStaticParams() {
   const slugs: { slug: string }[] = await client.fetch(allSlugsQuery)
   return slugs.map((s) => ({ slug: s.slug }))

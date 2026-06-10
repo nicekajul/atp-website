@@ -7,6 +7,8 @@ import BookstoreClient from '@/components/books/BookstoreClient'
 import PageCTA from '@/components/shared/PageCTA'
 import styles from './page.module.css'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Bookstore',
   description: 'Browse the latest titles published by Author\'s Tranquility Press authors.',
