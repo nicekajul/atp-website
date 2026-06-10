@@ -61,33 +61,35 @@ export default function BookPreviewModal({ book, isOpen, onClose }: BookPreviewM
           </div>
 
           <div className={styles.contentSide}>
-            <div className={styles.header}>
-              <div className={styles.meta}>
-                <Badge variant="navy">{book.genre}</Badge>
-                {book.isNewRelease && <Badge variant="gold">New Release</Badge>}
+            <div className={styles.scrollable}>
+              <div className={styles.header}>
+                <div className={styles.meta}>
+                  <Badge variant="navy">{book.genre}</Badge>
+                  {book.isNewRelease && <Badge variant="gold">New Release</Badge>}
+                </div>
+
+                <div className={styles.rating}>
+                  <span className={styles.stars}>★★★★★</span>
+                  <span className={styles.ratingText}>({book.rating})</span>
+                </div>
               </div>
 
-              <div className={styles.rating}>
-                <span className={styles.stars}>★★★★★</span>
-                <span className={styles.ratingText}>({book.rating})</span>
+              <h2 className={styles.title}>{book.title}</h2>
+              <p className={styles.author}>by {book.author}</p>
+
+              <div className={styles.description}>
+                <p>{book.shortDescription || book.description}</p>
               </div>
-            </div>
 
-            <h2 className={styles.title}>{book.title}</h2>
-            <p className={styles.author}>by {book.author}</p>
-
-            <div className={styles.description}>
-              <p>{book.shortDescription || book.description}</p>
-            </div>
-
-            <div className={styles.specs}>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>Format</span>
-                <span className={styles.specValue}>{book.formats?.join(', ') ?? '—'}</span>
-              </div>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>Published</span>
-                <span className={styles.specValue}>Authors Tranquility Press</span>
+              <div className={styles.specs}>
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>Format</span>
+                  <span className={styles.specValue}>{book.formats?.join(', ') ?? '—'}</span>
+                </div>
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>Published</span>
+                  <span className={styles.specValue}>Authors Tranquility Press</span>
+                </div>
               </div>
             </div>
 
