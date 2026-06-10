@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import { SanityBook, getCoverUrl } from '@/sanity/types'
 import Badge from '@/components/ui/Badge'
@@ -23,9 +24,9 @@ export default function BookPreviewModal({ book, isOpen, onClose }: BookPreviewM
     return () => { document.body.style.overflow = prev }
   }, [isOpen])
 
-  if (!isOpen) return null
+  if (!isOpen || typeof document === 'undefined') return null
 
-  return (
+  return createPortal(
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <button className={styles.closeBtn} onClick={onClose} aria-label="Close modal">
@@ -113,6 +114,7 @@ export default function BookPreviewModal({ book, isOpen, onClose }: BookPreviewM
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
