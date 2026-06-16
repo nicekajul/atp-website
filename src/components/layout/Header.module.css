@@ -3,7 +3,7 @@
    ============================================================ */
 .header {
   position: fixed;
-  top: 0;
+  top: var(--promo-height, 0px);
   left: 0;
   right: 0;
   z-index: 1000;

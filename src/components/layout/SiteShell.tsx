@@ -5,6 +5,7 @@ import Header from './Header'
 import Footer from './Footer'
 import FloatingCTA from '@/components/shared/FloatingCTA'
 import EbookPopup from '@/components/shared/EbookPopup'
+import PromoBar from '@/components/shared/PromoBar'
 
 export default function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -17,6 +18,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <PromoBar />
       <Header />
       <main id="main-content">
         {children}

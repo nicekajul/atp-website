@@ -4,6 +4,8 @@
    ATP DESIGN TOKENS
    ============================================================ */
 :root {
+  --promo-height: 0px;
+
   /* Brand Colors */
   --atp-navy:        #0F1B2D;
   --atp-navy-light:  #1A2E48;

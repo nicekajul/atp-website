@@ -1,0 +1,160 @@
+/* ── Section wrapper ─────────────────────────────────────── */
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0;
+}
+
+/* ── Blurred background ──────────────────────────────────── */
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center;
+  filter: blur(28px);
+  transform: scale(1.12); /* prevent blur from showing edges */
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 18, 34, 0.78);
+}
+
+/* ── Two-column grid ─────────────────────────────────────── */
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* ── Image column ────────────────────────────────────────── */
+.imageCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageFrame {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(201, 168, 76, 0.25),
+    0 32px 80px rgba(0, 0, 0, 0.55);
+  width: 100%;
+  line-height: 0;
+}
+
+.promoImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+/* ── CTA column ──────────────────────────────────────────── */
+.ctaCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(201, 168, 76, 0.18);
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  color: #c9a84c;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.body {
+  font-size: 15px;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.body strong {
+  color: #c9a84c;
+}
+
+.codeRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.codeLabel {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.code {
+  background: rgba(201, 168, 76, 0.15);
+  border: 1.5px solid rgba(201, 168, 76, 0.5);
+  color: #c9a84c;
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 6px 16px;
+  border-radius: 8px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ── Tablet ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    text-align: center;
+  }
+
+  .ctaCol {
+    align-items: center;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+}
+
+/* ── Mobile ──────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+}

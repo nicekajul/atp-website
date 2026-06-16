@@ -1,0 +1,82 @@
+.bar {
+  width: 100%;
+  background: #0f1b2d;
+  border-bottom: 2px solid #c9a84c;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+  height: 48px;
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.emoji {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.message {
+  font-size: 13.5px;
+  color: #e2e8f0;
+  margin: 0;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.code {
+  color: #c9a84c;
+  background: rgba(201, 168, 76, 0.15);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 13.5px;
+  letter-spacing: 0.06em;
+}
+
+.deadline {
+  color: #94a3b8;
+}
+
+.dismiss {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+  margin-left: 2px;
+  transition: color 0.2s;
+}
+
+.dismiss:hover {
+  color: #e2e8f0;
+}
+
+@media (max-width: 768px) {
+  .deadline {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .emoji {
+    display: none;
+  }
+
+  .message {
+    font-size: 12px;
+    white-space: normal;
+    text-align: center;
+  }
+}
