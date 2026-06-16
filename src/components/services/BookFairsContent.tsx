@@ -165,42 +165,8 @@ export default function BookFairsContent({ service }: Props) {
       <section className={styles.participationSection}>
         <Container>
           <h2 className={styles.sectionHeading}>Participation Options</h2>
-          <p className={styles.participationIntro}>We offer two ways for authors to take part:</p>
 
           <div className={styles.participationGrid}>
-
-            {/* Combined Book Exhibit — fixed-price package */}
-            <div className={styles.exhibitCard}>
-              <div className={styles.exhibitCardHeader}>
-                <span className={styles.exhibitIcon} aria-hidden="true">{'\u{1F4DA}'}</span>
-                <div>
-                  <p className={styles.exhibitSubtitle}>A streamlined path to international exposure</p>
-                  <h3 className={styles.exhibitName}>Combined Book Exhibit</h3>
-                </div>
-              </div>
-              <div className={styles.exhibitPrice}>
-                <span className={styles.priceAmount}>$1,999</span>
-                <span className={styles.priceNote}>per fair</span>
-              </div>
-              <p className={styles.exhibitDesc}>
-                Our Combined Book Exhibit allows your book to be professionally displayed within our shared
-                booth space—ensuring it is seen by attendees from across the publishing world without
-                requiring your physical presence.
-              </p>
-              <p className={styles.exhibitDesc}>
-                This option is ideal for authors who want to establish international visibility in a simple
-                and cost-effective way.
-              </p>
-              <div className={styles.exhibitFooter}>
-                <Button
-                  href="/contact?package=Combined+Book+Exhibit"
-                  variant="primary"
-                  fullWidth
-                >
-                  Reserve Your Spot
-                </Button>
-              </div>
-            </div>
 
             {/* Company Participation — consultation, no fixed price */}
             <div className={styles.consultCard}>
