@@ -2,13 +2,20 @@ import { NextRequest, NextResponse } from 'next/server'
 import { sendMail, TO_ADDRESS } from '@/lib/email/mailer'
 import { leadNotification, leadAutoReply } from '@/lib/email/template'
 import { logToLeadsSheet } from '@/lib/email/sheets'
+import { verifyTurnstile } from '@/lib/turnstile'
 
 export async function POST(req: NextRequest) {
   const body = await req.json()
-  const { name, email, title, service, websiteGoals, message } = body
+  const { name, email, title, service, websiteGoals, message, website, turnstileToken } = body
+
+  if (website) return NextResponse.json({ ok: true })
 
   if (!name?.trim() || !email?.trim()) {
     return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
+  }
+
+  if (!await verifyTurnstile(turnstileToken)) {
+    return NextResponse.json({ error: 'Verification failed. Please try again.' }, { status: 400 })
   }
 
   const notification = leadNotification({ name, email, title, service, websiteGoals, message })

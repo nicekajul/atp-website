@@ -1,9 +1,12 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+import { Turnstile } from '@marsidev/react-turnstile'
 import Button from '@/components/ui/Button'
 import { formatPhoneUS } from '@/lib/formatPhone'
 import styles from './QuizLeadCapture.module.css'
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
 
 interface QuizLeadCaptureProps {
   recommendedPackage: string
@@ -13,6 +16,8 @@ interface QuizLeadCaptureProps {
 export default function QuizLeadCapture({ recommendedPackage, onSubmit }: QuizLeadCaptureProps) {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' })
   const [status, setStatus] = useState<'idle' | 'submitting' | 'error'>('idle')
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const honeypotRef = useRef<HTMLInputElement>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -21,7 +26,7 @@ export default function QuizLeadCapture({ recommendedPackage, onSubmit }: QuizLe
       const res = await fetch('/api/quiz-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, recommendedPackage }),
+        body: JSON.stringify({ ...formData, recommendedPackage, website: honeypotRef.current?.value ?? '', turnstileToken }),
       })
       if (res.ok) {
         onSubmit(formData)
@@ -55,6 +60,15 @@ export default function QuizLeadCapture({ recommendedPackage, onSubmit }: QuizLe
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
+          <input
+            ref={honeypotRef}
+            type="text"
+            name="website"
+            tabIndex={-1}
+            aria-hidden="true"
+            autoComplete="off"
+            style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+          />
           <div className={styles.field}>
             <label htmlFor="lead-name" className={styles.label}>Your Name</label>
             <input
@@ -100,6 +114,16 @@ export default function QuizLeadCapture({ recommendedPackage, onSubmit }: QuizLe
               autoComplete="tel"
             />
           </div>
+
+          {TURNSTILE_SITE_KEY && (
+            <Turnstile
+              siteKey={TURNSTILE_SITE_KEY}
+              onSuccess={setTurnstileToken}
+              onExpire={() => setTurnstileToken('')}
+              onError={() => setTurnstileToken('')}
+              options={{ appearance: 'interaction-only' }}
+            />
+          )}
 
           <Button
             type="submit"

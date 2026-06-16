@@ -1,8 +1,11 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+import { Turnstile } from '@marsidev/react-turnstile'
 import Button from '@/components/ui/Button'
 import styles from './InlineLeadForm.module.css'
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
 
 interface InlineLeadFormProps {
   submitLabel?: string
@@ -11,6 +14,8 @@ interface InlineLeadFormProps {
 
 export default function InlineLeadForm({ submitLabel, helperText }: InlineLeadFormProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const honeypotRef = useRef<HTMLInputElement>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,7 +32,7 @@ export default function InlineLeadForm({ submitLabel, helperText }: InlineLeadFo
       const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, website: honeypotRef.current?.value ?? '', turnstileToken }),
       })
       setStatus(res.ok ? 'success' : 'error')
     } catch {
@@ -70,6 +75,15 @@ export default function InlineLeadForm({ submitLabel, helperText }: InlineLeadFo
       </p>
 
       <form className={styles.form} onSubmit={handleSubmit}>
+        <input
+          ref={honeypotRef}
+          type="text"
+          name="website"
+          tabIndex={-1}
+          aria-hidden="true"
+          autoComplete="off"
+          style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+        />
         <div className={styles.row}>
           <div className={styles.field}>
             <label htmlFor="lead-name" className={styles.label}>Full Name</label>
@@ -118,6 +132,16 @@ export default function InlineLeadForm({ submitLabel, helperText }: InlineLeadFo
           <label htmlFor="lead-message" className={styles.label}>Short Message / Tell us about your book</label>
           <textarea id="lead-message" name="message" className={styles.textarea} rows={4} placeholder="Tell us a little about your book and what you're looking for..." onChange={handleChange} value={formData.message} />
         </div>
+
+        {TURNSTILE_SITE_KEY && (
+          <Turnstile
+            siteKey={TURNSTILE_SITE_KEY}
+            onSuccess={setTurnstileToken}
+            onExpire={() => setTurnstileToken('')}
+            onError={() => setTurnstileToken('')}
+            options={{ appearance: 'interaction-only' }}
+          />
+        )}
 
         <div className={styles.footer}>
           <Button type="submit" variant="primary" size="lg" fullWidth disabled={status === 'submitting'}>

@@ -3,6 +3,7 @@ import { createHmac } from 'crypto'
 import { sendMail, TO_ADDRESS } from '@/lib/email/mailer'
 import { ebookLeadNotification, ebookLeadAutoReply } from '@/lib/email/template'
 import { logToLeadsSheet } from '@/lib/email/sheets'
+import { verifyTurnstile } from '@/lib/turnstile'
 
 function generateDownloadToken(email: string): string {
   const secret = process.env.DOWNLOAD_SECRET ?? 'atp-fallback-secret'
@@ -13,10 +14,16 @@ function generateDownloadToken(email: string): string {
 
 export async function POST(req: NextRequest) {
   const body = await req.json()
-  const { name, email } = body
+  const { name, email, website, turnstileToken } = body
+
+  if (website) return NextResponse.json({ ok: true })
 
   if (!name?.trim() || !email?.trim()) {
     return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
+  }
+
+  if (!await verifyTurnstile(turnstileToken)) {
+    return NextResponse.json({ error: 'Verification failed. Please try again.' }, { status: 400 })
   }
 
   const notification = ebookLeadNotification({ name, email })

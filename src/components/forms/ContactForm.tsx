@@ -1,8 +1,11 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+import { Turnstile } from '@marsidev/react-turnstile'
 import Button from '@/components/ui/Button'
 import styles from './ContactForm.module.css'
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -25,6 +28,8 @@ export default function ContactForm() {
     interest: '',
     message: '',
   })
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const honeypotRef = useRef<HTMLInputElement>(null)
 
   function validate() {
     const e: Record<string, string> = {}
@@ -51,7 +56,7 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, website: honeypotRef.current?.value ?? '', turnstileToken }),
       })
       setState(res.ok ? 'success' : 'error')
     } catch {
@@ -88,6 +93,16 @@ export default function ContactForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
+      {/* Honeypot — hidden from humans, bots fill it */}
+      <input
+        ref={honeypotRef}
+        type="text"
+        name="website"
+        tabIndex={-1}
+        aria-hidden="true"
+        autoComplete="off"
+        style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+      />
       <div className={styles.row}>
         <div className={styles.field}>
           <label className={styles.label} htmlFor="name">Full Name <span className={styles.req}>*</span></label>
@@ -163,6 +178,16 @@ export default function ContactForm() {
         />
         {errors.message && <p className={styles.error}>{errors.message}</p>}
       </div>
+
+      {TURNSTILE_SITE_KEY && (
+        <Turnstile
+          siteKey={TURNSTILE_SITE_KEY}
+          onSuccess={setTurnstileToken}
+          onExpire={() => setTurnstileToken('')}
+          onError={() => setTurnstileToken('')}
+          options={{ appearance: 'interaction-only' }}
+        />
+      )}
 
       <div className={styles.footer}>
         <p className={styles.privacy}>We respect your privacy and never share your information.</p>

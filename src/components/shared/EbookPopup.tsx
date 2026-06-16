@@ -1,8 +1,11 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
+import { Turnstile } from '@marsidev/react-turnstile'
 import Button from '@/components/ui/Button'
 import styles from './EbookPopup.module.css'
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
 
 const STORAGE_KEY = 'atp_ebook_popup_seen'
 
@@ -12,6 +15,8 @@ export default function EbookPopup() {
   const [popupState, setPopupState] = useState<PopupState>('tab')
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [formData, setFormData] = useState({ name: '', email: '' })
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const honeypotRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     // Auto-open after 6 s or 40 % scroll — only if visitor hasn't submitted before
@@ -63,7 +68,7 @@ export default function EbookPopup() {
       const res = await fetch('/api/ebook-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, website: honeypotRef.current?.value ?? '', turnstileToken }),
       })
       setStatus(res.ok ? 'success' : 'error')
     } catch {
@@ -143,6 +148,15 @@ export default function EbookPopup() {
                     </p>
 
                     <form className={styles.form} onSubmit={handleSubmit} noValidate>
+                      <input
+                        ref={honeypotRef}
+                        type="text"
+                        name="website"
+                        tabIndex={-1}
+                        aria-hidden="true"
+                        autoComplete="off"
+                        style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+                      />
                       <div className={styles.field}>
                         <label htmlFor="ebook-name" className={styles.label}>Your Name</label>
                         <input
@@ -171,6 +185,16 @@ export default function EbookPopup() {
                           autoComplete="email"
                         />
                       </div>
+
+                      {TURNSTILE_SITE_KEY && (
+                        <Turnstile
+                          siteKey={TURNSTILE_SITE_KEY}
+                          onSuccess={setTurnstileToken}
+                          onExpire={() => setTurnstileToken('')}
+                          onError={() => setTurnstileToken('')}
+                          options={{ appearance: 'interaction-only' }}
+                        />
+                      )}
 
                       <Button
                         type="submit"
