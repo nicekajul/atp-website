@@ -16,12 +16,18 @@ export default function ServicesPage() {
   return (
     <div className={styles.page}>
       <header className={styles.hero}>
+        <div className={styles.heroBg} />
+        <div className={styles.patternLayer} />
         <Container>
-          <SectionHeader
-            heading="Our Services"
-            subheading="Everything you need to publish a professional, competitive book that readers will love. Explore our packages below or contact us to build a custom publishing plan."
-            align="center"
-          />
+          <div className={styles.heroInner}>
+            <SectionHeader
+              eyebrow="What We Offer"
+              heading="Our Services"
+              subheading="Everything you need to publish a professional, competitive book that readers will love. Explore our packages below or contact us to build a custom publishing plan."
+              align="center"
+              theme="dark"
+            />
+          </div>
         </Container>
       </header>
 
