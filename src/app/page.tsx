@@ -4,6 +4,7 @@ export const revalidate = 60
 
 import HeroSection from '@/components/home/HeroSection'
 // import PromoBanner from '@/components/home/PromoBanner' // re-enable for next seasonal promo
+import FilmSpotlight from '@/components/home/FilmSpotlight'
 import TrustBar from '@/components/shared/TrustBar'
 import StartJourney from '@/components/home/StartJourney'
 import ServicesOverview from '@/components/home/ServicesOverview'
@@ -18,6 +19,7 @@ export default function Home() {
     <>
       <HeroSection />
       {/* Father's Day promo ended June 30 — re-enable <PromoBanner /> for the next seasonal promo */}
+      <FilmSpotlight />
       <StartJourney />
       <TrustBar />
       <ServicesOverview />
