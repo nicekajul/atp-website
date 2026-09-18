@@ -4,4 +4,15 @@ import type {StructureResolver} from 'sanity/structure'
 export const structure: StructureResolver = (S) =>
   S.list()
     .title('Content')
-    .items(S.documentTypeListItems())
+    .items(
+      S.documentTypeListItems().map((item) =>
+        item.getId() === 'book'
+          ? item.child(
+              S.documentTypeList('book')
+                .title('Book')
+                // Newest published book first (instead of newest uploaded)
+                .defaultOrdering([{field: 'publishedDate', direction: 'desc'}])
+            )
+          : item
+      )
+    )

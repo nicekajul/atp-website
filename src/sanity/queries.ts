@@ -25,7 +25,7 @@ const bookFields = `
 `
 
 export const allBooksQuery = `
-  *[_type == "book"] | order(publishedDate desc) {
+  *[_type == "book"] | order(defined(publishedDate) desc, publishedDate desc, _createdAt desc) {
     ${bookFields}
   }
 `
@@ -41,19 +41,19 @@ export const allSlugsQuery = `
 `
 
 export const newReleasesQuery = `
-  *[_type == "book" && isNewRelease == true] | order(publishedDate desc) [0...$limit] {
+  *[_type == "book" && isNewRelease == true] | order(defined(publishedDate) desc, publishedDate desc, _createdAt desc) [0...$limit] {
     ${bookFields}
   }
 `
 
 export const featuredBooksQuery = `
-  *[_type == "book" && isFeatured == true] | order(publishedDate desc) [0...$limit] {
+  *[_type == "book" && isFeatured == true] | order(defined(publishedDate) desc, publishedDate desc, _createdAt desc) [0...$limit] {
     ${bookFields}
   }
 `
 
 export const booksByGenreQuery = `
-  *[_type == "book" && $genre in genres && slug.current != $excludeSlug] | order(publishedDate desc) [0...3] {
+  *[_type == "book" && $genre in genres && slug.current != $excludeSlug] | order(defined(publishedDate) desc, publishedDate desc, _createdAt desc) [0...3] {
     ${bookFields}
   }
 `

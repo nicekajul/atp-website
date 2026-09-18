@@ -155,6 +155,23 @@ export const bookType = defineType({
       },
     }),
   ],
+  orderings: [
+    {
+      title: 'Published Date, Newest',
+      name: 'publishedDateDesc',
+      by: [{ field: 'publishedDate', direction: 'desc' }],
+    },
+    {
+      title: 'Published Date, Oldest',
+      name: 'publishedDateAsc',
+      by: [{ field: 'publishedDate', direction: 'asc' }],
+    },
+    {
+      title: 'Recently Added',
+      name: 'createdAtDesc',
+      by: [{ field: '_createdAt', direction: 'desc' }],
+    },
+  ],
   preview: {
     select: {
       title: 'title',
