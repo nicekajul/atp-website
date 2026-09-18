@@ -51,13 +51,15 @@ export const bookType = defineType({
     defineField({
       name: 'genre',
       title: 'Primary Genre',
+      description: 'Type the genre(s) once. For more than one, separate with a comma, e.g. Memoir, Military. Used for tags, search and related books.',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'genres',
       title: 'All Genres',
-      description: 'Select from the list or type a custom genre and press Enter.',
+      description: 'Optional. Not needed: genres are read from Primary Genre.',
+      hidden: true,
       type: 'array',
       of: [{ type: 'string' }],
       options: {

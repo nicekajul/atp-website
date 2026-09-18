@@ -182,7 +182,7 @@
   transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 
-.genreTag:hover {
+a.genreTag:hover {
   background: rgba(201,168,76,0.22);
   border-color: rgba(201,168,76,0.5);
 }

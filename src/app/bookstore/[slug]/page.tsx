@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { client } from '@/sanity/lib/client'
 import { bookBySlugQuery, booksByGenreQuery, allSlugsQuery } from '@/sanity/queries'
-import { SanityBook, getCoverUrl } from '@/sanity/types'
+import { SanityBook, getCoverUrl, getGenreTags } from '@/sanity/types'
 import BookDetail from '@/components/books/BookDetail'
 
 export const revalidate = 60
@@ -56,15 +56,7 @@ export default async function BookDetailPage({ params }: Props) {
     notFound()
   }
 
-  // Primary Genre may hold several comma-separated genres ("Memoir, Military"),
-  // and the "All Genres" list is often empty, so match on any shared genre tag.
-  const genreTags = [
-    ...new Set(
-      [...(book.genres ?? []), ...(book.genre ?? '').split(',')]
-        .map((g) => g.trim())
-        .filter(Boolean)
-    ),
-  ]
+  const genreTags = getGenreTags(book)
 
   const relatedBooks: SanityBook[] = genreTags.length
     ? await client.fetch(booksByGenreQuery, { genres: genreTags, excludeSlug: slug })

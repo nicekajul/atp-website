@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { SanityBook, getCoverUrl } from '@/sanity/types'
+import { SanityBook, getCoverUrl, getGenreTags } from '@/sanity/types'
 import Button from '@/components/ui/Button'
 import Container from '@/components/layout/Container'
 import BookCard from '@/components/books/BookCard'
@@ -39,6 +39,7 @@ export default function BookDetail({ book, relatedBooks }: BookDetailProps) {
   const [wishlisted, setWishlisted] = useState(false)
   const [imgError, setImgError] = useState(false)
   const coverUrl = getCoverUrl(book.isbn, book.amazonUrl, book.coverUrl)
+  const genreTags = getGenreTags(book)
 
   const publishedDate = book.publishedDate
     ? new Date(book.publishedDate).toLocaleDateString('en-US', {
@@ -98,10 +99,8 @@ export default function BookDetail({ book, relatedBooks }: BookDetailProps) {
             {/* Info */}
             <div className={styles.infoCol}>
               <div className={styles.genreTags}>
-                {book.genres?.map(g => (
-                  <Link key={g} href={`/bookstore?genre=${encodeURIComponent(g)}`} className={styles.genreTag}>
-                    {g}
-                  </Link>
+                {genreTags.map(g => (
+                  <span key={g} className={styles.genreTag}>{g}</span>
                 ))}
               </div>
 
@@ -222,10 +221,12 @@ export default function BookDetail({ book, relatedBooks }: BookDetailProps) {
                     <dd>{book.isbn}</dd>
                   </div>
                 )}
-                <div className={styles.detailRow}>
-                  <dt>Genres</dt>
-                  <dd>{book.genres?.join(', ')}</dd>
-                </div>
+                {genreTags.length > 0 && (
+                  <div className={styles.detailRow}>
+                    <dt>Genres</dt>
+                    <dd>{genreTags.join(', ')}</dd>
+                  </div>
+                )}
                 <div className={styles.detailRow}>
                   <dt>Formats</dt>
                   <dd>{book.formats?.join(', ')}</dd>
@@ -281,7 +282,7 @@ export default function BookDetail({ book, relatedBooks }: BookDetailProps) {
         <section className={styles.relatedSection}>
           <Container>
             <div className={styles.relatedHeader}>
-              <h2 className={styles.sectionHeading}>More in {book.genres?.[0] ?? book.genre?.split(',')[0].trim()}</h2>
+              <h2 className={styles.sectionHeading}>More in {genreTags[0]}</h2>
               <Link href="/bookstore" className={styles.viewAll}>Browse all books →</Link>
             </div>
             <div className={styles.relatedGrid}>

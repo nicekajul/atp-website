@@ -25,6 +25,19 @@ export interface SanityBook {
 }
 
 /**
+ * Every genre for a book, as a de-duplicated list of single genres.
+ * Primary Genre may hold several comma-separated genres ("Memoir, Military"),
+ * so editors only need to fill in that one field; the optional "All Genres"
+ * list is merged in when present.
+ */
+export function getGenreTags(book: Pick<SanityBook, 'genre' | 'genres'>): string[] {
+  const tags = [...(book.genres ?? []), ...(book.genre ?? '').split(',')]
+    .map((g) => g.trim())
+    .filter(Boolean)
+  return [...new Set(tags)]
+}
+
+/**
  * Returns the best available cover image URL.
  * Priority: manual coverUrl → Amazon CDN (1500px) → Google Books (zoom=10) → null
  */
