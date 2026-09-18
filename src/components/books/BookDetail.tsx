@@ -100,7 +100,9 @@ export default function BookDetail({ book, relatedBooks }: BookDetailProps) {
             <div className={styles.infoCol}>
               <div className={styles.genreTags}>
                 {genreTags.map(g => (
-                  <span key={g} className={styles.genreTag}>{g}</span>
+                  <Link key={g} href={`/bookstore?genre=${encodeURIComponent(g)}`} className={styles.genreTag}>
+                    {g}
+                  </Link>
                 ))}
               </div>
 

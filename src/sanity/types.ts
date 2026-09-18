@@ -38,6 +38,13 @@ export function getGenreTags(book: Pick<SanityBook, 'genre' | 'genres'>): string
 }
 
 /**
+ * Comparison key for a genre: "Religion & Spirituality" and
+ * "Religion and Spirituality" are the same genre.
+ */
+export const genreKey = (g: string): string =>
+  g.toLowerCase().replace(/\s+and\s+/g, ' & ')
+
+/**
  * Returns the best available cover image URL.
  * Priority: manual coverUrl → Amazon CDN (1500px) → Google Books (zoom=10) → null
  */
