@@ -45,6 +45,19 @@ export const genreKey = (g: string): string =>
   g.toLowerCase().replace(/\s+and\s+/g, ' & ')
 
 /**
+ * Adds the "&" / "and" spelling of each genre, so a query that compares exact
+ * strings still finds books spelled the other way.
+ */
+export function withGenreSpellings(tags: string[]): string[] {
+  const all = new Set(tags)
+  for (const t of tags) {
+    all.add(t.replace(/\s+and\s+/gi, ' & '))
+    all.add(t.replace(/\s+&\s+/g, ' and '))
+  }
+  return [...all]
+}
+
+/**
  * Returns the best available cover image URL.
  * Priority: manual coverUrl → Amazon CDN (1500px) → Google Books (zoom=10) → null
  */

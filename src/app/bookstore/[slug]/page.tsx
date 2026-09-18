@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { client } from '@/sanity/lib/client'
 import { bookBySlugQuery, booksByGenreQuery, allSlugsQuery } from '@/sanity/queries'
-import { SanityBook, getCoverUrl, getGenreTags } from '@/sanity/types'
+import { SanityBook, getCoverUrl, getGenreTags, withGenreSpellings } from '@/sanity/types'
 import BookDetail from '@/components/books/BookDetail'
 
 export const revalidate = 60
@@ -59,7 +59,10 @@ export default async function BookDetailPage({ params }: Props) {
   const genreTags = getGenreTags(book)
 
   const relatedBooks: SanityBook[] = genreTags.length
-    ? await client.fetch(booksByGenreQuery, { genres: genreTags, excludeSlug: slug })
+    ? await client.fetch(booksByGenreQuery, {
+        genres: withGenreSpellings(genreTags),
+        excludeSlug: slug,
+      })
     : []
 
   return <BookDetail book={book} relatedBooks={relatedBooks} />
