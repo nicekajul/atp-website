@@ -281,7 +281,7 @@ export default function BookDetail({ book, relatedBooks }: BookDetailProps) {
         <section className={styles.relatedSection}>
           <Container>
             <div className={styles.relatedHeader}>
-              <h2 className={styles.sectionHeading}>More in {book.genres?.[0] ?? book.genre}</h2>
+              <h2 className={styles.sectionHeading}>More in {book.genres?.[0] ?? book.genre?.split(',')[0].trim()}</h2>
               <Link href="/bookstore" className={styles.viewAll}>Browse all books →</Link>
             </div>
             <div className={styles.relatedGrid}>

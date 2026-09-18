@@ -56,10 +56,19 @@ export default async function BookDetailPage({ params }: Props) {
     notFound()
   }
 
-  const relatedBooks: SanityBook[] = await client.fetch(booksByGenreQuery, {
-    genre: book.genres?.[0] ?? book.genre,
-    excludeSlug: slug,
-  })
+  // Primary Genre may hold several comma-separated genres ("Memoir, Military"),
+  // and the "All Genres" list is often empty, so match on any shared genre tag.
+  const genreTags = [
+    ...new Set(
+      [...(book.genres ?? []), ...(book.genre ?? '').split(',')]
+        .map((g) => g.trim())
+        .filter(Boolean)
+    ),
+  ]
+
+  const relatedBooks: SanityBook[] = genreTags.length
+    ? await client.fetch(booksByGenreQuery, { genres: genreTags, excludeSlug: slug })
+    : []
 
   return <BookDetail book={book} relatedBooks={relatedBooks} />
 }
