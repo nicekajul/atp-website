@@ -53,7 +53,7 @@ export const featuredBooksQuery = `
 `
 
 export const booksByGenreQuery = `
-  *[_type == "book" && slug.current != $excludeSlug && count((coalesce(genres, []) + string::split(coalesce(genre, ""), ", "))[@ in $genres]) > 0] | order(defined(publishedDate) desc, publishedDate desc, _createdAt desc) [0...3] {
+  *[_type == "book" && slug.current != $excludeSlug && count((coalesce(genres, []) + string::split(coalesce(genre, ""), ", "))[@ in $genres]) > 0] | order(defined(publishedDate) desc, publishedDate desc, _createdAt desc) [0...5] {
     ${bookFields}
   }
 `

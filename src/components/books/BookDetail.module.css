@@ -554,7 +554,7 @@ a.genreTag:hover {
 
 .relatedGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: var(--space-6);
 }
 
@@ -562,6 +562,10 @@ a.genreTag:hover {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
+  .relatedGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .heroInner {
     grid-template-columns: 260px 1fr;
     gap: var(--space-10);
