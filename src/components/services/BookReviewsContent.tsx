@@ -52,7 +52,7 @@ const REVIEWS: ReviewPackage[] = [
     name: 'Hollywood Book Review',
     icon: '🎬',
     accent: '#C0562B',
-    price: '$1,599',
+    price: '$1,699',
     description: 'Hollywood Book Review provides detailed, professional analyses designed to help authors attract both readers and industry attention. Their reviews are distributed across multiple channels and databases that serve bookstores, libraries, and book buyers.',
     turnaround: '4–6 weeks',
     features: [
@@ -67,7 +67,7 @@ const REVIEWS: ReviewPackage[] = [
     name: 'Pacific Book Review',
     icon: '🌊',
     accent: '#0D7A8A',
-    price: '$1,599',
+    price: '$1,699',
     description: 'Recognized by publishers and retailers, their reviews help authors establish a professional reputation and reach a wider readership.',
     turnaround: '6–8 weeks',
     features: [
@@ -82,7 +82,7 @@ const REVIEWS: ReviewPackage[] = [
     name: 'The US Review of Books',
     icon: '📚',
     accent: '#1B4B8A',
-    price: '$1,699',
+    price: '$1,799',
     description: 'The US Review of Books is known for insightful, fair, and well-articulated reviews that connect books with engaged readers. A review here adds professional credibility and visibility.',
     turnaround: '6–8 weeks',
     features: [
@@ -97,7 +97,7 @@ const REVIEWS: ReviewPackage[] = [
     name: 'Kirkus Review',
     icon: '⭐',
     accent: '#C9A84C',
-    price: '$1,999',
+    price: '$2,199',
     highlight: true,
     badge: 'Most Prestigious',
     description: 'A Kirkus review can significantly enhance your book’s reputation with booksellers, libraries, and literary professionals.',
@@ -114,7 +114,7 @@ const REVIEWS: ReviewPackage[] = [
     name: 'Publishers Weekly Review',
     icon: '📰',
     accent: '#8B1A1A',
-    price: '$2,499',
+    price: '$2,599',
     description: 'A review in PW can open doors to media coverage, bookstore consideration, and library interest, making it a valuable endorsement for authors seeking professional recognition.',
     turnaround: '8–10 weeks',
     features: [
@@ -137,7 +137,7 @@ const AMAZON_TIERS = [
 /* ── Trifecta Bundle ─────────────────────────────────── */
 const TRIFECTA = {
   sources: ['Kirkus Indie', 'Clarion by ForeWord', 'BlueInk Review'],
-  price: '$3,499',
+  price: '$3,699',
   description: 'A high-impact bundle of three professional reviews from the most reputable sources in the industry. Through this comprehensive package, Author’s Tranquility Press facilitates your book’s submission to Kirkus Review, Clarion Review (Foreword Magazine), and BlueInk Review, giving your book unparalleled exposure and credibility. ',
   turnaround: '10–12 weeks',
   deliverables: [
