@@ -60,7 +60,7 @@ const AD_PACKAGES: AdPackage[] = [
     description:
       'Position your book within a long-standing literary magazine known for essays, criticism, and cultural commentary.',
     details: [
-      'Ad Size: Approx. 1/8 page placement',
+      'Ad Size: Approx. 1/8-size placement',
       'Price: $4,599 per title',
       'Print inclusion in a scheduled issue',
       'One contributor copy provided',
