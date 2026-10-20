@@ -57,7 +57,7 @@ const AWARDS: Award[] = [
     id: 'book-excellence',
     name: 'Book Excellence Award Registration',
     icon: '🏆',
-    price: '$599',
+    price: '$649',
     badge: 'Global Competition',
     description:
       'Elevate your book\'s credibility and visibility by entering the prestigious Book Excellence Awards, a global competition that recognizes outstanding books across a wide range of genres.',
@@ -91,7 +91,7 @@ const AWARDS: Award[] = [
     id: 'eric-hoffer',
     name: 'Eric Hoffer Book Award Registration',
     icon: '✍️',
-    price: '$399',
+    price: '$449',
     description:
       'Named after the renowned American philosopher Eric Hoffer, this award honors excellence in writing while celebrating the independent spirit of publishers and authors worldwide.',
     sections: [
@@ -131,7 +131,7 @@ const AWARDS: Award[] = [
     id: 'pacific-book',
     name: 'Pacific Book Award Registration',
     icon: '🌟',
-    price: '$399',
+    price: '$449',
     description:
       'The Pacific Book Awards highlight exceptional books and authors, providing valuable exposure and recognition across multiple genres.',
     sections: [
