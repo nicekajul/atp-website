@@ -103,7 +103,7 @@ interface PWTier {
 const PW_TIERS: PWTier[] = [
   {
     id: 'pw-quarter',
-    name: 'Quarter-Page Ad',
+    name: '1/4-Sized Ad',
     price: '$899',
     features: [
       'Print ad placement',
@@ -114,7 +114,7 @@ const PW_TIERS: PWTier[] = [
   },
   {
     id: 'pw-quarter-extended',
-    name: 'Quarter-Page Extended Visibility',
+    name: '1/4-Sized Extended Visibility',
     price: '$4,000',
     highlight: true,
     features: [
