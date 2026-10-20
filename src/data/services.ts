@@ -606,7 +606,7 @@ export const services: Service[] = [
     packages: [
       {
         name: 'Essential Author Website',
-        price: '$999',
+        price: '$1,299',
         tier: 'standard',
         description: 'Best for first-time authors and those launching their first book.',
         bestFor: 'First-time authors',
@@ -624,7 +624,7 @@ export const services: Service[] = [
       },
       {
         name: 'Author Platform Pro',
-        price: '$1,799',
+        price: '$1,999',
         tier: 'popular',
         highlight: true,
         description: 'Best for authors with multiple books building a long-term brand.',
@@ -663,7 +663,7 @@ export const services: Service[] = [
     packages: [
       {
         name: 'TV Interview',
-        price: '$2,699',
+        price: '$2,799',
         tier: 'standard',
         description: 'A television interview to introduce your book and personal brand to a broader audience.',
         bestFor: 'Brand visibility',
@@ -678,7 +678,7 @@ export const services: Service[] = [
       },
       {
         name: 'Podcast Interview',
-        price: '$1,999',
+        price: '$2,199',
         tier: 'popular',
         highlight: true,
         description: 'Deeper storytelling and audience connection through long-form conversations.',
@@ -708,7 +708,7 @@ export const services: Service[] = [
     packages: [
       {
         name: 'Build Your Brand',
-        price: '$399',
+        price: '$449',
         tier: 'starter',
         description: 'Best for foundational visibility and credibility.',
         bestFor: 'First press release',
@@ -785,7 +785,7 @@ export const services: Service[] = [
     packages: [
       {
         name: 'YouTube Advertising Boost',
-        price: '$999',
+        price: '$1,299',
         tier: 'standard',
         description: 'Promote your book trailer with a targeted YouTube ad campaign.',
         bestFor: 'Authors with video assets',
@@ -832,7 +832,7 @@ export const services: Service[] = [
     packages: [
       {
         name: 'Basic',
-        price: '$899',
+        price: '$999',
         tier: 'standard',
         description: 'Ideal for authors who want to establish an initial presence.',
         bestFor: 'First-time advertisers',
@@ -847,7 +847,7 @@ export const services: Service[] = [
       },
       {
         name: 'Expert',
-        price: '$2,599',
+        price: '$2,699',
         tier: 'popular',
         highlight: true,
         description: 'Ideal for authors who want a longer campaign with active optimization.',
@@ -893,7 +893,7 @@ export const services: Service[] = [
     packages: [
       {
         name: 'Trailer Teaser',
-        price: '$949',
+        price: '$999',
         tier: 'starter',
         description: 'A cinematic 60-second teaser that introduces your book with striking visuals and original music.',
         bestFor: '60 seconds',
@@ -909,7 +909,7 @@ export const services: Service[] = [
       },
       {
         name: 'Trailer Bound',
-        price: '$2,499',
+        price: '$2,599',
         tier: 'standard',
         description: 'An extended 120-second trailer with upgraded editing and enhanced visual storytelling.',
         bestFor: '120 seconds',
@@ -923,7 +923,7 @@ export const services: Service[] = [
       },
       {
         name: 'Trailer Masterclass',
-        price: '$3,599',
+        price: '$3,699',
         priceNote: 'Premium',
         tier: 'popular',
         highlight: true,
@@ -941,7 +941,7 @@ export const services: Service[] = [
       },
       {
         name: 'Animated Book Trailer',
-        price: '$2,899',
+        price: '$2,999',
         tier: 'standard',
         description: 'A fully animated 60-second trailer — ideal for visually imaginative stories and children\'s books.',
         bestFor: '60 seconds',
