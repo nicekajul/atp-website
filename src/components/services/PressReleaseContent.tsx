@@ -102,7 +102,7 @@ export default function PressReleaseContent({ service }: Props) {
           <DecisionFriction customHeadline="Find the right press release tier in 30 seconds" />
           <h2 className={styles.sectionHeading}>Service Tiers</h2>
           <p className={styles.tiersSubhead}>
-            Each tier builds on the previous — choose the level that matches your goals.
+            Each tier builds on the previous. Choose the level that matches your goals.
           </p>
 
           <div className={styles.tiersGrid}>
@@ -123,7 +123,7 @@ export default function PressReleaseContent({ service }: Props) {
                     <span className={styles.tierStepLabel}>Tier {idx + 1}</span>
                   </div>
 
-                  {/* Card header — mirrors PricingTable card__header */}
+                  {/* Card header - mirrors PricingTable card__header */}
                   <div className={styles.cardHeader}>
                     {pkg.bestFor && (
                       <span className={styles.tierBestFor}>Best for: {pkg.bestFor}</span>

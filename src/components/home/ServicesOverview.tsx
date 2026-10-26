@@ -16,7 +16,7 @@ export default function ServicesOverview() {
         <SectionHeader
           eyebrow="What We Do"
           heading="Expertise Across Every Stage"
-          subheading="More than just a printer—we provide end-to-end guidance to ensure your book achieves its highest potential"
+          subheading="More than just a printer, we provide end-to-end guidance to ensure your book achieves its highest potential"
         />
         
         <RevealItem delay={100}>

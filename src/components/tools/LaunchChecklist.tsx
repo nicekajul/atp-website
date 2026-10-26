@@ -52,7 +52,7 @@ const PHASES = [
     items: [
       'Publish your book!',
       'Send email announcement to your list',
-      'Go live on social media — share behind-the-scenes',
+      'Go live on social media and share behind-the-scenes',
       'Ask launch team to post reviews on Amazon & Goodreads',
       'Run a limited-time launch promotion or price drop',
       'Do a live reading or author Q&A online',
@@ -104,7 +104,7 @@ export default function LaunchChecklist() {
         <div className={styles.checklistProgressBar}>
           <div className={styles.checklistProgressFill} style={{ width: `${overallPct}%` }} />
         </div>
-        <span className={styles.checklistProgressLabel}>{overallPct}% complete — {totalChecked}/{totalItems} tasks</span>
+        <span className={styles.checklistProgressLabel}>{overallPct}% complete · {totalChecked}/{totalItems} tasks</span>
       </div>
 
       <div className={styles.phaseTabs}>

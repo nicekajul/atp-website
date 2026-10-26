@@ -16,7 +16,7 @@ const PACKAGES = [
     name: '24-Hour Digital Billboard',
     price: '$1,999',
     popular: false,
-    desc: 'One full day of Times Square exposure — a targeted launch moment or milestone celebration at an iconic location.',
+    desc: 'One full day of Times Square exposure: a targeted launch moment or milestone celebration at an iconic location.',
     deliverables: [
       {
         title: 'Premium Billboard Placement',

@@ -12,7 +12,7 @@ const WHY_ITEMS = [
   {
     icon: '🏅',
     title: 'Verified Recognition',
-    desc: 'Award seals and listings validate your work to readers, booksellers, and agents — signals that no amount of self-promotion can replicate.',
+    desc: 'Award seals and listings validate your work to readers, booksellers, and agents, signals that no amount of self-promotion can replicate.',
   },
   {
     icon: '📬',
@@ -211,7 +211,7 @@ export default function BookAwardsContent({ service }: Props) {
           <DecisionFriction customHeadline="Find the right award for your book in 30 seconds" />
           <h2 className={styles.sectionHeading}>Award Registration Packages</h2>
           <p className={styles.packagesSubhead}>
-            ATP manages the full submission on your behalf — entry materials, requirements, and deadlines included.
+            ATP manages the full submission on your behalf, with entry materials, requirements, and deadlines included.
           </p>
 
           <div className={styles.packagesGrid}>

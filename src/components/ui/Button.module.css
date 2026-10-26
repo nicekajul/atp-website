@@ -22,7 +22,7 @@
   line-height: 1;
 }
 
-/* Shimmer sweep — visible on all solid-background hover states */
+/* Shimmer sweep - visible on all solid-background hover states */
 .btn::after {
   content: '';
   position: absolute;
@@ -65,7 +65,7 @@
   display: flex;
 }
 
-/* ── Primary — gold bg, navy text ──────────────────────── */
+/* ── Primary - gold bg, navy text ──────────────────────── */
 .btn--primary {
   background: var(--atp-gold);
   color: var(--atp-navy);
@@ -77,7 +77,7 @@
   box-shadow: 0 6px 28px rgba(201, 168, 76, 0.5);
 }
 
-/* ── Secondary — navy bg, white text ───────────────────── */
+/* ── Secondary - navy bg, white text ───────────────────── */
 .btn--secondary {
   background: var(--atp-navy);
   color: var(--atp-white);
@@ -89,7 +89,7 @@
   box-shadow: 0 6px 28px rgba(15, 31, 61, 0.4);
 }
 
-/* ── Outline — navy border, fills navy on hover ─────────── */
+/* ── Outline - navy border, fills navy on hover ─────────── */
 .btn--outline {
   background: transparent;
   color: var(--atp-navy);
@@ -102,7 +102,7 @@
   box-shadow: 0 6px 28px rgba(15, 31, 61, 0.3);
 }
 
-/* ── Ghost — transparent, subtle fill on hover ──────────── */
+/* ── Ghost - transparent, subtle fill on hover ──────────── */
 .btn--ghost {
   background: transparent;
   color: var(--atp-charcoal);
@@ -113,12 +113,12 @@
   border-color: var(--atp-border);
   box-shadow: 0 4px 16px rgba(15, 31, 61, 0.08);
 }
-/* Shimmer too faint on ghost — suppress */
+/* Shimmer too faint on ghost - suppress */
 .btn--ghost::after {
   display: none;
 }
 
-/* ── Gold outline — fills gold on hover ─────────────────── */
+/* ── Gold outline - fills gold on hover ─────────────────── */
 .btn--gold {
   background: transparent;
   color: var(--atp-gold);

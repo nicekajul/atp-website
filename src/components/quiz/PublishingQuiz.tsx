@@ -48,7 +48,7 @@ export default function PublishingQuiz() {
     setIsFinished(false)
   }
 
-  // Lead capture gate — shown after last question, before result
+  // Lead capture gate - shown after last question, before result
   if (isCapturing) {
     return (
       <QuizLeadCapture

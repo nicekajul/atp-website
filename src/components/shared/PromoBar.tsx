@@ -29,7 +29,7 @@ export default function PromoBar() {
       <div className={styles.inner}>
         <span className={styles.emoji} aria-hidden="true">👨‍👦</span>
         <p className={styles.message}>
-          <strong>Father&rsquo;s Day Special —</strong> 20% off all Publishing Packages.{' '}
+          <strong>Father&rsquo;s Day Special:</strong> 20% off all Publishing Packages.{' '}
           Use code <strong className={styles.code}>DAD20</strong>
           <span className={styles.deadline}>&nbsp;| Ends June 30.</span>
         </p>

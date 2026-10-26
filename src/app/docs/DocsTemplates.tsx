@@ -25,7 +25,7 @@ function emailHTML(): string {
   <title>Author's Tranquility Press</title>
 </head>
 <body style="margin:0;padding:0;background-color:${CREAM};font-family:Arial,sans-serif;">
-  <div style="display:none;max-height:0;overflow:hidden;">[Preheader text — shows in inbox preview]</div>
+  <div style="display:none;max-height:0;overflow:hidden;">[Preheader text: shows in inbox preview]</div>
 
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:${CREAM};">
     <tr>
@@ -55,14 +55,14 @@ function emailHTML(): string {
               </p>
 
               <p style="font-size:15px;color:${TEXT};font-family:Arial,sans-serif;line-height:1.7;margin:0 0 20px;">
-                [Main message — write the first paragraph of your email here. Keep it warm, clear, and professional.]
+                [Main message: write the first paragraph of your email here. Keep it warm, clear, and professional.]
               </p>
 
               <p style="font-size:15px;color:${TEXT};font-family:Arial,sans-serif;line-height:1.7;margin:0 0 20px;">
-                [Second paragraph — add supporting details or context here. Delete if not needed.]
+                [Second paragraph: add supporting details or context here. Delete if not needed.]
               </p>
 
-              <!-- Optional CTA button — remove if not needed -->
+              <!-- Optional CTA button: remove if not needed -->
               <div style="text-align:center;margin:28px 0;">
                 <a href="#" style="display:inline-block;background:${GOLD};color:#fff;font-size:14px;font-weight:700;padding:14px 32px;border-radius:6px;text-decoration:none;font-family:Arial,sans-serif;letter-spacing:0.04em;">
                   [Call to Action →]
@@ -117,7 +117,7 @@ function wordHTML(): string {
       xmlns="http://www.w3.org/TR/REC-html40">
 <head>
   <meta charset="UTF-8"/>
-  <title>Author's Tranquility Press — Letterhead</title>
+  <title>Author's Tranquility Press | Letterhead</title>
   <style>
     @page { size:8.5in 11in; margin:0.9in 1.1in 0.9in 1.1in; }
     body { font-family:'Palatino Linotype',Georgia,serif; font-size:11pt; color:${TEXT}; line-height:1.65; }
@@ -152,7 +152,7 @@ function wordHTML(): string {
   <hr class="divider-gold"/>
 
   <!-- Date line -->
-  <p class="date">[Full Date — e.g., June 10, 2026]</p>
+  <p class="date">[Full Date, e.g., June 10, 2026]</p>
 
   <!-- Recipient address -->
   <p>
@@ -169,13 +169,13 @@ function wordHTML(): string {
 
   <!-- Body -->
   <p>
-    [Opening paragraph — state the purpose of this letter clearly and concisely.]
+    [Opening paragraph: state the purpose of this letter clearly and concisely.]
   </p>
   <p>
-    [Body paragraph — provide supporting details, key information, or the main message.]
+    [Body paragraph: provide supporting details, key information, or the main message.]
   </p>
   <p>
-    [Closing paragraph — summarize and include any next steps or call to action.]
+    [Closing paragraph: summarize and include any next steps or call to action.]
   </p>
 
   <!-- Sign-off -->

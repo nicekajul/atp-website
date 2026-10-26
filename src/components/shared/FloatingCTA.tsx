@@ -149,7 +149,7 @@ export default function FloatingCTA() {
       {/* ── Speed Dial ────────────────────────────────────── */}
       <div className={`${styles.fab} ${isVisible && !quizActive ? styles.fabVisible : ''}`}>
 
-        {/* Action items — reversed so quiz renders last (bottom, closest to trigger) */}
+        {/* Action items - reversed so quiz renders last (bottom, closest to trigger) */}
         <div className={styles.fabMenu} aria-hidden={!isOpen}>
           {[...ACTIONS].reverse().map((action, revIdx) => {
             const origIdx = ACTIONS.length - 1 - revIdx

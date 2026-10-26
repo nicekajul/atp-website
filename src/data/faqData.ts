@@ -1,5 +1,5 @@
 // ============================================================
-// FAQ Data — all categories and items
+// FAQ Data - all categories and items
 // ============================================================
 
 export interface FAQItem {
@@ -21,7 +21,7 @@ export const faqCategories: FAQCategory[] = [
     icon: '📖',
     items: [
       {
-        question: "I've never published before — where do I start?",
+        question: "I've never published before. Where do I start?",
         answer:
           "Start by taking our free 30-second Package Quiz on the website, it asks a few quick questions about your manuscript and goals, then recommends the right package for you. You can also book a free consultation call with our publishing advisors who will walk you through the entire process step by step.",
       },
@@ -33,7 +33,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'Do you offer a free consultation?',
         answer:
-          "Yes. We offer a complimentary publishing consultation where one of our specialists reviews your project, answers your questions, and recommends the best path forward — with no obligation to purchase.",
+          "Yes. We offer a complimentary publishing consultation where one of our specialists reviews your project, answers your questions, and recommends the best path forward, with no obligation to purchase.",
       },
       {
         question: 'How long does the publishing process take?',
@@ -186,7 +186,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'Can I use my review for marketing purposes?',
         answer:
-          "Yes. Once published, you may quote and excerpt your review in press kits, on your author website, in social media posts, and in other promotional materials — in line with each platform's usage guidelines.",
+          "Yes. Once published, you may quote and excerpt your review in press kits, on your author website, in social media posts, and in other promotional materials, in line with each platform's usage guidelines.",
       },
       {
         question: 'What is the Trifecta Review Bundle?',
@@ -258,7 +258,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'How do ghostwriters capture my voice?',
         answer:
-          "We conduct extensive interviews and review any existing writing samples to mirror your tone, vocabulary, and perspective precisely. The goal is for the final manuscript to feel authentically yours — because it is.",
+          "We conduct extensive interviews and review any existing writing samples to mirror your tone, vocabulary, and perspective precisely. The goal is for the final manuscript to feel authentically yours, because it is.",
       },
       {
         question: 'Who owns the rights to a ghostwritten book?',
@@ -305,7 +305,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'How do royalties work after my book is published?',
         answer:
-          "Royalties from retail sales are paid directly to you by the distribution platform (Amazon KDP, IngramSpark, etc.). ATP does not take a cut of your ongoing book sales — ever. Payout schedules and rates vary by platform, typically ranging from 35% to 70% of list price.",
+          "Royalties from retail sales are paid directly to you by the distribution platform (Amazon KDP, IngramSpark, etc.). ATP does not take a cut of your ongoing book sales, ever. Payout schedules and rates vary by platform, typically ranging from 35% to 70% of list price.",
       },
       {
         question: 'Are payment plans available?',

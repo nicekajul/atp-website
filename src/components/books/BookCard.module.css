@@ -135,7 +135,7 @@
   transform: translateY(0);
 }
 
-/* Shared button base — mirrors Button.module.css */
+/* Shared button base - mirrors Button.module.css */
 .quickPreviewBtn,
 .viewDetailsBtn {
   position: relative;
@@ -176,7 +176,7 @@
   pointer-events: none;
 }
 
-/* Quick Preview — gold / primary */
+/* Quick Preview - gold / primary */
 .quickPreviewBtn {
   background: var(--atp-gold);
   color: var(--atp-navy);
@@ -197,7 +197,7 @@
   transform: translateY(0);
 }
 
-/* View Details — white outline */
+/* View Details - white outline */
 .viewDetailsBtn {
   background: transparent;
   color: var(--atp-white);

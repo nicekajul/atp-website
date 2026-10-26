@@ -71,7 +71,7 @@ export default function ContactForm() {
         <h3 className={styles.successHeading}>Message Received!</h3>
         <p className={styles.successText}>
           Thank you, {form.name.split(' ')[0]}. One of our publishing consultants will reach out within one business day.
-          Check your inbox — we&apos;ve sent a confirmation to {form.email}.
+          Check your inbox. We&apos;ve sent a confirmation to {form.email}.
         </p>
       </div>
     )
@@ -93,7 +93,7 @@ export default function ContactForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
-      {/* Honeypot — hidden from humans, bots fill it */}
+      {/* Honeypot - hidden from humans, bots fill it */}
       <input
         ref={honeypotRef}
         type="text"

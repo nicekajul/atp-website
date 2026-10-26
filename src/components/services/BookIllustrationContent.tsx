@@ -87,7 +87,7 @@ const BENEFITS = [
   {
     icon: '📊',
     title: 'Flexible Pricing Levels',
-    desc: 'Choose the detail level that fits your budget — from clean line art to fully rendered artwork.',
+    desc: 'Choose the detail level that fits your budget, from clean line art to fully rendered artwork.',
   },
   {
     icon: '📋',
@@ -248,7 +248,7 @@ export default function BookIllustrationContent({ service }: Props) {
                 </li>
                 <li className={styles.policyItem}>
                   <CheckIcon />
-                  <span>Initial instructions are treated as <strong>final direction</strong> — please be thorough and precise.</span>
+                  <span>Initial instructions are treated as <strong>final direction</strong>, so please be thorough and precise.</span>
                 </li>
                 <li className={styles.policyItem}>
                   <CheckIcon />

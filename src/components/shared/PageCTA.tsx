@@ -159,7 +159,7 @@ export default function PageCTA({
                   </div>
                   <blockquote className={styles.quote}>
                     <p>&ldquo;ATP turned my manuscript into a book I&rsquo;m proud to show the world.&rdquo;</p>
-                    <footer>— Sandra Leigh, <em>Publish With Purpose</em></footer>
+                    <footer>Sandra Leigh, <em>Publish With Purpose</em></footer>
                   </blockquote>
                   <span className={styles.panelOrn}>✦</span>
                 </div>

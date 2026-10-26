@@ -338,7 +338,7 @@
   margin: 0 auto;
 }
 
-/* Publishers Weekly tier card — same visual pattern as adCard */
+/* Publishers Weekly tier card - same visual pattern as adCard */
 .pwCard {
   background: var(--atp-white);
   border: 1px solid var(--atp-border);

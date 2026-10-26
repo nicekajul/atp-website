@@ -197,7 +197,7 @@
 .specLabel { font-size: 10px; text-transform: uppercase; color: #718096; letter-spacing: 0.06em; font-weight: 700; }
 .specValue { font-size: 13px; font-weight: 600; color: #0f1b2d; }
 
-/* Pinned footer — sibling of .scrollable, never inside it */
+/* Pinned footer - sibling of .scrollable, never inside it */
 .footer {
   flex-shrink: 0;
   padding: 16px 28px 20px;
@@ -272,7 +272,7 @@
   .title { font-size: 18px; }
 }
 
-/* ── Mobile: ≤ 640px — bottom sheet ────────────────── */
+/* ── Mobile: ≤ 640px - bottom sheet ────────────────── */
 
 @media (max-width: 640px) {
   .overlay {

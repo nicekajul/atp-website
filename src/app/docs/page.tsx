@@ -23,34 +23,34 @@ const sections = [
   { id: 'brand-assets',  label: 'Brand Assets' },
   { id: 'branding',      label: 'Branding Guidelines' },
   { id: 'templates',     label: 'Brand Templates' },
-  { id: 'changelog',     label: 'Changelog — June 2026' },
+  { id: 'changelog',     label: 'Changelog: June 2026' },
 ]
 
 const BRAND_ASSETS = [
   {
     file: 'ATP-Logo-Horizontal-Dark.png',
-    label: 'Horizontal Logo — Dark',
+    label: 'Horizontal Logo (Dark)',
     desc: 'Primary logo. Use on light/white backgrounds. Main logo variant.',
     bg: '#ffffff',
     border: true,
   },
   {
     file: 'ATP-Logo-Horizontal-Light.png',
-    label: 'Horizontal Logo — Light',
+    label: 'Horizontal Logo (Light)',
     desc: 'Reversed primary logo. Use on dark/navy backgrounds and in emails.',
     bg: '#0f1b2d',
     border: false,
   },
   {
     file: 'ATP-Logo-Vertical-Dark.png',
-    label: 'Vertical Logo — Dark',
+    label: 'Vertical Logo (Dark)',
     desc: 'Vertical variant. Use for email signatures and narrow-space contexts on light backgrounds.',
     bg: '#ffffff',
     border: true,
   },
   {
     file: 'ATP-Logo-Vertical-Light.png',
-    label: 'Vertical Logo — Light',
+    label: 'Vertical Logo (Light)',
     desc: 'Vertical variant reversed. Use for email signatures and narrow-space contexts on dark/navy backgrounds.',
     bg: '#0f1b2d',
     border: false,
@@ -64,7 +64,7 @@ const BRAND_ASSETS = [
   },
   {
     file: 'ATP-logo-dark.png',
-    label: 'Icon Mark — Gold',
+    label: 'Icon Mark (Gold)',
     desc: 'Standalone gold icon on transparent background. Use on light or navy surfaces.',
     bg: '#ffffff',
     border: true,
@@ -168,8 +168,8 @@ export default function DocsPage() {
           <h2 className={styles.sectionTitle}>3. Project Structure</h2>
           <pre className={styles.pre}>{`D:\\ATP\\Revamp\\
 ├── public/
-│   ├── ATP-logo-light-1.png          # Full logo — light (used in emails)
-│   ├── ATP-logo-dark.png             # Full logo — dark
+│   ├── ATP-logo-light-1.png          # Full logo, light (used in emails)
+│   ├── ATP-logo-dark.png             # Full logo, dark
 │   ├── ATP_Authors_Publishing_Guide.pdf
 │   └── ATP_Authors_Publishing_Guide_Page_1.jpg
 │
@@ -235,18 +235,18 @@ export default function DocsPage() {
               </thead>
               <tbody>
                 {[
-                  ['/', 'Homepage — hero, services overview, how it works, testimonials, featured books, newsletter'],
-                  ['/about', 'About Us — company story, stats (500+ books, 4.9★, 12+ years, 40+ countries), values'],
-                  ['/services', 'Services overview — all services grouped by category'],
-                  ['/services/publishing-packages', 'Flagship service — Compare Features table with highlighted columns'],
-                  ['/services/[slug]', 'Dynamic service detail — turnaround cards, pricing table, FAQ accordion, lead form'],
-                  ['/marketing', 'Marketing hub — tabbed category filter with service cards and starting prices'],
+                  ['/', 'Homepage: hero, services overview, how it works, testimonials, featured books, newsletter'],
+                  ['/about', 'About Us: company story, stats (500+ books, 4.9★, 12+ years, 40+ countries), values'],
+                  ['/services', 'Services overview: all services grouped by category'],
+                  ['/services/publishing-packages', 'Flagship service: Compare Features table with highlighted columns'],
+                  ['/services/[slug]', 'Dynamic service detail: turnaround cards, pricing table, FAQ accordion, lead form'],
+                  ['/marketing', 'Marketing hub: tabbed category filter with service cards and starting prices'],
                   ['/bookstore', 'Sanity-powered book listing with filters and search'],
                   ['/bookstore/[slug]', 'Individual book detail page'],
                   ['/quiz', 'Multi-step package quiz with lead capture and recommendation'],
-                  ['/faq', 'Categorized accordion FAQ — 7 categories, 60+ questions'],
+                  ['/faq', 'Categorized accordion FAQ: 7 categories, 60+ questions'],
                   ['/contact', 'Contact form with service selector'],
-                  ['/resources', 'Author tools — royalty calc, cost calc, blurb builder, title generator, etc.'],
+                  ['/resources', 'Author tools: royalty calc, cost calc, blurb builder, title generator, etc.'],
                   ['/docs', 'This documentation page (not indexed, not in nav)'],
                 ].map(([route, desc]) => (
                   <tr key={route}>
@@ -322,13 +322,18 @@ export default function DocsPage() {
                   ['book-spark', 'Book Spark', 'Foundation'],
                   ['social-media-advertising', 'Social Media Ads', 'Launch & Promotion'],
                   ['digital-advertising', 'Digital Advertising', 'Launch & Promotion'],
+                  ['ipage-listing', 'iPage Listing', 'Launch & Promotion'],
                   ['press-release', 'Press Release', 'Media & Press'],
                   ['media-coverage', 'Media Coverage', 'Media & Press'],
                   ['print-advertising', 'Print Advertising', 'Media & Press'],
                   ['book-trailers', 'Book Trailers', 'Content & Video'],
+                  ['book-review-squad-videos', 'Book Review Squad Videos', 'Content & Video'],
                   ['book-to-screen', 'Book-to-Screen Services', 'Content & Video'],
+                  ['dep-tracking-packages', 'DEP Tracking Packages', 'Content & Video'],
+                  ['query-letter-services', 'Query Letter Services', 'Content & Video'],
                   ['book-reviews', 'Book Reviews', 'Credibility & Recognition'],
                   ['book-awards', 'Book Awards', 'Credibility & Recognition'],
+                  ['literary-titan-book-award', 'Literary Titan Book Award', 'Credibility & Recognition'],
                   ['international-book-fairs', 'International Book Fairs', 'Premium Exposure'],
                   ['times-square-billboard', 'Times Square Billboard', 'Premium Exposure'],
                 ].map(([slug, title, group]) => (
@@ -395,8 +400,8 @@ export default function DocsPage() {
           <h3 className={styles.subTitle}>PricingTable.tsx</h3>
           <p>Dual-view pricing component used on publishing package service pages:</p>
           <ul className={styles.list}>
-            <li><strong>Grid View</strong> — Scrollable card carousel, one card per package with feature list</li>
-            <li><strong>Compare Features (default)</strong> — Full HTML table with category section rows, feature rows, and package columns. Highlighted columns: Execution (gold tint), Expansion (green tint), Integrative (navy tint). Show Full Comparison / Show Less toggle.</li>
+            <li><strong>Grid View:</strong> Scrollable card carousel, one card per package with feature list</li>
+            <li><strong>Compare Features (default):</strong> Full HTML table with category section rows, feature rows, and package columns. Highlighted columns: Execution (gold tint), Expansion (green tint), Integrative (navy tint). Show Full Comparison / Show Less toggle.</li>
             <li>Helper text dynamically lists the recommended packages from the data</li>
             <li>Print type toggle (B&W / Color) for services with color pricing variants</li>
           </ul>
@@ -430,7 +435,7 @@ export default function DocsPage() {
               { name: 'Contact Form', desc: 'Route: /api/contact. Collects name, email, phone, service interest, message. Sends notification email to ATP team and confirmation to the author via Resend.' },
               { name: 'Free Guide Lead', desc: 'Route: /api/ebook-lead. Collects name, email. Generates HMAC-signed download token (DOWNLOAD_SECRET env var). Sends branded email with secure download link. Token verified via /api/download-guide.' },
               { name: 'Quiz Lead', desc: 'Route: /api/quiz-lead. Collects name, email, phone, and the recommended package computed from quiz answers. Sends notification to ATP team.' },
-              { name: 'Download Verification', desc: 'Route: /api/download-guide. Stateless HMAC token verification using crypto.createHmac + timingSafeEqual. Logs download to Google Sheets. Cold-start safe — no in-memory state.' },
+              { name: 'Download Verification', desc: 'Route: /api/download-guide. Stateless HMAC token verification using crypto.createHmac + timingSafeEqual. Logs download to Google Sheets. Cold-start safe (no in-memory state).' },
               { name: 'Email Template', desc: 'src/lib/email/template.ts. Full HTML email with ATP branding. Header: centered ATP logo (280px) on navy bg. Footer: smaller logo (220px) + legal. Uses NEXT_PUBLIC_SITE_URL for all links.' },
               { name: 'Google Sheets', desc: 'src/lib/email/sheets.ts. Logs lead submissions and guide downloads to a Google Sheet for CRM purposes.' },
             ].map(c => (
@@ -451,7 +456,7 @@ export default function DocsPage() {
               <thead><tr><th>Variable</th><th>Purpose</th></tr></thead>
               <tbody>
                 {[
-                  ['NEXT_PUBLIC_SITE_URL', 'Public base URL — used in email links and download URLs'],
+                  ['NEXT_PUBLIC_SITE_URL', 'Public base URL, used in email links and download URLs'],
                   ['RESEND_API_KEY', 'Resend API key for transactional email delivery'],
                   ['DOWNLOAD_SECRET', 'HMAC secret for signing and verifying guide download tokens'],
                   ['NEXT_PUBLIC_SANITY_PROJECT_ID', 'Sanity project ID for bookstore CMS'],
@@ -474,12 +479,12 @@ export default function DocsPage() {
         {/* 10. Deployment */}
         <section id="deployment" className={styles.section}>
           <h2 className={styles.sectionTitle}>10. Deployment</h2>
-          <p><strong>Platform:</strong> Vercel — connected to <code className={styles.code}>nicekajul/atp-website</code> on GitHub. Every push to <code className={styles.code}>master</code> triggers an automatic production deployment.</p>
+          <p><strong>Platform:</strong> Vercel, connected to <code className={styles.code}>nicekajul/atp-website</code> on GitHub. Every push to <code className={styles.code}>master</code> triggers an automatic production deployment.</p>
           <h3 className={styles.subTitle}>Build Configuration</h3>
           <ul className={styles.list}>
             <li>Framework: Next.js (auto-detected by Vercel)</li>
             <li>Build command: <code className={styles.code}>next build</code></li>
-            <li>ESLint bypassed during build — <code className={styles.code}>eslint: {'{ ignoreDuringBuilds: true }'}</code> in <code className={styles.code}>next.config.ts</code></li>
+            <li>ESLint bypassed during build: <code className={styles.code}>eslint: {'{ ignoreDuringBuilds: true }'}</code> in <code className={styles.code}>next.config.ts</code></li>
             <li>React aliased to project node_modules on client bundles only (prevents Sanity React conflict)</li>
             <li><code className={styles.code}>serverExternalPackages: ['sanity', '@sanity/vision', 'next-sanity']</code> prevents SSR bundling issues</li>
           </ul>
@@ -571,7 +576,7 @@ export default function DocsPage() {
             </table>
           </div>
           <div className={styles.callout}>
-            Both fonts are loaded via Google Fonts in the Next.js root layout. Always use the CSS variables — never hardcode font names in components.
+            Both fonts are loaded via Google Fonts in the Next.js root layout. Always use the CSS variables; never hardcode font names in components.
           </div>
 
           {/* Logo Usage */}
@@ -583,8 +588,8 @@ export default function DocsPage() {
                 {[
                   ['Light / white background (primary use)', 'ATP-Logo-Horizontal-Dark.png'],
                   ['Dark / navy background', 'ATP-Logo-Horizontal-Light.png'],
-                  ['Email signatures, narrow layouts — light background', 'ATP-Logo-Vertical-Dark.png'],
-                  ['Email signatures, narrow layouts — dark background', 'ATP-Logo-Vertical-Light.png'],
+                  ['Email signatures, narrow layouts (light background)', 'ATP-Logo-Vertical-Dark.png'],
+                  ['Email signatures, narrow layouts (dark background)', 'ATP-Logo-Vertical-Light.png'],
                   ['Favicon, app icon, social profile picture', 'atp-logo-alt.png'],
                   ['Standalone icon mark on any surface', 'ATP-logo-dark.png'],
                   ['Transactional emails (header & footer)', 'ATP-Logo-Horizontal-Light.png via NEXT_PUBLIC_SITE_URL'],
@@ -595,11 +600,11 @@ export default function DocsPage() {
             </table>
           </div>
           <ul className={styles.list}>
-            <li><strong>Primary variant:</strong> Horizontal logo — always the default. Vertical is for narrow/email contexts only.</li>
+            <li><strong>Primary variant:</strong> Horizontal logo is always the default. Vertical is for narrow/email contexts only.</li>
             <li><strong>Minimum size:</strong> 120px wide for horizontal logo; 80px wide for vertical logo; 32px for icon mark</li>
             <li><strong>Clear space:</strong> Maintain padding equal to the height of the icon mark on all sides</li>
             <li><strong>Never:</strong> stretch, skew, rotate, recolor, or place on a busy background without a backing shape</li>
-            <li><strong>Never:</strong> use a rasterized logo below minimum size — use the icon mark instead</li>
+            <li><strong>Never:</strong> use a rasterized logo below minimum size; use the icon mark instead</li>
           </ul>
 
           {/* Proportion Calculations */}
@@ -610,9 +615,9 @@ export default function DocsPage() {
 
           <p className={styles.subTitle} style={{ fontSize: 'var(--text-sm)', marginTop: 0 }}>Vertical Logo</p>
           <ul className={styles.list}>
-            <li><strong>Step 1 — Anchor point:</strong> Measure the exact pixel width of the word &ldquo;Tranquility&rdquo; (the widest word in the lockup).</li>
-            <li><strong>Step 2 — Golden Ratio:</strong> Multiply that width by <strong>0.62</strong>. Set the total width of the bird mark to that value. The 60–65% range is optimal for organic, flowing marks — 0.62 sits precisely at the Golden Ratio.</li>
-            <li><strong>Step 3 — Breathing room:</strong> The bird&rsquo;s tail is a sharp downward point that draws the eye directly into &ldquo;Author&rsquo;s.&rdquo; Use the physical cap-height of the letter &ldquo;A&rdquo; in &ldquo;Author&rsquo;s&rdquo; as the exact vertical gap between the tail tip and the top of the text below.</li>
+            <li><strong>Step 1, Anchor point:</strong> Measure the exact pixel width of the word &ldquo;Tranquility&rdquo; (the widest word in the lockup).</li>
+            <li><strong>Step 2, Golden Ratio:</strong> Multiply that width by <strong>0.62</strong>. Set the total width of the bird mark to that value. The 60–65% range is optimal for organic, flowing marks; 0.62 sits precisely at the Golden Ratio.</li>
+            <li><strong>Step 3, Breathing room:</strong> The bird&rsquo;s tail is a sharp downward point that draws the eye directly into &ldquo;Author&rsquo;s.&rdquo; Use the physical cap-height of the letter &ldquo;A&rdquo; in &ldquo;Author&rsquo;s&rdquo; as the exact vertical gap between the tail tip and the top of the text below.</li>
           </ul>
 
           <p className={styles.subTitle} style={{ fontSize: 'var(--text-sm)', marginTop: 0 }}>Horizontal Logo</p>
@@ -641,11 +646,11 @@ export default function DocsPage() {
           {/* Brand Don'ts */}
           <h3 className={styles.subTitle}>Copy Rules</h3>
           <ul className={styles.list}>
-            <li>Brand name is <strong>Author&rsquo;s Tranquility Press</strong> — always with the apostrophe. Never "Authors Tranquility Press".</li>
-            <li>Short form: <strong>ATP</strong> — acceptable after first full mention on a page.</li>
+            <li>Brand name is <strong>Author&rsquo;s Tranquility Press</strong>, always with the apostrophe. Never "Authors Tranquility Press".</li>
+            <li>Short form: <strong>ATP</strong>, acceptable after first full mention on a page.</li>
             <li>Email sender: <strong>support@authorstranquilitypress.com</strong></li>
             <li>Primary CTA: <strong>Start Publishing</strong> (header) · <strong>Book a Free Consultation</strong> (body)</li>
-            <li>Avoid em-dash overuse — use it for strong breaks only, not as a comma substitute.</li>
+            <li>Do not use em dashes. Use a comma, colon, period, or parentheses instead.</li>
             <li>Prices should always be preceded by "From" when showing a starting price (e.g., "From $899").</li>
           </ul>
         </section>
@@ -659,7 +664,7 @@ export default function DocsPage() {
         <footer className={styles.footer}>
           <p>Author&rsquo;s Tranquility Press · Internal Documentation · {new Date().getFullYear()}</p>
           <p>
-            Developed by <strong>Alreen Christian Jul R. Omang</strong> —
+            Developed by <strong>Alreen Christian Jul R. Omang</strong>,
             Marketing Technology Manager / Senior Full-Stack Developer
           </p>
           <p>This page is not indexed by search engines and is not linked from the public navigation.</p>

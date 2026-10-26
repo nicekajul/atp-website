@@ -5,7 +5,7 @@ import TimesSquareBillboardContent from '@/components/services/TimesSquareBillbo
 export const metadata: Metadata = {
   title: "New York Times Square Digital Billboard | Author's Tranquility Press",
   description:
-    "Feature your book on a large-format digital billboard at 1560 Broadway, Times Square — one of the world's most recognized advertising locations. Fully managed by ATP.",
+    "Feature your book on a large-format digital billboard at 1560 Broadway, Times Square, one of the world's most recognized advertising locations. Fully managed by ATP.",
 }
 
 export default function TimesSquareBillboardPage() {

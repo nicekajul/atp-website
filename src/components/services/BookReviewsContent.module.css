@@ -135,7 +135,7 @@
   margin: calc(-1 * var(--space-8)) 0 var(--space-12);
 }
 
-/* 3-column grid — 2 rows of 3 */
+/* 3-column grid - 2 rows of 3 */
 .packagesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -606,7 +606,7 @@
     grid-template-columns: 1fr;
   }
 
-  /* Narrower cards on mobile — still single row, scroll to see all */
+  /* Narrower cards on mobile - still single row, scroll to see all */
   .packagesGrid {
     grid-template-columns: repeat(6, minmax(200px, 1fr));
   }

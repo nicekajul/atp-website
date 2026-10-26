@@ -40,7 +40,7 @@ const EXPERIENCES = [
     icon: '✍️',
     title: 'Book Signing Experiences',
     description:
-      'Create meaningful, memorable interactions with readers through our professionally managed book signing sessions—available during major events such as the London Book Fair and Frankfurter Buchmesse.',
+      'Create meaningful, memorable interactions with readers through our professionally managed book signing sessions, available during major events such as the London Book Fair and Frankfurter Buchmesse.',
   },
 ]
 
@@ -168,7 +168,7 @@ export default function BookFairsContent({ service }: Props) {
 
           <div className={styles.participationGrid}>
 
-            {/* Company Participation — consultation, no fixed price */}
+            {/* Company Participation - consultation, no fixed price */}
             <div className={styles.consultCard}>
               <div className={styles.consultCardHeader}>
                 <span className={styles.consultIcon} aria-hidden="true">{'\u{1F91D}'}</span>

@@ -691,7 +691,43 @@
 }
 
 /* ============================================================
-   RESPONSIVE — hide desktop nav on mobile
+   NEW SERVICE INDICATORS
+   ============================================================ */
+.newBadge {
+  display: inline-block;
+  margin-left: var(--space-2);
+  padding: 1px 6px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  vertical-align: 2px;
+  color: var(--atp-navy);
+  background: var(--atp-gold);
+  border-radius: var(--radius-full);
+}
+
+.newDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: var(--space-1);
+  border-radius: 50%;
+  background: var(--atp-gold);
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.25);
+  flex-shrink: 0;
+}
+
+.megaCategoryLabel,
+.mobileNavGroupLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+/* ============================================================
+   RESPONSIVE - hide desktop nav on mobile
    ============================================================ */
 @media (max-width: 900px) {
   .navList  { display: none; }

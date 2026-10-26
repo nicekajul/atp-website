@@ -254,11 +254,11 @@ export default function BookToScreenContent({ service }: Props) {
           <div className={styles.premiumLabel}>Premium Service</div>
           <h2 className={styles.sectionHeading}>Full Screenplay Adaptation</h2>
           <p className={styles.sectionSubhead}>
-            The most comprehensive path from book to screen — a fully developed, industry-formatted screenplay.
+            The most comprehensive path from book to screen: a fully developed, industry-formatted screenplay.
           </p>
 
           <article className={styles.premiumCard}>
-            <div className={styles.premiumRibbon}>⭐ Premium — Most Comprehensive</div>
+            <div className={styles.premiumRibbon}>⭐ Premium · Most Comprehensive</div>
 
             <header className={styles.premiumHeader}>
               <div className={styles.premiumHeaderLeft}>

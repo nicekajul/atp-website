@@ -7,7 +7,7 @@ import styles from './marketing.module.css'
 
 export const metadata: Metadata = {
   title: 'Marketing Services | Authors Tranquility Press',
-  description: 'Explore our full suite of book marketing services — from launch campaigns and media coverage to book trailers, award submissions, and premium exposure opportunities.',
+  description: 'Explore our full suite of book marketing services, from launch campaigns and media coverage to book trailers, award submissions, and premium exposure opportunities.',
 }
 
 const categories = [
@@ -15,7 +15,7 @@ const categories = [
     id: 'foundation',
     heading: 'Foundation',
     icon: '🏗️',
-    description: 'Build your author platform — the base every marketing effort relies on.',
+    description: 'Build your author platform: the base every marketing effort relies on.',
     slugs: ['author-website', 'book-spark'],
   },
   {
@@ -23,7 +23,7 @@ const categories = [
     heading: 'Launch & Promotion',
     icon: '🚀',
     description: 'Targeted campaigns that connect your book with the right readers.',
-    slugs: ['social-media-advertising', 'digital-advertising'],
+    slugs: ['social-media-advertising', 'digital-advertising', 'ipage-listing'],
   },
   {
     id: 'media',
@@ -37,14 +37,14 @@ const categories = [
     heading: 'Content & Video',
     icon: '🎬',
     description: 'Visual storytelling that extends your book\'s reach beyond the page.',
-    slugs: ['book-trailers', 'book-to-screen'],
+    slugs: ['book-trailers', 'book-review-squad-videos', 'book-to-screen', 'dep-tracking-packages', 'query-letter-services'],
   },
   {
     id: 'credibility',
     heading: 'Credibility & Recognition',
     icon: '⭐',
     description: 'Independent reviews and award submissions that build author authority.',
-    slugs: ['book-reviews', 'book-awards'],
+    slugs: ['book-reviews', 'book-awards', 'literary-titan-book-award'],
   },
   {
     id: 'premium',
@@ -73,7 +73,7 @@ export default function MarketingPage() {
             </h1>
             <p className={styles.subtitle}>
               Publishing is only half the journey. From launch campaigns and media features
-              to award submissions and premium placements — we handle the marketing so you
+              to award submissions and premium placements, we handle the marketing so you
               can focus on writing.
             </p>
             <div className={styles.divider} />

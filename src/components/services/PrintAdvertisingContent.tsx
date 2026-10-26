@@ -160,12 +160,12 @@ const WHY_ITEMS = [
   {
     icon: '✅',
     title: 'Deliverable-based services',
-    desc: 'Clear, transparent expectations — you know exactly what is included before you commit.',
+    desc: 'Clear, transparent expectations: you know exactly what is included before you commit.',
   },
   {
     icon: '🎯',
     title: 'Realistic positioning',
-    desc: 'No inflated circulation claims — we set honest expectations so you can plan accordingly.',
+    desc: 'No inflated circulation claims. We set honest expectations so you can plan accordingly.',
   },
   {
     icon: '🤝',
@@ -221,7 +221,7 @@ export default function PrintAdvertisingContent({ service }: Props) {
           <DecisionFriction customHeadline="Find the right print placement in 30 seconds" />
           <h2 className={styles.sectionHeading}>Print Advertising Packages</h2>
           <p className={styles.packagesSubhead}>
-            Each placement is professionally coordinated by ATP — from ad design to final submission.
+            Each placement is professionally coordinated by ATP, from ad design to final submission.
           </p>
 
           <div className={styles.packagesGrid}>

@@ -30,7 +30,7 @@
   font-weight: 600;
 }
 
-/* Grid: 1 column always — tools expand inline */
+/* Grid: 1 column always - tools expand inline */
 .grid {
   display: flex;
   flex-direction: column;

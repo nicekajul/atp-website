@@ -18,7 +18,7 @@ const WHY_ITEMS = [
   {
     icon: '📬',
     title: 'Fully Managed Submission',
-    desc: 'ATP coordinates the entire submission process — so you receive your review without navigating each platform\'s requirements.',
+    desc: 'ATP coordinates the entire submission process, so you receive your review without navigating each platform\'s requirements.',
   },
   {
     icon: '📣',
@@ -278,7 +278,7 @@ export default function BookReviewsContent({ service }: Props) {
                   </p>
                   <ul className={styles.hoverFeatures}>
                     {AMAZON_TIERS.map((tier, ti) => (
-                      <li key={ti}>{tier.count} — {tier.price}</li>
+                      <li key={ti}>{tier.count}: {tier.price}</li>
                     ))}
                     <li>Monitoring and reporting of review progress</li>
                     <li>Final summary report of verified reviews once live</li>

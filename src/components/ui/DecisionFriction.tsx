@@ -15,7 +15,7 @@ export default function DecisionFriction({ customHeadline }: DecisionFrictionPro
           <div className={styles.messaging}>
              <h2 className={styles.title}>{customHeadline || "Find the perfect publishing package in 30 seconds"}</h2>
              <p className={styles.subtitle}>
-               Skip the confusion — we’ll guide you to the right package based on your book, goals, and budget.
+               Skip the confusion. We’ll guide you to the right package based on your book, goals, and budget.
              </p>
           </div>
 
@@ -31,7 +31,7 @@ export default function DecisionFriction({ customHeadline }: DecisionFrictionPro
                 Start My Publishing Quiz
               </Button>
               <div className={styles.resultPreview}>
-                Example: Recommended — <strong>Professional Package</strong>
+                Example: Recommended: <strong>Professional Package</strong>
               </div>
             </div>
             

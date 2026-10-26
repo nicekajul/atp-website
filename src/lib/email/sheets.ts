@@ -1,6 +1,6 @@
 /**
  * Appends a row to the leads Google Sheet via the Apps Script webhook.
- * Fails silently — a Sheets error should never block email delivery.
+ * Fails silently - a Sheets error should never block email delivery.
  */
 export async function logToLeadsSheet(data: Record<string, string>): Promise<void> {
   const url = process.env.GOOGLE_SHEETS_LEADS_WEBHOOK_URL

@@ -1,15 +1,15 @@
 // ============================================================
-// ATP Publishing Quiz — Scoring + Tagging Matrix
+// ATP Publishing Quiz - Scoring + Tagging Matrix
 // ============================================================
 //
 // Actual packages (from services.ts publishing-packages):
-//   Gentle        $899     — entry-level, paperback, 3 copies
-//   Contemplation $1,299   — print+hardcover, social media, 6 copies
-//   Determination $1,699   — eBook, press release, 9 copies
-//   Execution     $3,199   — trailer, website, ATP mag half-page, 14 copies
-//   Expansion     $5,499   — podcast, full-page mag, 26 copies, 5 revisions
-//   Authority     $8,999   — Publisher's Weekly, unlimited revisions, 38 copies
-//   Integrative   $12,999  — TV interview, Times Square Billboard, 70 copies
+//   Gentle        $899     - entry-level, paperback, 3 copies
+//   Contemplation $1,299   - print+hardcover, social media, 6 copies
+//   Determination $1,699   - eBook, press release, 9 copies
+//   Execution     $3,199   - trailer, website, ATP mag half-page, 14 copies
+//   Expansion     $5,499   - podcast, full-page mag, 26 copies, 5 revisions
+//   Authority     $8,999   - Publisher's Weekly, unlimited revisions, 38 copies
+//   Integrative   $12,999  - TV interview, Times Square Billboard, 70 copies
 //
 // Scoring philosophy:
 //   - Budget is the dominant signal (highest per-question weight).
@@ -20,7 +20,7 @@
 //     domination. Budget caps at 10 for the lowest tier (pure
 //     constraint) and 9 for the highest (budget is a ceiling, not a
 //     sole driver).
-//   - Fallback is Execution — the most popular mid-tier package.
+//   - Fallback is Execution - the most popular mid-tier package.
 // ============================================================
 
 export interface QuizOption {
@@ -36,7 +36,7 @@ export interface QuizQuestion {
   options: QuizOption[]
 }
 
-// Canonical package name constants — must match services.ts exactly
+// Canonical package name constants - must match services.ts exactly
 const P = {
   GENTLE:        'Gentle',
   CONTEMPLATION: 'Contemplation',
@@ -49,19 +49,19 @@ const P = {
 
 // ── Questions ────────────────────────────────────────────────
 export const QUIZ_QUESTIONS: QuizQuestion[] = [
-  // Q1 — Experience
+  // Q1 - Experience
   // Discriminates lower tiers (Gentle, Contemplation) from mid/upper.
   {
     id: 'experience',
     question: 'What best describes you as an author?',
     options: [
       {
-        label: 'First-time author — just getting started',
+        label: 'First-time author, just getting started',
         value: 'first_time_starting',
         score: { [P.GENTLE]: 4, [P.CONTEMPLATION]: 2 },
       },
       {
-        label: 'First-time author — manuscript ready to publish',
+        label: 'First-time author, manuscript ready to publish',
         value: 'first_time_ready',
         score: { [P.CONTEMPLATION]: 3, [P.DETERMINATION]: 2, [P.EXECUTION]: 1 },
       },
@@ -71,14 +71,14 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         score: { [P.DETERMINATION]: 2, [P.EXECUTION]: 3, [P.EXPANSION]: 1 },
       },
       {
-        label: 'Multiple books — building a serious author career',
+        label: 'Multiple books, building a serious author career',
         value: 'career_author',
         score: { [P.EXECUTION]: 2, [P.EXPANSION]: 3, [P.AUTHORITY]: 2, [P.INTEGRATIVE]: 1 },
       },
     ],
   },
 
-  // Q2 — Primary Goal
+  // Q2 - Primary Goal
   // Discriminates publishing-only (Gentle/Contemplation) from
   // marketing-focused (Execution/Expansion) from legacy (Integrative).
   {
@@ -108,14 +108,14 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
   },
 
-  // Q3 — Budget (dominant signal — highest weights)
+  // Q3 - Budget (dominant signal - highest weights)
   // Each range maps cleanly to one primary package and one adjacent tier.
   // A budget answer alone can push a tier over the edge; all other
   // questions together refine within ±1 tier of the budget signal.
   {
     id: 'budget',
     question: "What's your publishing budget?",
-    description: 'This is the most important factor — be honest and we\'ll find your best match.',
+    description: 'This is the most important factor, so be honest and we\'ll find your best match.',
     options: [
       {
         label: 'Under $1,000',
@@ -150,7 +150,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
   },
 
-  // Q4 — Media & Exposure
+  // Q4 - Media & Exposure
   // Cleanly separates no-media (Gentle/Contemplation), press-only
   // (Determination), full-kit (Execution/Expansion), and elite media
   // (Authority/Integrative).
@@ -159,58 +159,58 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     question: 'How important is media exposure to your launch?',
     options: [
       {
-        label: 'Not important — publishing the book is enough',
+        label: 'Not important: publishing the book is enough',
         value: 'no_media',
         score: { [P.GENTLE]: 3, [P.CONTEMPLATION]: 3 },
       },
       {
-        label: 'Some exposure — social media posts and a press release',
+        label: 'Some exposure: social media posts and a press release',
         value: 'social_press',
         score: { [P.CONTEMPLATION]: 1, [P.DETERMINATION]: 4, [P.EXECUTION]: 1 },
       },
       {
-        label: 'Strong presence — book trailer, author website, magazine feature',
+        label: 'Strong presence: book trailer, author website, magazine feature',
         value: 'trailer_website',
         score: { [P.EXECUTION]: 5, [P.EXPANSION]: 3 },
       },
       {
-        label: "Maximum reach — TV interview, billboard, Publisher's Weekly",
+        label: "Maximum reach: TV interview, billboard, Publisher's Weekly",
         value: 'tv_billboard',
         score: { [P.AUTHORITY]: 3, [P.INTEGRATIVE]: 5 },
       },
     ],
   },
 
-  // Q5 — Support Level
+  // Q5 - Support Level
   // Separates DIY-adjacent (Gentle) from full-service (Expansion/Integrative).
   {
     id: 'support',
     question: 'How much publishing support do you need?',
     options: [
       {
-        label: 'Basic — formatting, ISBN, and distribution setup',
+        label: 'Basic: formatting, ISBN, and distribution setup',
         value: 'basic',
         score: { [P.GENTLE]: 4, [P.CONTEMPLATION]: 1 },
       },
       {
-        label: 'Standard — cover design, author copies, and some promotion',
+        label: 'Standard: cover design, author copies, and some promotion',
         value: 'standard',
         score: { [P.CONTEMPLATION]: 3, [P.DETERMINATION]: 3 },
       },
       {
-        label: 'Full team — editing, marketing toolkit, and launch support',
+        label: 'Full team: editing, marketing toolkit, and launch support',
         value: 'full_team',
         score: { [P.EXECUTION]: 4, [P.EXPANSION]: 2 },
       },
       {
-        label: 'White-glove — completely done for me, every detail handled',
+        label: 'White-glove: completely done for me, every detail handled',
         value: 'white_glove',
         score: { [P.EXPANSION]: 1, [P.AUTHORITY]: 2, [P.INTEGRATIVE]: 5 },
       },
     ],
   },
 
-  // Q6 — Author Copies
+  // Q6 - Author Copies
   // Subtle but reliable discriminator between mid and upper tiers.
   // Authors ordering 30+ copies are almost certainly Authority/Integrative.
   {
@@ -242,7 +242,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 ]
 
 // ── Scoring function ─────────────────────────────────────────
-// Single source of truth — used by QuizLeadCapture and QuizResult.
+// Single source of truth - used by QuizLeadCapture and QuizResult.
 export function getRecommendedPackage(answers: Record<string, string>): string {
   const scores: Record<string, number> = {
     [P.GENTLE]:        0,
@@ -275,7 +275,7 @@ export function getRecommendedPackage(answers: Record<string, string>): string {
 
 // ── Recommendation display data ──────────────────────────────
 // Benefits shown on the result screen for each package.
-// Prices are anchors only — direct the user to the package page for final pricing.
+// Prices are anchors only - direct the user to the package page for final pricing.
 export const RECOMMENDATION_LOGIC = {
   benefits: {
     [P.GENTLE]:        ['100% Net Royalties', 'Paperback Distribution', 'ISBN Registration', '3 Free Author Copies'],

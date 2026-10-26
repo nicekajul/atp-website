@@ -82,7 +82,7 @@ export default function BookPreviewModal({ book, isOpen, onClose }: BookPreviewM
               <div className={styles.specs}>
                 <div className={styles.specItem}>
                   <span className={styles.specLabel}>Format</span>
-                  <span className={styles.specValue}>{book.formats?.join(', ') ?? '—'}</span>
+                  <span className={styles.specValue}>{book.formats?.join(', ') ?? 'N/A'}</span>
                 </div>
                 <div className={styles.specItem}>
                   <span className={styles.specLabel}>Published</span>

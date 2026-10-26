@@ -78,8 +78,8 @@ const ENTRIES = [
     commit: '79d6a0e',
     title: 'Full FAQ page built',
     items: [
-      'Created src/data/faqData.ts — 7 categories, 60+ Q&As from all service pages + new general sections',
-      'FAQClient.tsx — category filter tabs + individual accordion items with animated chevron',
+      'Created src/data/faqData.ts: 7 categories, 60+ Q&As from all service pages + new general sections',
+      'FAQClient.tsx: category filter tabs + individual accordion items with animated chevron',
       'Hero with stats bar: 7 Categories · 60+ Questions · Free Consultation Available',
       '"Still have questions?" contact nudge section above PageCTA',
       'Fixed syntax error: apostrophe in single-quoted string on line 244',
@@ -96,7 +96,7 @@ const ENTRIES = [
       'secondary: box-shadow 0 6px 28px rgba(15,31,61,0.4)',
       'outline: fills navy + shadow on hover',
       'gold: fills gold + glow on hover',
-      'ghost: shimmer suppressed (display: none on ::after) — subtle cream fill only',
+      'ghost: shimmer suppressed (display: none on ::after); subtle cream fill only',
     ],
   },
   {
@@ -115,7 +115,7 @@ const ENTRIES = [
     items: [
       'Installed @vercel/analytics and @vercel/speed-insights',
       '<Analytics /> and <SpeedInsights /> added to root layout.tsx',
-      'Activates automatically on Vercel deployment — no extra config needed',
+      'Activates automatically on Vercel deployment, no extra config needed',
     ],
   },
 ]
@@ -126,7 +126,7 @@ export default function DocsChangelog({ sectionNumber }: { sectionNumber: number
   return (
     <section id="changelog" className={styles.section}>
       <button className={styles.changelogToggle} onClick={() => setOpen(o => !o)}>
-        <h2 className={styles.sectionTitleInline}>{sectionNumber}. Changelog — June 2026</h2>
+        <h2 className={styles.sectionTitleInline}>{sectionNumber}. Changelog: June 2026</h2>
         <span className={`${styles.changelogChevron} ${open ? styles.changelogChevronOpen : ''}`}>
           ▾
         </span>

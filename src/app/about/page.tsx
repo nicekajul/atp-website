@@ -5,7 +5,7 @@ import styles from './page.module.css'
 
 export const metadata: Metadata = {
   title: 'About Us | Authors Tranquility Press',
-  description: 'Learn about Authors Tranquility Press — our story, mission, values, and the team dedicated to helping independent authors publish with confidence.',
+  description: 'Learn about Authors Tranquility Press: our story, mission, values, and the team dedicated to helping independent authors publish with confidence.',
 }
 
 const STATS = [
@@ -29,7 +29,7 @@ const VALUES = [
   {
     icon: '◎',
     title: 'Radical Transparency',
-    body: 'No hidden fees, no vague timelines, no guesswork. We walk you through every step, every cost, and every milestone — openly.',
+    body: 'No hidden fees, no vague timelines, no guesswork. We walk you through every step, every cost, and every milestone, openly.',
   },
   {
     icon: '❋',
@@ -42,7 +42,7 @@ const PROCESS = [
   {
     step: '01',
     title: 'Consultation',
-    body: 'We start with a free discovery call to understand your manuscript, goals, timeline, and budget. No pressure — just a conversation.',
+    body: 'We start with a free discovery call to understand your manuscript, goals, timeline, and budget. No pressure, just a conversation.',
   },
   {
     step: '02',
@@ -57,12 +57,12 @@ const PROCESS = [
   {
     step: '04',
     title: 'Publishing & Distribution',
-    body: 'We handle your ISBN, upload your book to Amazon KDP, IngramSpark, and global retailers — then put it in front of readers.',
+    body: 'We handle your ISBN, upload your book to Amazon KDP, IngramSpark, and global retailers, then put it in front of readers.',
   },
   {
     step: '05',
     title: 'Marketing & Launch',
-    body: 'Press releases, social campaigns, book trailers, and launch strategy — we build momentum before, during, and after your launch day.',
+    body: 'Press releases, social campaigns, book trailers, and launch strategy: we build momentum before, during, and after your launch day.',
   },
   {
     step: '06',
@@ -87,7 +87,7 @@ export default function AboutPage() {
               <span className={styles.heroHighlight}>their voice.</span>
             </h1>
             <p className={styles.heroSub}>
-              Author&rsquo;s Tranquility Press was founded on a simple belief — every story deserves to be told. We partner with independent authors to bring their visions to life through professional publishing services.
+              Author&rsquo;s Tranquility Press was founded on a simple belief: every story deserves to be told. We partner with independent authors to bring their visions to life through professional publishing services.
             </p>
           </div>
         </Container>
@@ -117,10 +117,10 @@ export default function AboutPage() {
                 Traditional publishing leaves too many great stories on the table.
               </h2>
               <p className={styles.sectionBody}>
-                The traditional publishing gatekeeping system was never built for the author — it was built for the industry. Countless manuscripts with real potential are rejected every year not because they lack merit, but because they don&rsquo;t fit a commercial formula, come from an unknown name, or arrived at the wrong time.
+                The traditional publishing gatekeeping system was never built for the author. It was built for the industry. Countless manuscripts with real potential are rejected every year not because they lack merit, but because they don&rsquo;t fit a commercial formula, come from an unknown name, or arrived at the wrong time.
               </p>
               <p className={styles.sectionBody}>
-                Author&rsquo;s Tranquility Press was built to change that. We combine the rigour of traditional publishing — professional editing, commercial-quality design, global distribution — with the flexibility and author-ownership that self-publishing promises but rarely delivers on its own.
+                Author&rsquo;s Tranquility Press was built to change that. We combine the rigour of traditional publishing (professional editing, commercial-quality design, global distribution) with the flexibility and author-ownership that self-publishing promises but rarely delivers on its own.
               </p>
               <p className={styles.sectionBody}>
                 The result: books that compete at the highest level, authors who retain their rights, and a publishing experience rooted in respect for the craft.
@@ -159,7 +159,7 @@ export default function AboutPage() {
             <p className={styles.sectionEyebrowLight}>How We Work</p>
             <h2 className={styles.sectionHeadingLight}>From manuscript to market</h2>
             <p className={styles.sectionBodyLight}>
-              A clear, guided path — so you always know what happens next.
+              A clear, guided path, so you always know what happens next.
             </p>
           </div>
           <div className={styles.processGrid}>

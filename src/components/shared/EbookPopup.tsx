@@ -19,7 +19,7 @@ export default function EbookPopup() {
   const honeypotRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    // Auto-open after 6 s or 40 % scroll — only if visitor hasn't submitted before
+    // Auto-open after 6 s or 40 % scroll - only if visitor hasn't submitted before
     if (sessionStorage.getItem(STORAGE_KEY)) return
 
     let timer: ReturnType<typeof setTimeout>
@@ -80,7 +80,7 @@ export default function EbookPopup() {
 
   return (
     <>
-      {/* ── Side tab — always visible until form submitted ─── */}
+      {/* ── Side tab - always visible until form submitted ─── */}
       {popupState === 'tab' && (
         <button
           className={styles.tab}
@@ -109,7 +109,7 @@ export default function EbookPopup() {
                 ×
               </button>
 
-              {/* Left — guide cover image */}
+              {/* Left - guide cover image */}
               <div className={styles.leftPanel}>
                 <img
                   src="/ATP_Authors_Publishing_Guide_Page_1.jpg"
@@ -117,11 +117,11 @@ export default function EbookPopup() {
                   className={styles.coverImage}
                 />
                 <p className={styles.panelCaption}>
-                  Exclusive free resource &mdash; updated every month
+                  Exclusive free resource, updated every month
                 </p>
               </div>
 
-              {/* Right — form */}
+              {/* Right - form */}
               <div className={styles.rightPanel}>
                 {status === 'success' ? (
                   <div className={styles.successState}>

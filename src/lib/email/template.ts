@@ -28,7 +28,7 @@ function shell(preheader: string, body: string): string {
       <td align="center" style="padding:32px 16px;">
         <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.10);">
 
-          <!-- Header — full logo -->
+          <!-- Header: full logo -->
           <tr>
             <td style="background-color:${NAVY};padding:32px 40px 28px;text-align:center;">
               <a href="${SITE_URL}" style="display:inline-block;">
@@ -46,7 +46,7 @@ function shell(preheader: string, body: string): string {
             </td>
           </tr>
 
-          <!-- Footer — full logo -->
+          <!-- Footer: full logo -->
           <tr>
             <td style="background-color:${NAVY};padding:32px 40px 28px;text-align:center;">
               <a href="${SITE_URL}" style="display:inline-block;margin-bottom:20px;">
@@ -139,8 +139,8 @@ ${heading('New Contact Inquiry')}
     ${cta('Open Inbox', `mailto:${data.email}`)}
   `
   return {
-    subject: `New Contact Inquiry — ${data.name}${data.interest ? ` (${data.interest})` : ''}`,
-    html: shell(`New message from ${data.name} — ${data.interest || 'General Inquiry'}`, body),
+    subject: `New Contact Inquiry: ${data.name}${data.interest ? ` (${data.interest})` : ''}`,
+    html: shell(`New message from ${data.name} | ${data.interest || 'General Inquiry'}`, body),
   }
 }
 
@@ -162,7 +162,7 @@ export function contactAutoReply(data: { name: string; email: string }): { subje
     </p>
   `
   return {
-    subject: `We received your message — Author's Tranquility Press`,
+    subject: `We received your message | Author's Tranquility Press`,
     html: shell(`We'll be in touch shortly, ${firstName}!`, body),
   }
 }
@@ -185,7 +185,7 @@ ${heading('New Lead Inquiry')}
     ${cta('Reply to Lead', `mailto:${data.email}`)}
   `
   return {
-    subject: `New Lead — ${data.name}${data.service ? ` · ${data.service}` : ''}`,
+    subject: `New Lead: ${data.name}${data.service ? ` · ${data.service}` : ''}`,
     html: shell(`New lead from ${data.name}`, body),
   }
 }
@@ -209,7 +209,7 @@ export function leadAutoReply(data: { name: string; email: string; service?: str
     </p>
   `
   return {
-    subject: `We received your inquiry — Author's Tranquility Press`,
+    subject: `We received your inquiry | Author's Tranquility Press`,
     html: shell(`We'll be in touch within 24 hours, ${firstName}!`, body),
   }
 }
@@ -233,7 +233,7 @@ ${heading('New Quiz Lead')}
     ${cta('Reply to Lead', `mailto:${data.email}`)}
   `
   return {
-    subject: `Quiz Lead — ${data.name} matched to ${data.recommendedPackage}`,
+    subject: `Quiz Lead: ${data.name} matched to ${data.recommendedPackage}`,
     html: shell(`${data.name} completed the quiz and matched with ${data.recommendedPackage}`, body),
   }
 }
@@ -260,11 +260,11 @@ export function quizLeadAutoReply(data: {
     </p>
     ${cta('View Package Details →', `${SITE_URL}/services/publishing-packages`)}
     <p style="margin:20px 0 0;font-size:12px;color:${MUTED};font-family:Arial,sans-serif;text-align:center;">
-      Questions? Reply to this email — we're here to help.
+      Questions? Reply to this email. We're here to help.
     </p>
   `
   return {
-    subject: `Your publishing match: ${data.recommendedPackage} — Author's Tranquility Press`,
+    subject: `Your publishing match: ${data.recommendedPackage} | Author's Tranquility Press`,
     html: shell(`You matched with the ${data.recommendedPackage} package!`, body),
   }
 }
@@ -283,7 +283,7 @@ ${heading('New Free Guide Download')}
     ${cta('Reply to Lead', `mailto:${data.email}`)}
   `
   return {
-    subject: `Free Guide Download — ${data.name}`,
+    subject: `Free Guide Download: ${data.name}`,
     html: shell(`${data.name} downloaded the free Author's Publishing Guide`, body),
   }
 }
@@ -312,11 +312,11 @@ export function ebookLeadAutoReply(data: {
     </ul>
     ${cta('Take the Publishing Quiz →', `${SITE_URL}/quiz`)}
     <p style="margin:20px 0 0;font-size:12px;color:${MUTED};font-family:Arial,sans-serif;text-align:center;">
-      Questions? Reply to this email — we're happy to help.
+      Questions? Reply to this email. We're happy to help.
     </p>
   `
   return {
-    subject: `Your free Author's Publishing Guide — Author's Tranquility Press`,
+    subject: `Your free Author's Publishing Guide | Author's Tranquility Press`,
     html: shell(`Download your free guide now, ${firstName}!`, body),
   }
 }
@@ -332,7 +332,7 @@ ${heading('New Newsletter Subscriber')}
     ${cta('Reply to Subscriber', `mailto:${data.email}`)}
   `
   return {
-    subject: `New Newsletter Subscriber — ${data.email}`,
+    subject: `New Newsletter Subscriber: ${data.email}`,
     html: shell(`New subscriber: ${data.email}`, body),
   }
 }
@@ -356,7 +356,7 @@ export function newsletterConfirmation(data: {
     </p>
   `
   return {
-    subject: `You're subscribed — Author's Tranquility Press`,
+    subject: `You're subscribed | Author's Tranquility Press`,
     html: shell("Welcome to the ATP newsletter!", body),
   }
 }

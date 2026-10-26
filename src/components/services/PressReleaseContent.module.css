@@ -199,7 +199,7 @@
 .tier--3 .tierStep { background: rgba(15,27,45,0.05); color: var(--atp-navy); }
 .tier--4 .tierStep { background: var(--atp-navy); color: var(--atp-gold); border-bottom-color: transparent; }
 
-/* Card header — mirrors PricingTable .card__header */
+/* Card header - mirrors PricingTable .card__header */
 .cardHeader {
   padding: var(--space-6) var(--space-6) var(--space-6);
   border-bottom: 1px solid var(--atp-border);

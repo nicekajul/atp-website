@@ -127,7 +127,7 @@ export default function Footer() {
         <div className={styles.newsletter}>
           <div className={styles.newsletter__copy}>
             <h4 className={styles.newsletter__heading}>Publishing insights, straight to your inbox</h4>
-            <p className={styles.newsletter__sub}>Tips, author stories, and exclusive resources—no spam, ever.</p>
+            <p className={styles.newsletter__sub}>Tips, author stories, and exclusive resources. No spam, ever.</p>
           </div>
           <FooterNewsletter />
         </div>

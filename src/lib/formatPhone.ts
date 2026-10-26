@@ -2,7 +2,7 @@
  * Auto-formats a US phone number as the user types.
  * Strips non-digits, drops a leading country code "1", then
  * builds: (XXX) XXX-XXXX
- * Safe for Google Sheets — no leading + that Sheets mistakes for a formula.
+ * Safe for Google Sheets - no leading + that Sheets mistakes for a formula.
  */
 export function formatPhoneUS(raw: string): string {
   let digits = raw.replace(/\D/g, '')

@@ -50,7 +50,7 @@ export default function QuizLeadCapture({ recommendedPackage, onSubmit }: QuizLe
         <span className={styles.icon}>✦</span>
 
         <div className={styles.headerText}>
-          <p className={styles.eyebrow}>Quiz complete — your results are ready</p>
+          <p className={styles.eyebrow}>Quiz complete! Your results are ready</p>
           <h2 className={styles.heading}>
             Your personalised recommendation is waiting
           </h2>

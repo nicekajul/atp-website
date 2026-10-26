@@ -26,12 +26,12 @@ export default function PromoBanner() {
       <Container>
         <div className={styles.grid}>
 
-          {/* Left — promo image */}
+          {/* Left - promo image */}
           <div className={styles.imageCol}>
             <div className={styles.imageFrame}>
               <Image
                 src="/Fathers Day Promo - 6-30-2026.webp"
-                alt="Father's Day Special — 20% off Publishing Packages. Use code DAD20. Ends June 30."
+                alt="Father's Day Special: 20% off Publishing Packages. Use code DAD20. Ends June 30."
                 width={720}
                 height={180}
                 quality={100}
@@ -41,7 +41,7 @@ export default function PromoBanner() {
             </div>
           </div>
 
-          {/* Right — CTA */}
+          {/* Right - CTA */}
           <div className={styles.ctaCol}>
             <span className={styles.badge}>Limited-Time Offer</span>
             <h2 className={styles.heading}>
@@ -49,7 +49,7 @@ export default function PromoBanner() {
             </h2>
             <p className={styles.body}>
               Celebrate Father&rsquo;s Day by turning his story into a published book.
-              Get <strong>20% off</strong> any Publishing Package — today through June 30.
+              Get <strong>20% off</strong> any Publishing Package, today through June 30.
             </p>
             <div className={styles.codeRow}>
               <span className={styles.codeLabel}>Use code</span>

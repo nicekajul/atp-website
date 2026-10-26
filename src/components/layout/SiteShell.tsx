@@ -18,7 +18,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {/* Father's Day promo ended June 30 — re-enable <PromoBar /> for the next seasonal promo */}
+      {/* Father's Day promo ended June 30 - re-enable <PromoBar /> for the next seasonal promo */}
       <Header />
       <main id="main-content">
         {children}

@@ -3,7 +3,7 @@
   background: linear-gradient(135deg, var(--atp-cream-pale) 0%, var(--atp-white) 100%);
 }
 
-/* Navy hero band — gives the transparent navbar a dark surface so it's visible */
+/* Navy hero band - gives the transparent navbar a dark surface so it's visible */
 .hero {
   background: var(--atp-navy);
   padding-top: calc(74px + var(--space-12));

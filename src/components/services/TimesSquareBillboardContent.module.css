@@ -152,7 +152,7 @@
   margin: calc(-1 * var(--space-8)) 0 var(--space-12);
 }
 
-/* Two-card grid — subgrid so rows align across both cards */
+/* Two-card grid - subgrid so rows align across both cards */
 .packageGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

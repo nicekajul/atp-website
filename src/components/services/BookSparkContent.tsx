@@ -181,7 +181,7 @@ export default function BookSparkContent({ service }: Props) {
             ))}
           </div>
 
-          {/* Bundle card — full width, highlighted */}
+          {/* Bundle card - full width, highlighted */}
           <div className={styles.bundleCard}>
             <div className={styles.bundleRibbon}>◆ Best Value</div>
             <div className={styles.bundleInner}>

@@ -5,7 +5,7 @@ import BookFairsContent from '@/components/services/BookFairsContent'
 export const metadata: Metadata = {
   title: "International Book Fairs | Author's Tranquility Press",
   description:
-    'Showcase your book at prestigious international book fairs — Manila, Frankfurt, London, and more. Combined exhibit displays and signing packages managed by ATP.',
+    'Showcase your book at prestigious international book fairs in Manila, Frankfurt, London, and more. Combined exhibit displays and signing packages managed by ATP.',
 }
 
 export default function BookFairsPage() {

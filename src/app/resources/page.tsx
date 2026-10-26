@@ -6,7 +6,7 @@ import styles from './ResourcesPage.module.css'
 
 export const metadata: Metadata = {
   title: 'Author Resources & Tools | Authors Tranquility Press',
-  description: 'Free interactive tools for authors — publishing cost calculator, royalty estimator, book launch checklist, title generator, and more.',
+  description: 'Free interactive tools for authors: publishing cost calculator, royalty estimator, book launch checklist, title generator, and more.',
 }
 
 export default function ResourcesPage() {

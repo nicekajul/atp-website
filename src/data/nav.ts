@@ -22,9 +22,9 @@ export interface MegaMenuCategory {
 
 export interface MegaMenuColumn {
   heading: string
-  /** Flat link list — used when no sub-categories are needed */
+  /** Flat link list - used when no sub-categories are needed */
   links?: MegaMenuLink[]
-  /** Categorized link groups — used when the column has sub-headings */
+  /** Categorized link groups - used when the column has sub-headings */
   categories?: MegaMenuCategory[]
 }
 
@@ -129,6 +129,12 @@ export const navItems: NavItem[] = [
                   description: 'YouTube & video ad campaigns',
                   icon: '\u{1F4E1}',
                 },
+                {
+                  label: 'iPage Listing',
+                  href: '/services/ipage-listing',
+                  description: 'Featured on Ingram’s ordering platform',
+                  icon: '\u{1F4DA}',
+                },
               ],
             },
             {
@@ -164,10 +170,28 @@ export const navItems: NavItem[] = [
                   icon: '\u{1F3AC}',
                 },
                 {
+                  label: 'Book Review Squad Videos',
+                  href: '/services/book-review-squad-videos',
+                  description: 'Authentic on-camera reader reviews',
+                  icon: '\u{1F3A5}',
+                },
+                {
                   label: 'Book-to-Screen Services',
                   href: '/services/book-to-screen',
                   description: 'Film & TV adaptation development for authors',
                   icon: '\u{1F3AC}',
+                },
+                {
+                  label: 'DEP Tracking Packages',
+                  href: '/services/dep-tracking-packages',
+                  description: 'Literary-agent outreach tracking & management',
+                  icon: '\u{1F4CB}',
+                },
+                {
+                  label: 'Query Letter Services',
+                  href: '/services/query-letter-services',
+                  description: 'Query letter writing & agent submission',
+                  icon: '✍️',
                 },
               ],
             },
@@ -185,6 +209,12 @@ export const navItems: NavItem[] = [
                   href: '/services/book-awards',
                   description: 'Literary award submissions & registration',
                   icon: '\u{1F3C6}',
+                },
+                {
+                  label: 'Literary Titan Book Award',
+                  href: '/services/literary-titan-book-award',
+                  description: 'Award submission, review & author exposure',
+                  icon: '\u{1F3C5}',
                 },
               ],
             },
@@ -230,15 +260,20 @@ export const navItems: NavItem[] = [
       { label: 'Book Spark',                 href: '/services/book-spark',               description: 'Bookmarks, business cards & postcards' },
       { label: 'Social Media Ads',           href: '/services/social-media-advertising', description: 'Targeted campaigns for authors' },
       { label: 'Digital Advertising',        href: '/services/digital-advertising',      description: 'YouTube & video ad campaigns' },
+      { label: 'iPage Listing',              href: '/services/ipage-listing',            description: 'Featured on Ingram’s ordering platform' },
       { label: 'Press Release',              href: '/services/press-release',            description: 'Media distribution & syndication' },
       { label: 'Media Coverage',             href: '/services/media-coverage',           description: 'TV & podcast interview placements' },
       { label: 'Print Advertising',          href: '/services/print-advertising',        description: 'Ad placements in trusted print publications' },
       { label: 'Book Trailers',              href: '/services/book-trailers',            description: 'Cinematic trailers that sell your story' },
+      { label: 'Book Review Squad Videos',   href: '/services/book-review-squad-videos', description: 'Authentic on-camera reader reviews' },
       { label: 'Book Reviews',               href: '/services/book-reviews',             description: 'Third-party reviews from top platforms' },
       { label: 'Book Awards',               href: '/services/book-awards',              description: 'Literary award submissions & registration' },
+      { label: 'Literary Titan Book Award',  href: '/services/literary-titan-book-award', description: 'Award submission, review & author exposure' },
       { label: 'International Book Fairs',   href: '/services/international-book-fairs', description: 'Global exposure at world-renowned book fairs' },
       { label: 'Times Square Billboard',     href: '/services/times-square-billboard',   description: 'Feature your book on a NYC digital billboard' },
       { label: 'Book-to-Screen Services',    href: '/services/book-to-screen',           description: 'Film & TV adaptation development for authors' },
+      { label: 'DEP Tracking Packages',      href: '/services/dep-tracking-packages',    description: 'Literary-agent outreach tracking & management' },
+      { label: 'Query Letter Services',      href: '/services/query-letter-services',    description: 'Query letter writing & agent submission' },
     ],
   },
   { label: 'About',     href: '/about' },
@@ -246,6 +281,21 @@ export const navItems: NavItem[] = [
   { label: 'FAQ',       href: '/faq' },
   { label: 'Contact',   href: '/contact' },
 ]
+
+/**
+ * Recently added services. Drives the "New" badges in the menu and the
+ * New Services section on the homepage. Remove a slug once it is no longer new.
+ */
+export const newServiceSlugs = [
+  'book-review-squad-videos',
+  'dep-tracking-packages',
+  'query-letter-services',
+  'ipage-listing',
+  'literary-titan-book-award',
+]
+
+export const isNewServiceHref = (href: string) =>
+  newServiceSlugs.some((slug) => href === `/services/${slug}`)
 
 export const navCTA = {
   label: 'Start Publishing',

@@ -31,7 +31,7 @@
     box-shadow var(--transition-base);
 }
 
-/* Drawer-handle pull effect — pulls slightly to the right */
+/* Drawer-handle pull effect - pulls slightly to the right */
 .tab:hover {
   background: var(--atp-navy-light);
   box-shadow: 8px 0 32px rgba(15, 27, 45, 0.4);
@@ -148,7 +148,7 @@
 }
 
 /* ============================================================
-   LEFT PANEL — decorative book cover
+   LEFT PANEL - decorative book cover
    ============================================================ */
 .leftPanel {
   display: flex;
@@ -182,7 +182,7 @@
 }
 
 /* ============================================================
-   RIGHT PANEL — form
+   RIGHT PANEL - form
    ============================================================ */
 .rightPanel {
   flex: 1;
@@ -383,7 +383,7 @@
 }
 
 /* ============================================================
-   RESPONSIVE — bottom sheet on mobile
+   RESPONSIVE - bottom sheet on mobile
    ============================================================ */
 @media (max-width: 680px) {
   .overlay {

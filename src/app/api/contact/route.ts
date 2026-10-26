@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
   const body = await req.json()
   const { name, email, phone, interest, message, website, turnstileToken } = body
 
-  // Honeypot — bots fill this, humans don't; silent drop so bots think they succeeded
+  // Honeypot - bots fill this, humans don't; silent drop so bots think they succeeded
   if (website) return NextResponse.json({ ok: true })
 
   if (!name?.trim() || !email?.trim() || !message?.trim()) {

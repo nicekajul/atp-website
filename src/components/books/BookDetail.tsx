@@ -45,7 +45,7 @@ export default function BookDetail({ book, relatedBooks }: BookDetailProps) {
     ? new Date(book.publishedDate).toLocaleDateString('en-US', {
         year: 'numeric', month: 'long', day: 'numeric',
       })
-    : '—'
+    : 'N/A'
 
   const fmt = (n?: number | string) => n != null ? `$${Number(n).toFixed(2)}` : null
   const formatPrices: Record<string, string | null> = {
@@ -269,7 +269,7 @@ export default function BookDetail({ book, relatedBooks }: BookDetailProps) {
                 <iframe
                   className={styles.trailerFrame}
                   src={`https://www.youtube.com/embed/${videoId}`}
-                  title={`${book.title} — Book Trailer`}
+                  title={`${book.title} | Book Trailer`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />

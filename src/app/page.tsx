@@ -7,6 +7,7 @@ import HeroSection from '@/components/home/HeroSection'
 import FilmSpotlight from '@/components/home/FilmSpotlight'
 import TrustBar from '@/components/shared/TrustBar'
 import StartJourney from '@/components/home/StartJourney'
+import NewServices from '@/components/home/NewServices'
 import ServicesOverview from '@/components/home/ServicesOverview'
 import HowItWorks from '@/components/home/HowItWorks'
 import NewReleases from '@/components/home/NewReleases'
@@ -18,10 +19,11 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      {/* Father's Day promo ended June 30 — re-enable <PromoBanner /> for the next seasonal promo */}
+      {/* Father's Day promo ended June 30 - re-enable <PromoBanner /> for the next seasonal promo */}
       <FilmSpotlight />
       <StartJourney />
       <TrustBar />
+      <NewServices />
       <ServicesOverview />
       <HowItWorks />
       <NewReleases />

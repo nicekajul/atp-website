@@ -11,7 +11,7 @@ interface RevealItemProps {
 
 /**
  * Wraps children in a div that fades/slides in when it enters the viewport.
- * Uses IntersectionObserver — fires once and disconnects.
+ * Uses IntersectionObserver - fires once and disconnects.
  */
 export default function RevealItem({ children, className = '', delay = 0 }: RevealItemProps) {
   const ref = useRef<HTMLDivElement>(null)

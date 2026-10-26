@@ -342,7 +342,7 @@ export default function PricingTable({
                                   </span>
                                 )
                               ) : (
-                                <span className={styles.dash}>—</span>
+                                <span className={styles.dash}>–</span>
                               )}
                             </td>
                           );

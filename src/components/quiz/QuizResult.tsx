@@ -16,7 +16,7 @@ export default function QuizResult({ answers, onRestart }: QuizResultProps) {
     const benefits = RECOMMENDATION_LOGIC.benefits[pkg] ?? RECOMMENDATION_LOGIC.benefits['Execution']
     const price = RECOMMENDATION_LOGIC.prices[pkg] ?? ''
 
-    // Dynamic reasoning — 3 lines drawn from the author's actual answers
+    // Dynamic reasoning - 3 lines drawn from the author's actual answers
     const experienceReason = (() => {
       switch (answers.experience) {
         case 'first_time_starting': return 'Sized perfectly for a first-time author taking their first step'

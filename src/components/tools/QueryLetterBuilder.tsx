@@ -25,7 +25,7 @@ I am seeking representation for my ${fields.genre || '[Genre]'} novel, ${fields.
 
 ${fields.hook || '[Write a one-sentence hook that captures the core conflict and stakes of your story.]'}
 
-${fields.summary || '[Provide a 2–3 paragraph synopsis covering the main character, central conflict, key plot points, and resolution stakes — without spoiling the ending.]'}
+${fields.summary || '[Provide a 2–3 paragraph synopsis covering the main character, central conflict, key plot points, and resolution stakes, without spoiling the ending.]'}
 
 ${fields.compTitles ? `${fields.title || 'My novel'} will appeal to readers of ${fields.compTitles}.` : '[Include 2 comparable published titles from the last 5 years, and briefly explain how your book fits alongside them.]'}
 
@@ -82,7 +82,7 @@ Sincerely,
       <div className={styles.inputGroup}>
         <label className={styles.label}>Plot Summary (2–3 paragraphs)</label>
         <textarea value={fields.summary} onChange={set('summary')} rows={5}
-          placeholder="Describe your protagonist, central conflict, key turning points, and the stakes — without giving away the ending."
+          placeholder="Describe your protagonist, central conflict, key turning points, and the stakes, without giving away the ending."
           className={styles.textarea} />
       </div>
 

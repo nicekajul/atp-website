@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { navItems, navCTA } from '@/data/nav'
+import { navItems, navCTA, isNewServiceHref } from '@/data/nav'
 import Button from '@/components/ui/Button'
 import Container from '@/components/layout/Container'
 import styles from './Header.module.css'
@@ -64,7 +64,7 @@ export default function Header() {
         <Container>
           <nav className={styles.nav} aria-label="Main navigation">
             {/* Logo */}
-            <Link href="/" className={styles.logo} aria-label="Author's Tranquility Press — Home">
+            <Link href="/" className={styles.logo} aria-label="Author's Tranquility Press home">
               <span className={styles.logo__mark}>
                 <Image src="/ATP-logo-dark.png" alt="Author's Tranquility Press" width={45} height={45} priority />
               </span>
@@ -91,6 +91,9 @@ export default function Header() {
                     aria-current={isActive(item.href) ? 'page' : undefined}
                   >
                     {item.label}
+                    {item.children?.some((child) => isNewServiceHref(child.href)) && (
+                      <span className={styles.newDot} aria-hidden="true" />
+                    )}
                     {(item.megaMenu || item.children) && (
                       <svg className={styles.chevron} width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                         <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -132,7 +135,12 @@ export default function Header() {
                                         onMouseEnter={() => setOpenCategory(cat.label)}
                                         onClick={() => setOpenCategory(cat.label)}
                                       >
-                                        <span>{cat.label}</span>
+                                        <span className={styles.megaCategoryLabel}>
+                                          {cat.label}
+                                          {cat.links.some((link) => isNewServiceHref(link.href)) && (
+                                            <span className={styles.newDot} aria-hidden="true" />
+                                          )}
+                                        </span>
                                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                                           <path d="M4 2L8 6L4 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
@@ -153,7 +161,10 @@ export default function Header() {
                                         >
                                           <span className={styles.megaLinkIcon}>{link.icon}</span>
                                           <span className={styles.megaLinkContent}>
-                                            <span className={styles.megaLinkLabel}>{link.label}</span>
+                                            <span className={styles.megaLinkLabel}>
+                                              {link.label}
+                                              {isNewServiceHref(link.href) && <span className={styles.newBadge}>New</span>}
+                                            </span>
                                             <span className={styles.megaLinkDesc}>{link.description}</span>
                                           </span>
                                         </Link>
@@ -173,7 +184,10 @@ export default function Header() {
                                   >
                                     <span className={styles.megaLinkIcon}>{link.icon}</span>
                                     <span className={styles.megaLinkContent}>
-                                      <span className={styles.megaLinkLabel}>{link.label}</span>
+                                      <span className={styles.megaLinkLabel}>
+                                        {link.label}
+                                        {isNewServiceHref(link.href) && <span className={styles.newBadge}>New</span>}
+                                      </span>
                                       <span className={styles.megaLinkDesc}>{link.description}</span>
                                     </span>
                                   </Link>
@@ -284,7 +298,12 @@ export default function Header() {
                       }
                       aria-expanded={openDropdown === item.label}
                     >
-                      {item.label}
+                      <span className={styles.mobileNavGroupLabel}>
+                        {item.label}
+                        {item.children.some((child) => isNewServiceHref(child.href)) && (
+                          <span className={styles.newDot} aria-hidden="true" />
+                        )}
+                      </span>
                       <svg
                         className={[
                           styles.chevron,
@@ -301,6 +320,7 @@ export default function Header() {
                           <li key={child.href}>
                             <Link href={child.href} className={styles.mobileSubLink}>
                               {child.label}
+                              {isNewServiceHref(child.href) && <span className={styles.newBadge}>New</span>}
                             </Link>
                           </li>
                         ))}

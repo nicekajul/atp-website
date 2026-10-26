@@ -51,7 +51,7 @@ const COMPARE_ROWS: CompareRow[] = [
   { feature: 'Audience Targeting', basic: 'Standard',             expert: 'Advanced',                   expertHighlight: true },
   { feature: 'Ad Placements',      basic: 'Facebook & Instagram', expert: 'FB, Instagram + Extended',   expertHighlight: true },
   { feature: 'Monitoring',         basic: 'Basic',                expert: 'Ongoing Optimization',       expertHighlight: true },
-  { feature: 'Performance Summary',basic: '—',                    expert: 'Included',                   expertHighlight: true },
+  { feature: 'Performance Summary',basic: '–',                    expert: 'Included',                   expertHighlight: true },
 ]
 
 /* ── Page component ────────────────────────────────────── */
@@ -193,7 +193,7 @@ export default function SocialMediaAdsContent({ service }: Props) {
                 {COMPARE_ROWS.map((row, idx) => (
                   <tr key={idx} className={styles.compareRow}>
                     <td className={styles.featureName}>{row.feature}</td>
-                    <td className={[styles.cell, row.basic === '—' ? styles['cell--dash'] : ''].join(' ')}>
+                    <td className={[styles.cell, row.basic === '–' ? styles['cell--dash'] : ''].join(' ')}>
                       {row.basic}
                     </td>
                     <td className={[styles.cell, styles['cell--highlight']].join(' ')}>

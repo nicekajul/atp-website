@@ -21,7 +21,7 @@ export default async function FeaturedBooks() {
       slug: b.slug,
       title: b.title,
       author: b.author,
-      isbn: undefined,   // placeholder ISBNs — skip to show cover placeholder
+      isbn: undefined,   // placeholder ISBNs - skip to show cover placeholder
       amazonUrl: undefined,
       genre: b.genre,
       genres: b.genres,

@@ -23,11 +23,11 @@ export default function BlurbBuilder() {
   const h = fields.hook        || '[hook]'
 
   const blurbs = [
-    `${h ? `${h}\n\n` : ''}In the heart of ${s}, ${p} has always played by the rules — until ${c} changes everything. Now, with ${st}, they must choose between the life they've always known and the truth they can no longer ignore.\n\nPerfect for fans of edge-of-your-seat storytelling, this unforgettable debut will keep you turning pages long after midnight.`,
+    `${h ? `${h}\n\n` : ''}In the heart of ${s}, ${p} has always played by the rules, until ${c} changes everything. Now, with ${st}, they must choose between the life they've always known and the truth they can no longer ignore.\n\nPerfect for fans of edge-of-your-seat storytelling, this unforgettable debut will keep you turning pages long after midnight.`,
 
-    `${p} never expected ${c}. But in ${s}, nothing is ever what it seems.\n\nWhen the truth finally surfaces, the cost is higher than anyone imagined: ${st}. With time running out and nowhere to turn, one decision will change everything.\n\n${h ? `${h} — ` : ''}A gripping story of courage, betrayal, and what we risk for the ones we love.`,
+    `${p} never expected ${c}. But in ${s}, nothing is ever what it seems.\n\nWhen the truth finally surfaces, the cost is higher than anyone imagined: ${st}. With time running out and nowhere to turn, one decision will change everything.\n\n${h ? `${h}. ` : ''}A gripping story of courage, betrayal, and what we risk for the ones we love.`,
 
-    `What would you sacrifice to survive?\n\nFor ${p}, ${c} wasn't a question of if — it was a question of when. Set against the vivid backdrop of ${s}, this story of ${st} is a searing exploration of identity, resilience, and the choices that define us.\n\n${h ? `${h}. ` : ''}Readers of literary fiction and upmarket drama will find themselves utterly absorbed.`,
+    `What would you sacrifice to survive?\n\nFor ${p}, ${c} wasn't a question of if. It was a question of when. Set against the vivid backdrop of ${s}, this story of ${st} is a searing exploration of identity, resilience, and the choices that define us.\n\n${h ? `${h}. ` : ''}Readers of literary fiction and upmarket drama will find themselves utterly absorbed.`,
   ]
 
   const copy = (i: number) => {

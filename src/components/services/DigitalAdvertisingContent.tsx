@@ -58,7 +58,7 @@ export default function DigitalAdvertisingContent({ service }: Props) {
                 <p className={styles.cardDesc}>{youtube.description}</p>
               </header>
 
-              {/* Availability note — specific to this card */}
+              {/* Availability note - specific to this card */}
               <div className={styles.availabilityNote}>
                 <span className={styles.noteIcon} aria-hidden="true">ℹ️</span>
                 <p>

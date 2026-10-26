@@ -23,7 +23,7 @@ const filmJsonLd = {
     { '@type': 'Person', name: 'Kat Nagar' },
     { '@type': 'Person', name: 'Megan Cleary' },
   ],
-  trailer: { '@type': 'VideoObject', name: 'Cheer Dad — Official Trailer', url: TRAILER_URL },
+  trailer: { '@type': 'VideoObject', name: 'Cheer Dad | Official Trailer', url: TRAILER_URL },
   sameAs: [AMAZON_URL],
   image: '/cheer-dad-movie-poster.png',
 }
@@ -59,7 +59,7 @@ export default function FilmSpotlight() {
               >
                 <Image
                   src="/cheer-dad-movie-poster.png"
-                  alt="Cheer Dad movie poster — a film based on the book by Patrick Riccards, published by Author's Tranquility Press"
+                  alt="Cheer Dad movie poster: a film based on the book by Patrick Riccards, published by Author's Tranquility Press"
                   width={460}
                   height={616}
                   quality={100}
