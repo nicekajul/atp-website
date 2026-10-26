@@ -103,7 +103,7 @@ const AWARDS: Award[] = [
       {
         heading: 'Award Highlights',
         content: [
-          'Annual Grand Prize of $2,500',
+          'Annual Grand Prize of $7,500',
           'Recognition across multiple categories and distinctions',
           'Additional honors: Montaigne Medal and First Horizon Award',
         ],
