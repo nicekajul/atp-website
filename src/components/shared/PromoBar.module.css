@@ -20,8 +20,14 @@
 }
 
 .emoji {
-  font-size: 18px;
+  font-size: 16px;
   flex-shrink: 0;
+  color: #c9a84c;
+}
+
+/* Long message on desktop, short one on smaller screens */
+.short {
+  display: none;
 }
 
 .message {
@@ -63,9 +69,14 @@
   color: #e2e8f0;
 }
 
-@media (max-width: 768px) {
-  .deadline {
+@media (max-width: 1024px) {
+  .deadline,
+  .full {
     display: none;
+  }
+
+  .short {
+    display: inline;
   }
 }
 

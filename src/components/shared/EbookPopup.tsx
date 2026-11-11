@@ -44,6 +44,12 @@ export default function EbookPopup() {
     }
   }, [])
 
+  // Share the popup state so other promos (BookPromo) can wait until this modal is closed
+  useEffect(() => {
+    document.documentElement.dataset.ebookPopup = popupState
+    window.dispatchEvent(new Event('atp:ebook-popup'))
+  }, [popupState])
+
   /** × button or backdrop → back to tab */
   const minimize = () => setPopupState('tab')
 

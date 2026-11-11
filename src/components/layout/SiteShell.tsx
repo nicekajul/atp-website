@@ -5,7 +5,8 @@ import Header from './Header'
 import Footer from './Footer'
 import FloatingCTA from '@/components/shared/FloatingCTA'
 import EbookPopup from '@/components/shared/EbookPopup'
-// import PromoBar from '@/components/shared/PromoBar' // re-enable for next seasonal promo
+import BookPromo from '@/components/shared/BookPromo'
+import PromoBar from '@/components/shared/PromoBar'
 
 export default function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -18,7 +19,8 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {/* Father's Day promo ended June 30 - re-enable <PromoBar /> for the next seasonal promo */}
+      {/* Veterans Day greeting; hides itself after Nov 30, 2026 */}
+      <PromoBar />
       <Header />
       <main id="main-content">
         {children}
@@ -26,6 +28,8 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
       <Footer />
       <FloatingCTA />
       <EbookPopup />
+      {/* Veterans Day book promo; hides itself after Nov 30, 2026 */}
+      <BookPromo />
     </>
   )
 }
