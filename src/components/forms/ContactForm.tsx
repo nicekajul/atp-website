@@ -1,8 +1,9 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Turnstile } from '@marsidev/react-turnstile'
 import Button from '@/components/ui/Button'
+import { PROMO_LABELS } from '@/data/promos'
 import styles from './ContactForm.module.css'
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
@@ -30,6 +31,19 @@ export default function ContactForm() {
   })
   const [turnstileToken, setTurnstileToken] = useState('')
   const honeypotRef = useRef<HTMLInputElement>(null)
+  // Package and offer chosen on another page (?package=Execution&promo=black-friday-bogo)
+  const [selection, setSelection] = useState<{ package: string; promo: string }>({ package: '', promo: '' })
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const pkg = params.get('package')?.trim().slice(0, 60) ?? ''
+    const promo = params.get('promo') ?? ''
+    const knownPromo = promo in PROMO_LABELS ? promo : ''
+    if (!pkg && !knownPromo) return
+    setSelection({ package: pkg, promo: knownPromo })
+    // Publishing offers: preselect the matching interest
+    if (knownPromo) setForm(prev => (prev.interest ? prev : { ...prev, interest: 'Full Publishing Package' }))
+  }, [])
 
   function validate() {
     const e: Record<string, string> = {}
@@ -56,7 +70,7 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, website: honeypotRef.current?.value ?? '', turnstileToken }),
+        body: JSON.stringify({ ...form, package: selection.package, promo: selection.promo, website: honeypotRef.current?.value ?? '', turnstileToken }),
       })
       setState(res.ok ? 'success' : 'error')
     } catch {
@@ -103,6 +117,20 @@ export default function ContactForm() {
         autoComplete="off"
         style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
       />
+      {(selection.package || selection.promo) && (
+        <div className={styles.selection}>
+          {selection.package && (
+            <p className={styles.selectionRow}>
+              <span className={styles.selectionLabel}>Package</span> {selection.package}
+            </p>
+          )}
+          {selection.promo && (
+            <p className={styles.selectionRow}>
+              <span className={styles.selectionLabel}>Offer</span> {PROMO_LABELS[selection.promo]}: Buy 1, Get 1 Free
+            </p>
+          )}
+        </div>
+      )}
       <div className={styles.row}>
         <div className={styles.field}>
           <label className={styles.label} htmlFor="name">Full Name <span className={styles.req}>*</span></label>

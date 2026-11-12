@@ -74,6 +74,30 @@
   min-height: 120px;
 }
 
+/* Black Friday offer checkbox (see src/data/promos.ts) */
+.offer {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--atp-navy);
+  background: var(--atp-gold-pale);
+  border: 1px solid var(--atp-gold);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.offerCheckbox {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--atp-gold-dark);
+  cursor: pointer;
+}
+
 .footer {
   display: flex;
   flex-direction: column;

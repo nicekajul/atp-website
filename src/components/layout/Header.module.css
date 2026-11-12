@@ -726,6 +726,12 @@
   gap: var(--space-1);
 }
 
+/* Black Friday label on Publishing Packages (see src/data/promos.ts) */
+.offerBadge {
+  color: var(--atp-gold);
+  background: #05080d;
+}
+
 /* ============================================================
    RESPONSIVE - hide desktop nav on mobile
    ============================================================ */

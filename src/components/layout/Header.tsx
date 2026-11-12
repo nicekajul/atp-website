@@ -6,6 +6,8 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { navItems, navCTA, isNewServiceHref } from '@/data/nav'
 import Button from '@/components/ui/Button'
+import { BLACK_FRIDAY_HREF } from '@/data/promos'
+import { useBlackFridayActive } from '@/lib/useBlackFridayActive'
 import Container from '@/components/layout/Container'
 import styles from './Header.module.css'
 
@@ -15,6 +17,11 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [openCategory, setOpenCategory] = useState<string | null>(null)
+  const blackFridayActive = useBlackFridayActive()
+  const offerBadge = (href: string) =>
+    blackFridayActive && href === BLACK_FRIDAY_HREF && (
+      <span className={`${styles.newBadge} ${styles.offerBadge}`}>Black Friday</span>
+    )
   const headerRef = useRef<HTMLElement>(null)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -164,6 +171,7 @@ export default function Header() {
                                             <span className={styles.megaLinkLabel}>
                                               {link.label}
                                               {isNewServiceHref(link.href) && <span className={styles.newBadge}>New</span>}
+                                              {offerBadge(link.href)}
                                             </span>
                                             <span className={styles.megaLinkDesc}>{link.description}</span>
                                           </span>
@@ -187,6 +195,7 @@ export default function Header() {
                                       <span className={styles.megaLinkLabel}>
                                         {link.label}
                                         {isNewServiceHref(link.href) && <span className={styles.newBadge}>New</span>}
+                                        {offerBadge(link.href)}
                                       </span>
                                       <span className={styles.megaLinkDesc}>{link.description}</span>
                                     </span>
@@ -321,6 +330,7 @@ export default function Header() {
                             <Link href={child.href} className={styles.mobileSubLink}>
                               {child.label}
                               {isNewServiceHref(child.href) && <span className={styles.newBadge}>New</span>}
+                              {offerBadge(child.href)}
                             </Link>
                           </li>
                         ))}

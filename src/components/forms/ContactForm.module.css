@@ -145,3 +145,31 @@
     align-items: flex-start;
   }
 }
+
+/* Package / offer carried over from a pricing or promo link */
+.selection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  background: var(--atp-gold-pale);
+  border: 1px solid var(--atp-gold);
+  border-radius: var(--radius-md);
+}
+
+.selectionRow {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--atp-navy);
+}
+
+.selectionLabel {
+  display: inline-block;
+  min-width: 4.5rem;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--atp-gold-dark);
+}

@@ -3,10 +3,11 @@ import { sendMail, TO_ADDRESS } from '@/lib/email/mailer'
 import { leadNotification, leadAutoReply } from '@/lib/email/template'
 import { logToLeadsSheet } from '@/lib/email/sheets'
 import { verifyTurnstile } from '@/lib/turnstile'
+import { describeOffer } from '@/data/promos'
 
 export async function POST(req: NextRequest) {
   const body = await req.json()
-  const { name, email, title, service, websiteGoals, message, website, turnstileToken } = body
+  const { name, email, title, service, websiteGoals, message, website, turnstileToken, promo } = body
 
   if (website) return NextResponse.json({ ok: true })
 
@@ -18,14 +19,15 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Verification failed. Please try again.' }, { status: 400 })
   }
 
-  const notification = leadNotification({ name, email, title, service, websiteGoals, message })
+  const offer        = describeOffer(promo)
+  const notification = leadNotification({ name, email, title, service, websiteGoals, message, offer })
   const autoReply    = leadAutoReply({ name, email, service })
 
   try {
     await Promise.all([
       sendMail({ to: TO_ADDRESS, replyTo: email, ...notification }),
       sendMail({ to: email, ...autoReply }),
-      logToLeadsSheet({ source: 'Lead Form', name, email, bookTitle: title ?? '', service: service ?? '', message: message ?? '' }),
+      logToLeadsSheet({ source: 'Lead Form', name, email, bookTitle: title ?? '', service: [service, offer && `Offer: ${offer}`].filter(Boolean).join(' | '), message: message ?? '' }),
     ])
     return NextResponse.json({ ok: true })
   } catch (err) {

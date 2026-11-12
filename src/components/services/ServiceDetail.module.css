@@ -127,6 +127,8 @@
 }
 
 .pricingSection {
+  /* Keeps #pricing links clear of the fixed header and any promo bar */
+  scroll-margin-top: calc(74px + var(--promo-height, 0px));
   padding: var(--space-16) 0;
   background: var(--atp-white);
   border-top: 1px solid var(--atp-border);

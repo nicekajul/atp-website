@@ -4,17 +4,27 @@ import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Package } from '@/data/services'
 import Button from '@/components/ui/Button'
+import { BLACK_FRIDAY, isBlackFridayPackage } from '@/data/promos'
+import { useBlackFridayActive } from '@/lib/useBlackFridayActive'
 import styles from './PricingTable.module.css'
 
 interface PricingTableProps {
   packages: Package[]
   ctaHref?: string
+  /** Tag eligible packages with the Black Friday offer while it runs */
+  showBlackFriday?: boolean
 }
 
 export default function PricingTable({
   packages,
   ctaHref = '/contact',
+  showBlackFriday = false,
 }: PricingTableProps) {
+  const blackFridayActive = useBlackFridayActive()
+  const hasOffer = (pkg: Package) => showBlackFriday && blackFridayActive && isBlackFridayPackage(pkg.name)
+  const packageHref = (pkg: Package) =>
+    `${ctaHref}?package=${encodeURIComponent(pkg.name)}${hasOffer(pkg) ? `&promo=${BLACK_FRIDAY.code}` : ''}`
+
   const [viewMode, setViewMode] = useState<'grid' | 'compare'>('compare')
   const [expandedCards, setExpandedCards] = useState<number[]>([])
   const [isTableExpanded, setIsTableExpanded] = useState(false)
@@ -203,6 +213,7 @@ export default function PricingTable({
 
                     <header className={styles.card__header}>
                       {pkg.bestFor && <span className={styles.bestForLabel}>Best for: {pkg.bestFor}</span>}
+                      {hasOffer(pkg) && <span className={styles.offerTag}>Black Friday: Buy 1, Get 1 Free</span>}
                       <h3 className={styles.card__name}>{pkg.name}</h3>
                       <div className={styles.card__price}>
                         <span className={styles.price}>{getPrice(pkg)}</span>
@@ -244,7 +255,7 @@ export default function PricingTable({
 
                     <footer className={styles.card__footer}>
                       <Button
-                        href={`${ctaHref}?package=${encodeURIComponent(pkg.name)}`}
+                        href={packageHref(pkg)}
                         variant={pkg.tier === 'popular' || pkg.tier === 'elite' ? 'primary' : 'outline'}
                         fullWidth
                       >
@@ -283,11 +294,12 @@ export default function PricingTable({
                         <div className={styles.eliteRibbon}>✦ Signature</div>
                       )}
                       <div className={styles.thContent}>
+                        {hasOffer(pkg) && <span className={styles.offerTag}>Buy 1, Get 1 Free</span>}
                         <span className={styles.thName}>{pkg.name}</span>
                         <span className={styles.thPrice}>{getPrice(pkg)}</span>
                         <div className={styles.thAction}>
                            <Button
-                            href={`${ctaHref}?package=${encodeURIComponent(pkg.name)}`}
+                            href={packageHref(pkg)}
                             variant={pkg.tier === 'popular' || pkg.tier === 'elite' || (pkg.tier === 'value' && pkg.highlight) ? 'primary' : 'outline'}
                             size="sm"
                             fullWidth

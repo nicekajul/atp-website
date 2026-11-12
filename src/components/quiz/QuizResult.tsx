@@ -3,6 +3,8 @@
 import React, { useMemo } from 'react'
 import { getRecommendedPackage, RECOMMENDATION_LOGIC } from '@/data/quizData'
 import Button from '@/components/ui/Button'
+import { BLACK_FRIDAY, blackFridayDeadlineText, isBlackFridayPackage } from '@/data/promos'
+import { useBlackFridayActive } from '@/lib/useBlackFridayActive'
 import styles from './QuizResult.module.css'
 
 interface QuizResultProps {
@@ -52,6 +54,9 @@ export default function QuizResult({ answers, onRestart }: QuizResultProps) {
     return { package: pkg, price, benefits, reasoning: [experienceReason, budgetReason, goalReason] }
   }, [answers])
 
+  const blackFridayActive = useBlackFridayActive()
+  const hasOffer = blackFridayActive && isBlackFridayPackage(recommendation.package)
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -59,6 +64,12 @@ export default function QuizResult({ answers, onRestart }: QuizResultProps) {
         <h2 className={styles.recommendedTitle}>{recommendation.package.toUpperCase()}</h2>
         {recommendation.price && (
           <p className={styles.recommendedPrice}>Starting at {recommendation.price}</p>
+        )}
+        {hasOffer && (
+          <p className={styles.offer}>
+            <strong>Black Friday:</strong> buy 1 {recommendation.package} package, get a second one free.{' '}
+            {blackFridayDeadlineText()}
+          </p>
         )}
       </header>
 
@@ -85,8 +96,15 @@ export default function QuizResult({ answers, onRestart }: QuizResultProps) {
           <Button href="/services/publishing-packages" variant="primary" size="lg" fullWidth>
             View Package Details
           </Button>
-          <Button href="/contact" variant="outline" size="lg" fullWidth>
-            Get Free Consultation
+          <Button
+            href={hasOffer
+              ? `/contact?package=${encodeURIComponent(recommendation.package)}&promo=${BLACK_FRIDAY.code}`
+              : '/contact'}
+            variant="outline"
+            size="lg"
+            fullWidth
+          >
+            {hasOffer ? 'Claim the Black Friday Offer' : 'Get Free Consultation'}
           </Button>
         </div>
       </div>

@@ -2,11 +2,13 @@ import React from 'react'
 import { Service } from '@/data/services'
 import Container from '@/components/layout/Container'
 import PricingTable from '@/components/pricing/PricingTable'
+import BlackFridayNotice from '@/components/pricing/BlackFridayNotice'
 import CustomServiceContent from '@/components/services/CustomServiceContent'
 import InlineLeadForm from '@/components/forms/InlineLeadForm'
 import DecisionFriction from '@/components/ui/DecisionFriction'
 import ServiceProof from '@/components/services/ServiceProof'
 import Badge from '@/components/ui/Badge'
+import { BLACK_FRIDAY } from '@/data/promos'
 import styles from './ServiceDetail.module.css'
 
 interface ServiceDetailProps {
@@ -22,6 +24,8 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
     t.includes('edit')      ? 'Find the right editing package in 30 seconds'      :
     t.includes('billboard') ? 'Choose your Times Square campaign in 30 seconds'   :
     undefined
+
+  const showBlackFriday = service.slug === BLACK_FRIDAY.serviceSlug
 
   return (
     <article className={styles.serviceDetail}>
@@ -67,14 +71,15 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
       </section>
 
       {service.packages && service.packages.length > 1 ? (
-        <section className={styles.pricingSection}>
+        <section id="pricing" className={styles.pricingSection}>
           <Container>
             <DecisionFriction customHeadline={decisionHeadline} />
+            {showBlackFriday && <BlackFridayNotice />}
             <h2 className={styles.sectionHeading}>Pricing & Packages</h2>
-            <PricingTable packages={service.packages} />
+            <PricingTable packages={service.packages} showBlackFriday={showBlackFriday} />
 
             <div className={styles.leadFormWrapper}>
-              <InlineLeadForm submitLabel="Get My Package Quote" />
+              <InlineLeadForm submitLabel="Get My Package Quote" showBlackFriday={showBlackFriday} />
             </div>
           </Container>
         </section>

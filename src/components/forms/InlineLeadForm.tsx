@@ -1,8 +1,10 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Turnstile } from '@marsidev/react-turnstile'
 import Button from '@/components/ui/Button'
+import { BLACK_FRIDAY } from '@/data/promos'
+import { useBlackFridayActive } from '@/lib/useBlackFridayActive'
 import styles from './InlineLeadForm.module.css'
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
@@ -10,9 +12,11 @@ const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
 interface InlineLeadFormProps {
   submitLabel?: string
   helperText?: string
+  /** Offer the Black Friday BOGO checkbox while it runs (Publishing Packages page) */
+  showBlackFriday?: boolean
 }
 
-export default function InlineLeadForm({ submitLabel, helperText }: InlineLeadFormProps) {
+export default function InlineLeadForm({ submitLabel, helperText, showBlackFriday = false }: InlineLeadFormProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [turnstileToken, setTurnstileToken] = useState('')
   const honeypotRef = useRef<HTMLInputElement>(null)
@@ -24,6 +28,14 @@ export default function InlineLeadForm({ submitLabel, helperText }: InlineLeadFo
     message: '',
     websiteGoals: '',
   })
+  const blackFridayActive = useBlackFridayActive()
+  const offerAvailable = showBlackFriday && blackFridayActive
+  const [applyOffer, setApplyOffer] = useState(true)
+
+  // The offer is for publishing packages: preselect that service
+  useEffect(() => {
+    if (offerAvailable) setFormData(prev => (prev.service ? prev : { ...prev, service: 'Publishing Packages' }))
+  }, [offerAvailable])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -32,7 +44,12 @@ export default function InlineLeadForm({ submitLabel, helperText }: InlineLeadFo
       const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, website: honeypotRef.current?.value ?? '', turnstileToken }),
+        body: JSON.stringify({
+          ...formData,
+          promo: offerAvailable && applyOffer ? BLACK_FRIDAY.code : '',
+          website: honeypotRef.current?.value ?? '',
+          turnstileToken,
+        }),
       })
       setStatus(res.ok ? 'success' : 'error')
     } catch {
@@ -132,6 +149,21 @@ export default function InlineLeadForm({ submitLabel, helperText }: InlineLeadFo
           <label htmlFor="lead-message" className={styles.label}>Short Message / Tell us about your book</label>
           <textarea id="lead-message" name="message" className={styles.textarea} rows={4} placeholder="Tell us a little about your book and what you're looking for..." onChange={handleChange} value={formData.message} />
         </div>
+
+        {offerAvailable && (
+          <label className={styles.offer}>
+            <input
+              type="checkbox"
+              className={styles.offerCheckbox}
+              checked={applyOffer}
+              onChange={(e) => setApplyOffer(e.target.checked)}
+            />
+            <span>
+              <strong>Apply the Black Friday offer:</strong> Buy 1, Get 1 Free on the Execution,
+              Expansion, Authority, or Integrative package. Ends {BLACK_FRIDAY.endLabel}.
+            </span>
+          </label>
+        )}
 
         {TURNSTILE_SITE_KEY && (
           <Turnstile

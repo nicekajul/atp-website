@@ -121,6 +121,7 @@ function divider(): string {
 // ── Contact form ──────────────────────────────────────────────────────────────
 export function contactNotification(data: {
   name: string; email: string; phone?: string; interest?: string; message: string
+  package?: string; offer?: string
 }): { subject: string; html: string } {
   const body = /* html */`
 ${heading('New Contact Inquiry')}
@@ -129,7 +130,9 @@ ${heading('New Contact Inquiry')}
       fieldRow('Full Name', data.name) +
       fieldRow('Email', data.email) +
       fieldRow('Phone', data.phone ?? '') +
-      fieldRow('Interested In', data.interest ?? '')
+      fieldRow('Interested In', data.interest ?? '') +
+      fieldRow('Package', data.package ?? '') +
+      fieldRow('Offer', data.offer ?? '')
     )}
     ${section('Message', fieldRow('', data.message))}
     ${divider()}
@@ -139,7 +142,7 @@ ${heading('New Contact Inquiry')}
     ${cta('Open Inbox', `mailto:${data.email}`)}
   `
   return {
-    subject: `New Contact Inquiry: ${data.name}${data.interest ? ` (${data.interest})` : ''}`,
+    subject: `${data.offer ? `[${data.offer}] ` : ''}New Contact Inquiry: ${data.name}${data.interest ? ` (${data.interest})` : ''}`,
     html: shell(`New message from ${data.name} | ${data.interest || 'General Inquiry'}`, body),
   }
 }
@@ -170,6 +173,7 @@ export function contactAutoReply(data: { name: string; email: string }): { subje
 // ── Inline lead form ──────────────────────────────────────────────────────────
 export function leadNotification(data: {
   name: string; email: string; title?: string; service?: string; websiteGoals?: string; message?: string
+  offer?: string
 }): { subject: string; html: string } {
   const body = /* html */`
 ${heading('New Lead Inquiry')}
@@ -179,13 +183,14 @@ ${heading('New Lead Inquiry')}
       fieldRow('Email', data.email) +
       fieldRow('Book / Project Title', data.title ?? '') +
       fieldRow('Service of Interest', data.service ?? '') +
-      fieldRow('Website Goals', data.websiteGoals ?? '')
+      fieldRow('Website Goals', data.websiteGoals ?? '') +
+      fieldRow('Offer', data.offer ?? '')
     )}
     ${data.message ? section('Message', fieldRow('', data.message)) : ''}
     ${cta('Reply to Lead', `mailto:${data.email}`)}
   `
   return {
-    subject: `New Lead: ${data.name}${data.service ? ` · ${data.service}` : ''}`,
+    subject: `${data.offer ? `[${data.offer}] ` : ''}New Lead: ${data.name}${data.service ? ` · ${data.service}` : ''}`,
     html: shell(`New lead from ${data.name}`, body),
   }
 }

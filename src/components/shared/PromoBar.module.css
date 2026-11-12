@@ -25,9 +25,24 @@
   color: #c9a84c;
 }
 
-/* Long message on desktop, short one on smaller screens */
-.short {
+/* Long message on desktop, shorter ones on tablet and phone */
+.short,
+.tablet,
+.mobile {
   display: none;
+}
+
+/* "Black Friday" label */
+.tag {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0f1b2d;
+  background: #c9a84c;
+  border-radius: 999px;
 }
 
 .message {
@@ -75,14 +90,21 @@
     display: none;
   }
 
-  .short {
+  .short,
+  .tablet {
     display: inline;
   }
 }
 
 @media (max-width: 480px) {
-  .emoji {
+  .emoji,
+  .tag,
+  .tablet {
     display: none;
+  }
+
+  .mobile {
+    display: inline;
   }
 
   .message {

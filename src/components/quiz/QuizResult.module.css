@@ -138,3 +138,19 @@
   .benefitGrid { grid-template-columns: 1fr; }
   .recommendedTitle { font-size: var(--text-3xl); }
 }
+
+/* Black Friday note under the recommended package (see src/data/promos.ts) */
+.offer {
+  display: inline-block;
+  margin: var(--space-4) auto 0;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--atp-white);
+  background: #05080d;
+  border: 1px solid var(--atp-gold);
+  border-radius: var(--radius-full);
+}
+
+.offer strong {
+  color: var(--atp-gold);
+}
