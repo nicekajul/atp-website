@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from '@/components/layout/Container'
 import Button from '@/components/ui/Button'
+import BlackFridayTerms from '@/components/shared/BlackFridayTerms'
 import { getServiceBySlug } from '@/data/services'
 import {
   BLACK_FRIDAY,
@@ -79,6 +80,7 @@ export default function BlackFridayBanner() {
           Offer ends Black Friday, {BLACK_FRIDAY.endLabel} at 11:59 PM EST.
         </p>
         <p className={styles.terms}>{BLACK_FRIDAY.terms}</p>
+        <BlackFridayTerms className={styles.termsDetails} />
       </Container>
     </section>
   )

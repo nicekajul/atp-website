@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Button from '@/components/ui/Button'
+import BlackFridayTerms from '@/components/shared/BlackFridayTerms'
 import { BLACK_FRIDAY, BLACK_FRIDAY_CONTACT_HREF, blackFridayDeadlineText } from '@/data/promos'
 import { useBlackFridayActive } from '@/lib/useBlackFridayActive'
 import styles from './BlackFridayNotice.module.css'
@@ -25,6 +26,7 @@ export default function BlackFridayNotice() {
           <strong>Buy 1, Get 1 Free</strong> tag below.
         </p>
         <p className={styles.terms}>{BLACK_FRIDAY.terms}</p>
+        <BlackFridayTerms />
       </div>
       <Button href={BLACK_FRIDAY_CONTACT_HREF} variant="primary" size="md">
         Claim the Offer &rarr;

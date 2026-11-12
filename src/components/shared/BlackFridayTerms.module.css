@@ -1,0 +1,37 @@
+.terms {
+  margin-top: var(--space-3);
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.summary {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--atp-gold-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.summary::marker,
+.summary::-webkit-details-marker {
+  display: none;
+  content: '';
+}
+
+.list {
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+  padding: var(--space-4) var(--space-5);
+  list-style: none;
+  text-align: left;
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: var(--radius-lg);
+}
+
+.title {
+  color: var(--atp-white);
+}

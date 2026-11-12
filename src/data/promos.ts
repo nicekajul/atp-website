@@ -16,7 +16,17 @@ export const BLACK_FRIDAY = {
   serviceSlug: 'publishing-packages',
   /** Buying one of these gets a second package of the same tier free */
   eligiblePackages: ['Execution', 'Expansion', 'Authority', 'Integrative'],
-  terms: 'Offer valid November 12 to 27, 2026 (ends 11:59 PM EST). Applies to the Execution, Expansion, Authority, and Integrative Publishing Packages. The free package is the same tier as the package purchased. Terms apply; contact us for details.',
+  /** One-line summary shown under the offer; the full list is in termsDetails */
+  terms: 'Offer valid November 12 to 27, 2026 (ends 11:59 PM EST) on the Execution, Expansion, Authority, and Integrative Publishing Packages. The free package is the same tier as the package purchased. Available with full payment or two installments.',
+  termsDetails: [
+    { title: 'Eligible packages', text: 'Buy an Execution, Expansion, Authority, or Integrative Publishing Package and receive a second package of the exact same tier, free.' },
+    { title: 'Transferable', text: 'The free package may be transferred to another author, including a spouse, family member, or friend, with written consent from the original package purchaser.' },
+    { title: 'No deadline for your second book', text: 'There is no deadline to submit the manuscript for the free package. Start whenever your second book is ready.' },
+    { title: 'Full payment', text: '100% of the package price must be paid on or before November 27, 2026. Both packages are activated once full payment is received.' },
+    { title: 'Two installments', text: 'A 50% down payment is required, with the remaining 50% payable within 30 days. The free package is activated once the full payment has been completed.' },
+    { title: 'Combine with other discounts', text: 'The offer may be combined with other applicable discounts, provided the required full payment for the purchased package is met.' },
+    { title: 'Existing authors', text: 'Authors who purchased a package before November 12 also qualify by completing a new qualifying package upgrade during the promotional period.' },
+  ],
 } as const
 
 /** Promo codes the contact form accepts, mapped to the label shown on the lead */
