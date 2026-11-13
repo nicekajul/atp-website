@@ -233,6 +233,12 @@ export const navItems: NavItem[] = [
                   description: 'Feature your book on a NYC digital billboard',
                   icon: '\u{1F3D9}️',
                 },
+                {
+                  label: 'Bookstore Placement',
+                  href: '/services/bookstore-placement',
+                  description: 'Bookstore displays & Grand Book Launch signings',
+                  icon: '\u{1F3EC}',
+                },
               ],
             },
           ],
@@ -271,6 +277,7 @@ export const navItems: NavItem[] = [
       { label: 'Literary Titan Book Award',  href: '/services/literary-titan-book-award', description: 'Award submission, review & author exposure' },
       { label: 'International Book Fairs',   href: '/services/international-book-fairs', description: 'Global exposure at world-renowned book fairs' },
       { label: 'Times Square Billboard',     href: '/services/times-square-billboard',   description: 'Feature your book on a NYC digital billboard' },
+      { label: 'Bookstore Placement',        href: '/services/bookstore-placement',      description: 'Bookstore displays & Grand Book Launch signings' },
       { label: 'Book-to-Screen Services',    href: '/services/book-to-screen',           description: 'Film & TV adaptation development for authors' },
       { label: 'DEP Tracking Packages',      href: '/services/dep-tracking-packages',    description: 'Literary-agent outreach tracking & management' },
       { label: 'Query Letter Services',      href: '/services/query-letter-services',    description: 'Query letter writing & agent submission' },
@@ -283,10 +290,18 @@ export const navItems: NavItem[] = [
 ]
 
 /**
- * Recently added services. Drives the "New" badges in the menu and the
- * New Services section on the homepage. Remove a slug once it is no longer new.
+ * Newest services. Drive the "New" pill in the menu and lead the
+ * New Services section on the homepage.
  */
 export const newServiceSlugs = [
+  'bookstore-placement',
+]
+
+/**
+ * Services added in the previous release, shown with a "Recent" pill.
+ * Remove a slug once it no longer needs highlighting.
+ */
+export const recentServiceSlugs = [
   'book-review-squad-videos',
   'dep-tracking-packages',
   'query-letter-services',
@@ -294,8 +309,15 @@ export const newServiceSlugs = [
   'literary-titan-book-award',
 ]
 
-export const isNewServiceHref = (href: string) =>
-  newServiceSlugs.some((slug) => href === `/services/${slug}`)
+const slugFromHref = (href: string) => href.replace(/^\/services\//, '')
+
+export const isNewServiceHref = (href: string) => newServiceSlugs.includes(slugFromHref(href))
+
+export const isRecentServiceHref = (href: string) => recentServiceSlugs.includes(slugFromHref(href))
+
+/** Whether a menu entry links to a new or recently added service */
+export const isHighlightedServiceHref = (href: string) =>
+  isNewServiceHref(href) || isRecentServiceHref(href)
 
 export const navCTA = {
   label: 'Start Publishing',

@@ -336,6 +336,7 @@ export default function DocsPage() {
                   ['literary-titan-book-award', 'Literary Titan Book Award', 'Credibility & Recognition'],
                   ['international-book-fairs', 'International Book Fairs', 'Premium Exposure'],
                   ['times-square-billboard', 'Times Square Billboard', 'Premium Exposure'],
+                  ['bookstore-placement', 'Bookstore Placement', 'Premium Exposure'],
                 ].map(([slug, title, group]) => (
                   <tr key={slug}>
                     <td><code className={styles.code}>/services/{slug}</code></td>

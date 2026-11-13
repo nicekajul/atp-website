@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { navItems, navCTA, isNewServiceHref } from '@/data/nav'
+import { navItems, navCTA, isNewServiceHref, isRecentServiceHref, isHighlightedServiceHref } from '@/data/nav'
 import Button from '@/components/ui/Button'
 import { BLACK_FRIDAY_HREF } from '@/data/promos'
 import { useBlackFridayActive } from '@/lib/useBlackFridayActive'
@@ -22,6 +22,12 @@ export default function Header() {
     blackFridayActive && href === BLACK_FRIDAY_HREF && (
       <span className={`${styles.newBadge} ${styles.offerBadge}`}>Black Friday</span>
     )
+  const serviceBadge = (href: string) =>
+    isNewServiceHref(href) ? (
+      <span className={styles.newBadge}>New</span>
+    ) : isRecentServiceHref(href) ? (
+      <span className={`${styles.newBadge} ${styles.recentBadge}`}>Recent</span>
+    ) : null
   const headerRef = useRef<HTMLElement>(null)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -98,7 +104,7 @@ export default function Header() {
                     aria-current={isActive(item.href) ? 'page' : undefined}
                   >
                     {item.label}
-                    {item.children?.some((child) => isNewServiceHref(child.href)) && (
+                    {item.children?.some((child) => isHighlightedServiceHref(child.href)) && (
                       <span className={styles.newDot} aria-hidden="true" />
                     )}
                     {(item.megaMenu || item.children) && (
@@ -170,7 +176,7 @@ export default function Header() {
                                           <span className={styles.megaLinkContent}>
                                             <span className={styles.megaLinkLabel}>
                                               {link.label}
-                                              {isNewServiceHref(link.href) && <span className={styles.newBadge}>New</span>}
+                                              {serviceBadge(link.href)}
                                               {offerBadge(link.href)}
                                             </span>
                                             <span className={styles.megaLinkDesc}>{link.description}</span>
@@ -194,7 +200,7 @@ export default function Header() {
                                     <span className={styles.megaLinkContent}>
                                       <span className={styles.megaLinkLabel}>
                                         {link.label}
-                                        {isNewServiceHref(link.href) && <span className={styles.newBadge}>New</span>}
+                                        {serviceBadge(link.href)}
                                         {offerBadge(link.href)}
                                       </span>
                                       <span className={styles.megaLinkDesc}>{link.description}</span>
@@ -309,7 +315,7 @@ export default function Header() {
                     >
                       <span className={styles.mobileNavGroupLabel}>
                         {item.label}
-                        {item.children.some((child) => isNewServiceHref(child.href)) && (
+                        {item.children.some((child) => isHighlightedServiceHref(child.href)) && (
                           <span className={styles.newDot} aria-hidden="true" />
                         )}
                       </span>
@@ -329,7 +335,7 @@ export default function Header() {
                           <li key={child.href}>
                             <Link href={child.href} className={styles.mobileSubLink}>
                               {child.label}
-                              {isNewServiceHref(child.href) && <span className={styles.newBadge}>New</span>}
+                              {serviceBadge(child.href)}
                               {offerBadge(child.href)}
                             </Link>
                           </li>

@@ -708,6 +708,12 @@
   border-radius: var(--radius-full);
 }
 
+.recentBadge {
+  color: var(--atp-navy);
+  background: rgba(201, 168, 76, 0.12);
+  box-shadow: inset 0 0 0 1px var(--atp-gold);
+}
+
 .newDot {
   display: inline-block;
   width: 6px;

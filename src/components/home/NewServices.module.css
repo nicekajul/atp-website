@@ -19,8 +19,8 @@
 }
 
 .item {
-  flex: 0 1 calc((100% - 4 * var(--space-6)) / 5);
-  min-width: 200px;
+  flex: 0 1 calc((100% - 2 * var(--space-6)) / 3);
+  min-width: 240px;
   display: flex;
 }
 
@@ -79,6 +79,12 @@
   color: var(--atp-navy);
   background: var(--atp-gold);
   border-radius: var(--radius-full);
+}
+
+.recentBadge {
+  color: var(--atp-gold-light);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px rgba(201, 168, 76, 0.6);
 }
 
 .title {

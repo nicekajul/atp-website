@@ -51,7 +51,7 @@ const categories = [
     heading: 'Premium Exposure',
     icon: '🌍',
     description: 'High-visibility opportunities that put your book on the world stage.',
-    slugs: ['international-book-fairs', 'times-square-billboard'],
+    slugs: ['international-book-fairs', 'times-square-billboard', 'bookstore-placement'],
   },
 ]
 

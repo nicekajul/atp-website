@@ -4,7 +4,7 @@ import Container from '@/components/layout/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
 import RevealItem from '@/components/ui/RevealItem'
 import { getServiceBySlug, Service } from '@/data/services'
-import { newServiceSlugs } from '@/data/nav'
+import { newServiceSlugs, recentServiceSlugs } from '@/data/nav'
 import styles from './NewServices.module.css'
 
 function getPriceLabel(service: Service): string {
@@ -14,7 +14,7 @@ function getPriceLabel(service: Service): string {
 }
 
 export default function NewServices() {
-  const newServices = newServiceSlugs
+  const newServices = [...newServiceSlugs, ...recentServiceSlugs]
     .map((slug) => getServiceBySlug(slug))
     .filter((service): service is Service => Boolean(service))
 
@@ -26,7 +26,7 @@ export default function NewServices() {
         <SectionHeader
           eyebrow="Just Added"
           heading="New Services for Authors"
-          subheading="Fresh ways to reach literary agents, earn recognition, and put your book in front of readers, retailers, and libraries."
+          subheading="Fresh ways to put your book on bookstore shelves, reach literary agents, earn recognition, and get in front of readers, retailers, and libraries."
           theme="dark"
         />
 
@@ -37,7 +37,11 @@ export default function NewServices() {
                 <Link href={`/services/${service.slug}`} className={styles.card}>
                   <div className={styles.cardTop}>
                     <span className={styles.icon} aria-hidden="true">{service.icon}</span>
-                    <span className={styles.newBadge}>New</span>
+                    {newServiceSlugs.includes(service.slug) ? (
+                      <span className={styles.newBadge}>New</span>
+                    ) : (
+                      <span className={`${styles.newBadge} ${styles.recentBadge}`}>Recent</span>
+                    )}
                   </div>
                   <h3 className={styles.title}>{service.title}</h3>
                   <p className={styles.desc}>{service.description}</p>
