@@ -7,6 +7,7 @@ import CustomServiceContent from '@/components/services/CustomServiceContent'
 import InlineLeadForm from '@/components/forms/InlineLeadForm'
 import DecisionFriction from '@/components/ui/DecisionFriction'
 import ServiceProof from '@/components/services/ServiceProof'
+import PaymentNote from '@/components/services/PaymentNote'
 import Badge from '@/components/ui/Badge'
 import { BLACK_FRIDAY } from '@/data/promos'
 import styles from './ServiceDetail.module.css'
@@ -77,6 +78,7 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
             {showBlackFriday && <BlackFridayNotice />}
             <h2 className={styles.sectionHeading}>Pricing & Packages</h2>
             <PricingTable packages={service.packages} showBlackFriday={showBlackFriday} />
+            <PaymentNote inline />
 
             <div className={styles.leadFormWrapper}>
               <InlineLeadForm submitLabel="Get My Package Quote" showBlackFriday={showBlackFriday} />
@@ -87,6 +89,7 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
         <section className={styles.customSection}>
           <Container>
             <CustomServiceContent service={service} />
+            <PaymentNote inline />
           </Container>
         </section>
       )}

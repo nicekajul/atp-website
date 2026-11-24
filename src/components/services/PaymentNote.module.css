@@ -1,0 +1,36 @@
+/* ── Credit card surcharge note ─────────────────────────── */
+.section {
+  padding: var(--space-10) 0;
+  background: var(--atp-cream);
+  border-top: 1px solid var(--atp-border);
+}
+
+.inline {
+  margin-top: var(--space-8);
+}
+
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  max-width: 760px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-5);
+  background: var(--atp-white);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-left: 4px solid var(--atp-gold);
+  border-radius: var(--radius-lg);
+}
+
+.icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--atp-gold-dark);
+}
+
+.text {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--atp-slate);
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import Container from '@/components/layout/Container'
+import PaymentNote from '@/components/services/PaymentNote'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
 import ServiceProof from '@/components/services/ServiceProof'
@@ -123,6 +124,9 @@ export default function BookstorePlacementContent({ service }: Props) {
           </div>
         </Container>
       </section>
+
+      {/* ── Payment Note ─────────────────────────────────── */}
+      <PaymentNote />
 
       {/* ── Social Proof ─────────────────────────────────── */}
       <ServiceProof serviceType={service.title} />

@@ -3,6 +3,7 @@ import Container from '@/components/layout/Container'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
 import ServiceProof from '@/components/services/ServiceProof'
+import PaymentNote from '@/components/services/PaymentNote'
 import DecisionFriction from '@/components/ui/DecisionFriction'
 import { Service } from '@/data/services'
 import styles from './AuthorWebsiteContent.module.css'
@@ -149,6 +150,9 @@ export default function AuthorWebsiteContent({ service }: Props) {
           </div>
         </Container>
       </section>
+
+      {/* ── Payment Note ─────────────────────────────────── */}
+      <PaymentNote />
 
       {/* ── Social Proof ─────────────────────────────────── */}
       <ServiceProof serviceType={service.title} />
